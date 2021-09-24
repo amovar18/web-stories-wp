@@ -13,11 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export * from './authors';
-export * from './story';
-export * from './media';
-export * from './metadata';
-export * from './pageTemplate';
-export * from './user';
-export * from './hotlinkInfo';
-export * from './taxonomy';
+
+/**
+ * External dependencies
+ */
+import sprintf from '@tannin/sprintf';
+
+export default sprintf;

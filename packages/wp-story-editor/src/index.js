@@ -26,6 +26,7 @@ import './style.css'; // This way the general editor styles are loaded before al
 /**
  * External dependencies
  */
+import { setLocaleData } from '@web-stories-wp/i18n';
 import StoryEditor from '@web-stories-wp/story-editor';
 import { setAppElement } from '@web-stories-wp/design-system';
 import { StrictMode, render } from '@web-stories-wp/react';
@@ -37,7 +38,7 @@ import { initializeTracking } from '@web-stories-wp/tracking';
  * Internal dependencies
  */
 import * as apiCallbacks from './api';
-import { PostPublishDialog, StatusCheck, PostLock } from './components';
+import { PostPublishDialog, Layout, StatusCheck, PostLock } from './components';
 
 /**
  * Initializes the web stories editor.
@@ -54,6 +55,10 @@ const initialize = (id, config, flags) => {
 
   updateSettings(config.locale);
 
+  if (config.localeData) {
+    setLocaleData(config.localeData);
+  }
+
   initializeTracking('Editor');
 
   const editorConfig = {
@@ -65,6 +70,7 @@ const initialize = (id, config, flags) => {
     <FlagsProvider features={flags}>
       <StrictMode>
         <StoryEditor config={editorConfig}>
+          <Layout />
           <PostPublishDialog />
           <StatusCheck />
           <PostLock />
