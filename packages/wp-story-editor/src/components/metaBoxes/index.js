@@ -14,10 +14,5 @@
  * limitations under the License.
  */
 
-export default function reshapePublisherLogo({ id, source_url, title }) {
-  return {
-    id,
-    src: source_url,
-    title: title?.rendered || '',
-  };
-}
+export { default as MetaBoxes } from './metaBoxes';
+export { default as MetaBoxesProvider } from './metaBoxesProvider';
