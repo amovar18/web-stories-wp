@@ -21,30 +21,50 @@ import {
   useCallback,
   useDebouncedCallback,
   useMemo,
+  useState,
+  useEffect,
 } from '@web-stories-wp/react';
-
+import { __ } from '@web-stories-wp/i18n';
+import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
 import Tags, { deepEquals } from '../../../form/tags';
 import cleanForSlug from '../../../../utils/cleanForSlug';
 import { useTaxonomy } from '../../../../app/taxonomy';
-import { ContentHeading, TaxonomyPropType } from './shared';
+import { useHistory } from '../../../../app';
+import { ContentHeading, TaxonomyPropType, WordCloud } from './shared';
 
-function FlatTermSelector({ taxonomy }) {
-  const { createTerm, termCache, addSearchResultsToCache, terms, setTerms } =
-    useTaxonomy(
-      ({
-        state: { termCache, terms },
-        actions: { createTerm, addSearchResultsToCache, setTerms },
-      }) => ({
-        termCache,
+function FlatTermSelector({ taxonomy, canCreateTerms }) {
+  const [mostUsed, setMostUsed] = useState([]);
+  const {
+    createTerm,
+    termCache,
+    addSearchResultsToCache,
+    terms = [],
+    setTerms,
+    addTermToSelection,
+  } = useTaxonomy(
+    ({
+      state: { termCache, terms },
+      actions: {
         createTerm,
         addSearchResultsToCache,
-        terms,
         setTerms,
-      })
-    );
+        addTermToSelection,
+      },
+    }) => ({
+      termCache,
+      createTerm,
+      addSearchResultsToCache,
+      terms,
+      setTerms,
+      addTermToSelection,
+    })
+  );
+
+  const { undo } = useHistory(({ actions: { undo } }) => ({ undo }));
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleFreeformTermsChange = useCallback(
     (termNames) => {
@@ -64,6 +84,11 @@ function FlatTermSelector({ taxonomy }) {
         setTerms(taxonomy, termsInCache);
       }
 
+      // Return early if user doesn't have capability to create new terms
+      if (!canCreateTerms) {
+        return;
+      }
+
       const termNamesNotInCache = termNameSlugTuples
         .filter(([slug]) => !termCache[taxonomy.restBase]?.[slug])
         .map(([, name]) => name);
@@ -73,15 +98,25 @@ function FlatTermSelector({ taxonomy }) {
         createTerm(taxonomy, name, null, true)
       );
     },
-    [taxonomy, createTerm, termCache, setTerms, terms]
+    [canCreateTerms, terms, taxonomy, termCache, setTerms, createTerm]
   );
 
-  const handleFreeformInputChange = useDebouncedCallback((value) => {
+  const handleFreeformInputChange = useDebouncedCallback(async (value) => {
+    if (value.length === 0) {
+      setSearchResults([]);
+      return;
+    }
+
     if (value.length < 3) {
       return;
     }
-    addSearchResultsToCache(taxonomy, { name: value });
-  }, 1000);
+    const results = await addSearchResultsToCache(taxonomy, {
+      search: value,
+      // This is the per_page value Gutenberg is using
+      per_page: 20,
+    });
+    setSearchResults(results);
+  }, 300);
 
   const tokens = useMemo(() => {
     return (terms[taxonomy.restBase] || [])
@@ -100,6 +135,17 @@ function FlatTermSelector({ taxonomy }) {
     [taxonomy, termCache]
   );
 
+  useEffect(() => {
+    (async function () {
+      const results = await addSearchResultsToCache(taxonomy, {
+        orderby: 'count',
+        order: 'desc',
+        hide_empty: true,
+      });
+      setMostUsed(results);
+    })();
+  }, [taxonomy, addSearchResultsToCache]);
+
   return (
     <>
       <ContentHeading>{taxonomy.labels.name}</ContentHeading>
@@ -115,10 +161,42 @@ function FlatTermSelector({ taxonomy }) {
           onInputChange={handleFreeformInputChange}
           tagDisplayTransformer={termDisplayTransformer}
           tokens={tokens}
+          onUndo={undo}
+          suggestedTerms={searchResults}
+          suggestedTermsLabel={taxonomy?.labels?.items_list}
         />
         <Tags.Description id={`${taxonomy.slug}-description`}>
           {taxonomy.labels.separate_items_with_commas}
         </Tags.Description>
+        {mostUsed.length > 0 && (
+          <WordCloud.Wrapper data-testid={`${taxonomy.slug}-most-used`}>
+            <WordCloud.Heading>{taxonomy.labels.most_used}</WordCloud.Heading>
+            <WordCloud.List>
+              {mostUsed.map((term, i) => (
+                <WordCloud.ListItem key={term.id}>
+                  <WordCloud.Word
+                    onClick={() => {
+                      if (terms[taxonomy.restBase]?.includes(term.id)) {
+                        return;
+                      }
+                      addTermToSelection(taxonomy, term);
+                    }}
+                  >
+                    {term.name}
+
+                    {i < mostUsed.length - 1 &&
+                      /* translators: delimiter used in a list */
+                      __(',', 'web-stories')}
+                  </WordCloud.Word>
+                  {
+                    /* Browser only respects the white space in the li, not the button */
+                    i < mostUsed.length - 1 && ' '
+                  }
+                </WordCloud.ListItem>
+              ))}
+            </WordCloud.List>
+          </WordCloud.Wrapper>
+        )}
       </div>
     </>
   );
@@ -126,6 +204,7 @@ function FlatTermSelector({ taxonomy }) {
 
 FlatTermSelector.propTypes = {
   taxonomy: TaxonomyPropType,
+  canCreateTerms: PropTypes.bool,
 };
 
 export default FlatTermSelector;

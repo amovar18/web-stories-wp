@@ -26,6 +26,7 @@
 
 namespace Google\Web_Stories\REST_API;
 
+use Google\Web_Stories\Infrastructure\HasRequirements;
 use Google\Web_Stories\Settings;
 use Google\Web_Stories\Story_Post_Type;
 use Google\Web_Stories\Traits\Post_Type;
@@ -40,15 +41,48 @@ use WP_REST_Server;
  *
  * @since 1.12.0
  */
-class Publisher_Logos_Controller extends REST_Controller {
+class Publisher_Logos_Controller extends REST_Controller implements HasRequirements {
 	use Post_Type;
 
 	/**
-	 * Constructor.
+	 * Settings instance.
+	 *
+	 * @var Settings Settings instance.
 	 */
-	public function __construct() {
+	private $settings;
+
+	/**
+	 * Story_Post_Type instance.
+	 *
+	 * @var Story_Post_Type Story_Post_Type instance.
+	 */
+	private $story_post_type;
+
+	/**
+	 * Constructor.
+	 *
+	 * @param Settings        $settings Settings instance.
+	 * @param Story_Post_Type $story_post_type Story_Post_Type instance.
+	 */
+	public function __construct( Settings $settings, Story_Post_Type $story_post_type ) {
+		$this->settings        = $settings;
+		$this->story_post_type = $story_post_type;
+
 		$this->namespace = 'web-stories/v1';
 		$this->rest_base = 'publisher-logos';
+	}
+
+	/**
+	 * Get the list of service IDs required for this service to be registered.
+	 *
+	 * Needed because the story post type needs to be registered first.
+	 *
+	 * @since 1.13.0
+	 *
+	 * @return string[] List of required services.
+	 */
+	public static function get_requirements(): array {
+		return [ 'settings', 'story_post_type' ];
 	}
 
 	/**
@@ -113,7 +147,7 @@ class Publisher_Logos_Controller extends REST_Controller {
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
 	 */
 	public function permissions_check() {
-		if ( ! $this->get_post_type_cap( Story_Post_Type::POST_TYPE_SLUG, 'edit_posts' ) ) {
+		if ( ! $this->get_post_type_cap( $this->story_post_type::POST_TYPE_SLUG, 'edit_posts' ) ) {
 			return new WP_Error(
 				'rest_forbidden',
 				__( 'Sorry, you are not allowed to manage publisher logos.', 'web-stories' ),
@@ -153,7 +187,7 @@ class Publisher_Logos_Controller extends REST_Controller {
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function get_items( $request ) {
-		$publisher_logos = $this->filter_publisher_logos( (array) get_option( Settings::SETTING_NAME_PUBLISHER_LOGOS, [] ) );
+		$publisher_logos = $this->filter_publisher_logos( (array) $this->settings->get_setting( $this->settings::SETTING_NAME_PUBLISHER_LOGOS, [] ) );
 		$results         = [];
 
 		foreach ( $publisher_logos as $logo ) {
@@ -184,7 +218,7 @@ class Publisher_Logos_Controller extends REST_Controller {
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function create_item( $request ) {
-		$publisher_logos = $this->filter_publisher_logos( (array) get_option( Settings::SETTING_NAME_PUBLISHER_LOGOS, [] ) );
+		$publisher_logos = $this->filter_publisher_logos( (array) $this->settings->get_setting( $this->settings::SETTING_NAME_PUBLISHER_LOGOS, [] ) );
 
 		$post = get_post( $request['id'] );
 
@@ -206,12 +240,12 @@ class Publisher_Logos_Controller extends REST_Controller {
 
 		$publisher_logos[] = $post->ID;
 
-		update_option( Settings::SETTING_NAME_PUBLISHER_LOGOS, $publisher_logos );
+		$this->settings->update_setting( $this->settings::SETTING_NAME_PUBLISHER_LOGOS, $publisher_logos );
 
-		$active_publisher_logo_id = absint( get_option( Settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO ) );
+		$active_publisher_logo_id = absint( $this->settings->get_setting( $this->settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO ) );
 
 		if ( 1 === count( $publisher_logos ) || ! in_array( $active_publisher_logo_id, $publisher_logos, true ) ) {
-			update_option( Settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO, $post->ID );
+			$this->settings->update_setting( $this->settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO, $post->ID );
 		}
 
 		return $this->prepare_item_for_response( $post, $request );
@@ -234,17 +268,17 @@ class Publisher_Logos_Controller extends REST_Controller {
 
 		$prepared = $this->prepare_item_for_response( $post, $request );
 
-		$publisher_logos = $this->filter_publisher_logos( (array) get_option( Settings::SETTING_NAME_PUBLISHER_LOGOS, [] ) );
+		$publisher_logos = $this->filter_publisher_logos( (array) $this->settings->get_setting( $this->settings::SETTING_NAME_PUBLISHER_LOGOS, [] ) );
 		$publisher_logos = array_values( array_diff( $publisher_logos, [ $post->ID ] ) );
 
-		$active_publisher_logo_id = absint( get_option( Settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO ) );
+		$active_publisher_logo_id = absint( $this->settings->get_setting( $this->settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO ) );
 
 		if ( $post->ID === $active_publisher_logo_id || ! in_array( $active_publisher_logo_id, $publisher_logos, true ) ) {
 			// Mark the first available publisher logo as the new default.
-			update_option( Settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO, ! empty( $publisher_logos[0] ) ? $publisher_logos[0] : 0 );
+			$this->settings->update_setting( $this->settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO, ! empty( $publisher_logos[0] ) ? $publisher_logos[0] : 0 );
 		}
 
-		update_option( Settings::SETTING_NAME_PUBLISHER_LOGOS, $publisher_logos );
+		$this->settings->update_setting( $this->settings::SETTING_NAME_PUBLISHER_LOGOS, $publisher_logos );
 
 		return new WP_REST_Response(
 			[
@@ -272,7 +306,7 @@ class Publisher_Logos_Controller extends REST_Controller {
 		}
 
 		if ( $request['active'] ) {
-			update_option( Settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO, $post->ID );
+			$this->settings->update_setting( $this->settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO, $post->ID );
 		}
 
 		return $this->prepare_item_for_response( $post, $request );
@@ -287,7 +321,7 @@ class Publisher_Logos_Controller extends REST_Controller {
 	 * @return WP_Post|WP_Error Post object if ID is valid, WP_Error otherwise.
 	 */
 	protected function get_publisher_logo( $id ) {
-		$publisher_logos = $this->filter_publisher_logos( (array) get_option( Settings::SETTING_NAME_PUBLISHER_LOGOS, [] ) );
+		$publisher_logos = $this->filter_publisher_logos( (array) $this->settings->get_setting( $this->settings::SETTING_NAME_PUBLISHER_LOGOS, [] ) );
 
 		$post = get_post( $id );
 
@@ -326,7 +360,7 @@ class Publisher_Logos_Controller extends REST_Controller {
 		}
 
 		if ( rest_is_field_included( 'active', $fields ) ) {
-			$active_publisher_logo_id = absint( get_option( Settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO ) );
+			$active_publisher_logo_id = absint( $this->settings->get_setting( $this->settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO ) );
 			$data['active']           = $post->ID === $active_publisher_logo_id;
 		}
 

@@ -25,11 +25,10 @@ import {
   setCurrentUser,
   trashAllPosts,
   deleteAllMedia,
+  trashAllTerms,
 } from '@web-stories-wp/e2e-test-utils';
 
-// Extend Jest matchers.
-import 'jest-extended';
-
+// eslint-disable-next-line jest/require-hook
 expect.extend({
   toBeValidAMP,
 });
@@ -90,6 +89,11 @@ const ALLOWED_ERROR_MESSAGES = [
 
   // Another Firefox warning.
   'Layout was forced before the page was fully loaded',
+
+  // @todo Fix issues, see https://github.com/google/web-stories-wp/issues/9327
+  'Error inlining remote css file SecurityError',
+  'Error loading remote stylesheet SecurityError',
+  'Error while reading CSS rules from https://fonts.googleapis.com',
 ];
 
 export function addAllowedErrorMessage(message) {
@@ -116,6 +120,7 @@ if ('true' === process.env.CI) {
 }
 
 // Set default timeout for individual expect-puppeteer assertions. (Default: 500)
+// eslint-disable-next-line jest/require-hook
 setDefaultOptions({ timeout: EXPECT_PUPPETEER_TIMEOUT || 1000 });
 
 /**
@@ -163,6 +168,17 @@ function observeConsoleLogging() {
 
     // Short-circuit abort if any known "allowed" message fails
     if (ALLOWED_ERROR_MESSAGES.some((msg) => text.includes(msg))) {
+      return;
+    }
+
+    // Special case: ignore 403 errors on logout page.
+    // See https://github.com/google/web-stories-wp/pull/7889
+    if (
+      text.includes(
+        'Failed to load resource: the server responded with a status of 403 (Forbidden)'
+      ) &&
+      message.stackTrace()?.[0]?.url?.endsWith('wp-login.php?action=logout')
+    ) {
       return;
     }
 
@@ -242,6 +258,8 @@ beforeAll(async () => {
   await setCurrentUser('admin', 'password');
   await trashAllPosts();
   await trashAllPosts('web-story');
+  await trashAllTerms('web_story_category');
+  await trashAllTerms('web_story_tag');
   await deleteAllMedia();
 });
 

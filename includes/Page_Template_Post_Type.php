@@ -26,14 +26,16 @@
 
 namespace Google\Web_Stories;
 
+use Google\Web_Stories\Infrastructure\HasRequirements;
 use Google\Web_Stories\REST_API\Page_Template_Controller;
 use Google\Web_Stories\Traits\Post_Type;
 
 /**
  * Class Page_Template_Post_Type.
  */
-class Page_Template_Post_Type extends Service_Base {
+class Page_Template_Post_Type extends Service_Base implements HasRequirements {
 	use Post_Type;
+
 	/**
 	 * The slug of the page template post type.
 	 * Limited to web-story-page as web-story-page-template goes over character limit.
@@ -43,6 +45,24 @@ class Page_Template_Post_Type extends Service_Base {
 	const POST_TYPE_SLUG = 'web-story-page';
 
 	/**
+	 * Story_Post_Type instance.
+	 *
+	 * @var Story_Post_Type Story_Post_Type instance.
+	 */
+	private $story_post_type;
+
+	/**
+	 * Page_Template_Post_Type constructor.
+	 *
+	 * @since 1.12.0
+	 *
+	 * @param Story_Post_Type $story_post_type Story_Post_Type instance.
+	 */
+	public function __construct( Story_Post_Type $story_post_type ) {
+		$this->story_post_type = $story_post_type;
+	}
+
+	/**
 	 * Registers the post type for page templates.
 	 *
 	 * @since 1.6.0
@@ -50,8 +70,8 @@ class Page_Template_Post_Type extends Service_Base {
 	 * @return void
 	 */
 	public function register() {
-		$edit_posts   = $this->get_post_type_cap_name( Story_Post_Type::POST_TYPE_SLUG, 'edit_posts' );
-		$delete_posts = $this->get_post_type_cap_name( Story_Post_Type::POST_TYPE_SLUG, 'delete_posts' );
+		$edit_posts   = $this->get_post_type_cap_name( $this->story_post_type::POST_TYPE_SLUG, 'edit_posts' );
+		$delete_posts = $this->get_post_type_cap_name( $this->story_post_type::POST_TYPE_SLUG, 'delete_posts' );
 		$capabilities = [
 			'edit_post'              => $edit_posts,
 			'read_post'              => $edit_posts,
@@ -123,13 +143,15 @@ class Page_Template_Post_Type extends Service_Base {
 	}
 
 	/**
-	 * Get the action priority to use for registering the service.
+	 * Get the list of service IDs required for this service to be registered.
 	 *
-	 * @since 1.6.0
+	 * Needed because the story post type needs to be registered first.
 	 *
-	 * @return int Registration action priority to use.
+	 * @since 1.13.0
+	 *
+	 * @return string[] List of required services.
 	 */
-	public static function get_registration_action_priority(): int {
-		return 11;
+	public static function get_requirements(): array {
+		return [ 'story_post_type' ];
 	}
 }

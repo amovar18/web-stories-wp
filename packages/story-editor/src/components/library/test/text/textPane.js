@@ -69,7 +69,7 @@ describe('TextPane', () => {
     }));
   });
 
-  it('should insert text with preset text style on pressing a preset', async () => {
+  it('should insert text with preset text style when clicking Enter', async () => {
     const availableCuratedFonts = fontsListResponse.filter(
       (font) => curatedFontNames.indexOf(font.name) > 0
     );
@@ -101,7 +101,6 @@ describe('TextPane', () => {
         features={{
           showTextSets: false,
           showTextAndShapesSearchInput: false,
-          enableSmartTextColor: true,
         }}
       >
         <CanvasContext.Provider value={canvasContextValue}>
@@ -122,7 +121,12 @@ describe('TextPane', () => {
     );
 
     act(() => {
-      fireEvent.click(screen.getByRole('button', { name: 'Title 1' }));
+      // Note: onClick handler is in Moveable so we can't test that directly in this component
+      // and have to test using key handlers instead.
+      fireEvent.keyDown(screen.getByRole('button', { name: 'Title 1' }), {
+        key: 'Enter',
+        which: 13,
+      });
     });
 
     await waitFor(() => expect(insertPreset).toHaveBeenCalledTimes(1));

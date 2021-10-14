@@ -3,7 +3,7 @@
     "private": true,
     "engines": {
         "node": ">= 16",
-        "npm": "~7"
+        "npm": ">= 7.3"
     },
     "main": "./src/index.js",
     "type": "module",
@@ -11,6 +11,6 @@
         "@web-stories-wp/react": "*"
     },
     "devDependencies": {
-       "@testing-library/react": "^12.1.0"
+       "@testing-library/react": "^12.1.2"
     }
 }

@@ -4,7 +4,7 @@
   "type": "module",
   "engines": {
     "node": ">= 16",
-    "npm": "~7"
+    "npm": ">= 7.3"
   },
   "exports": {
     "default": "./src/index.js"
@@ -22,7 +22,7 @@
     "web-animations-js": "^2.3.2"
   },
   "devDependencies": {
-    "@testing-library/react": "^12.1.0",
+    "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2"
   }
 }

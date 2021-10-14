@@ -67,7 +67,6 @@ class Plugin extends ServiceBasedPlugin {
 	 * @var string[]
 	 */
 	const SERVICES = [
-		'activation_flag'              => Admin\Activation_Flag::class,
 		'activation_notice'            => Admin\Activation_Notice::class,
 		'admin.google_fonts'           => Admin\Google_Fonts::class,
 		'amp_output_buffer'            => Output_Buffer::class,
@@ -107,7 +106,6 @@ class Plugin extends ServiceBasedPlugin {
 		'story_post_type'              => Story_Post_Type::class,
 		'story_shortcode'              => Shortcode\Stories_Shortcode::class,
 		'svg'                          => Media\SVG::class,
-		'template_post_type'           => Template_Post_Type::class,
 		'tracking'                     => Tracking::class,
 		'tinymce'                      => Admin\TinyMCE::class,
 		'register.widget'              => Register_Widget::class,
@@ -127,8 +125,6 @@ class Plugin extends ServiceBasedPlugin {
 		'rest.settings'                => REST_API\Stories_Settings_Controller::class,
 		'rest.users'                   => REST_API\Stories_Users_Controller::class,
 		'rest.taxonomies'              => REST_API\Stories_Taxonomies_Controller::class,
-		'rest.template_autosave'       => REST_API\Template_Autosaves_Controller::class,
-		'rest.template_lock'           => REST_API\Template_Lock_Controller::class,
 		'taxonomy.category'            => Taxonomy\Category_Taxonomy::class,
 		'taxonomy.tag'                 => Taxonomy\Tag_Taxonomy::class,
 		'user_preferences'             => User\Preferences::class,
@@ -166,15 +162,18 @@ class Plugin extends ServiceBasedPlugin {
 	 */
 	protected function get_shared_instances(): array {
 		return [
-			Assets::class,
-			Experiments::class,
-			Admin\Meta_Boxes::class,
-			Locale::class,
-			Admin\Activation_Flag::class,
-			Integrations\Site_Kit::class,
-			Analytics::class,
-			Decoder::class,
+			Admin\Customizer::class,
 			Admin\Google_Fonts::class,
+			Admin\Meta_Boxes::class,
+			Analytics::class,
+			Assets::class,
+			Decoder::class,
+			Experiments::class,
+			Injector::class,
+			Integrations\Site_Kit::class,
+			Locale::class,
+			Settings::class,
+			User\Preferences::class,
 		];
 	}
 

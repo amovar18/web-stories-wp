@@ -18,54 +18,78 @@
  * External dependencies
  */
 import { __ } from '@web-stories-wp/i18n';
+import styled from 'styled-components';
+
 /**
  * Internal dependencies
  */
 import { useTaxonomy } from '../../../../app/taxonomy';
 import { SimplePanel } from '../../panel';
+import { useStory } from '../../../../app';
 import HierarchicalTermSelector from './HierarchicalTermSelector';
 import FlatTermSelector from './FlatTermSelector';
+import { SiblingBorder } from './shared';
+
+const StyledSimplePanel = styled(SimplePanel)`
+  padding-left: 0;
+  padding-right: 0;
+`;
 
 function TaxonomiesPanel(props) {
+  const { capabilities } = useStory(({ state: { capabilities } }) => ({
+    capabilities,
+  }));
   const { taxonomies } = useTaxonomy(({ state: { taxonomies } }) => ({
     taxonomies,
   }));
 
-  if (!taxonomies.length) {
+  if (!taxonomies?.length) {
     return null;
   }
 
-  // TODO: remove this eventually
-  // show categories before tags
-  const sortedTaxonomies = taxonomies.sort(
-    ({ restBase: restBaseA }, { restBase: restBaseB }) => {
-      if (restBaseA > restBaseB) {
-        return 1;
-      } else if (restBaseB > restBaseA) {
-        return -1;
-      }
-      return 0;
-    }
-  );
+  const availableTaxonomies = taxonomies.filter((taxonomy) => {
+    const isVisible = taxonomy?.visibility?.show_ui;
+    const canAssignTerms = Boolean(
+      capabilities[`assign-${taxonomy?.restBase}`] ||
+        capabilities[`assign-${taxonomy?.slug}`]
+    );
+
+    return isVisible && canAssignTerms;
+  });
+
+  if (availableTaxonomies.length === 0) {
+    return null;
+  }
 
   return (
-    <SimplePanel
+    <StyledSimplePanel
       name="taxonomies"
       title={__('Categories and Tags', 'web-stories')}
       {...props}
     >
-      {sortedTaxonomies.map((taxonomy) => {
-        if (!taxonomy?.visibility?.show_ui) {
-          return null;
-        }
+      {availableTaxonomies.map((taxonomy) => {
+        const canCreateTerms = Boolean(
+          capabilities[`create-${taxonomy?.restBase}`] ||
+            capabilities[`create-${taxonomy?.slug}`]
+        );
 
-        return taxonomy.hierarchical ? (
-          <HierarchicalTermSelector taxonomy={taxonomy} key={taxonomy.slug} />
-        ) : (
-          <FlatTermSelector taxonomy={taxonomy} key={taxonomy.slug} />
+        return (
+          <SiblingBorder key={taxonomy.slug}>
+            {taxonomy.hierarchical ? (
+              <HierarchicalTermSelector
+                taxonomy={taxonomy}
+                canCreateTerms={canCreateTerms}
+              />
+            ) : (
+              <FlatTermSelector
+                taxonomy={taxonomy}
+                canCreateTerms={canCreateTerms}
+              />
+            )}
+          </SiblingBorder>
         );
       })}
-    </SimplePanel>
+    </StyledSimplePanel>
   );
 }
 

@@ -26,12 +26,14 @@
 
 namespace Google\Web_Stories;
 
+use Google\Web_Stories\Infrastructure\HasRequirements;
+
 /**
  * Experiments class.
  *
  * Allows turning flags on/off via the admin UI.
  */
-class Experiments extends Service_Base {
+class Experiments extends Service_Base implements HasRequirements {
 	/**
 	 * Settings page name.
 	 *
@@ -47,6 +49,26 @@ class Experiments extends Service_Base {
 	private $hook_suffix;
 
 	/**
+	 * Settings instance.
+	 *
+	 * @var Settings Settings instance.
+	 */
+	private $settings;
+
+	/**
+	 * Experiments constructor.
+	 *
+	 * @since 1.12.0
+	 *
+	 * @param Settings $settings Settings instance.
+	 *
+	 * @return void
+	 */
+	public function __construct( Settings $settings ) {
+		$this->settings = $settings;
+	}
+
+	/**
 	 * Initializes experiments
 	 *
 	 * @return void
@@ -59,14 +81,16 @@ class Experiments extends Service_Base {
 	}
 
 	/**
-	 * Get the action priority to use for registering the service.
+	 * Get the list of service IDs required for this service to be registered.
 	 *
-	 * @since 1.6.0
+	 * Needed because settings needs to be registered first.
 	 *
-	 * @return int Registration action priority to use.
+	 * @since 1.13.0
+	 *
+	 * @return string[] List of required services.
 	 */
-	public static function get_registration_action_priority(): int {
-		return 7;
+	public static function get_requirements(): array {
+		return [ 'settings' ];
 	}
 
 	/**
@@ -165,7 +189,7 @@ class Experiments extends Service_Base {
 		<label for="<?php echo esc_attr( $args['id'] ); ?>">
 			<input
 				type="checkbox"
-				name="<?php echo esc_attr( sprintf( '%1$s[%2$s]', Settings::SETTING_NAME_EXPERIMENTS, $args['id'] ) ); ?>"
+				name="<?php echo esc_attr( sprintf( '%1$s[%2$s]', $this->settings::SETTING_NAME_EXPERIMENTS, $args['id'] ) ); ?>"
 				id="<?php echo esc_attr( $args['id'] ); ?>"
 				value="1"
 				<?php echo esc_attr( $disabled ); ?>
@@ -297,40 +321,6 @@ class Experiments extends Service_Base {
 				'group'       => 'general',
 			],
 			/**
-			 * Author: @miina
-			 * Issue #7986
-			 * Creation date: 2021-07-08
-			 */
-			[
-				'name'        => 'enableSmartTextColor',
-				'label'       => __( 'Smart text color', 'web-stories' ),
-				'description' => __( 'Enable text insertion with smart color ensuring good contrast with the background', 'web-stories' ),
-				'group'       => 'editor',
-			],
-			/**
-			 * Author: @merapi
-			 * Issue #7995
-			 * Creation date: 2021-08-13
-			 */
-			[
-				'name'        => 'enableSmartTextSetsColor',
-				'label'       => __( 'Smart text sets color', 'web-stories' ),
-				'description' => __( 'Enable text sets insertion with smart color ensuring good contrast with the background', 'web-stories' ),
-				'group'       => 'editor',
-			],
-			/**
-			 * Author: @merapi
-			 * Issue: #262
-			 * Creation date: 2021-07-08
-			 */
-			[
-				'name'        => 'enableEyedropper',
-				'label'       => __( 'Eyedropper', 'web-stories' ),
-				'description' => __( 'Enable choosing color using an eyedropper', 'web-stories' ),
-				'group'       => 'editor',
-				'default'     => true,
-			],
-			/**
 			 * Author: @spacedmonkey
 			 * Issue: #8811
 			 * Creation date: 2021-09-06
@@ -363,6 +353,7 @@ class Experiments extends Service_Base {
 				'label'       => __( 'Taxonomies', 'web-stories' ),
 				'description' => __( 'Enable support of tags and categories for stories', 'web-stories' ),
 				'group'       => 'editor',
+				'default'     => true,
 			],
 
 			/**
@@ -375,6 +366,7 @@ class Experiments extends Service_Base {
 				'label'       => __( 'Video trimming', 'web-stories' ),
 				'description' => __( 'Enable video trimming', 'web-stories' ),
 				'group'       => 'editor',
+				'default'     => true,
 			],
 
 			/**
@@ -387,18 +379,19 @@ class Experiments extends Service_Base {
 				'label'       => __( 'Thumbnail Caching', 'web-stories' ),
 				'description' => __( 'Enable thumbnail caching', 'web-stories' ),
 				'group'       => 'editor',
+				'default'     => true,
 			],
 
 			/**
 			 * Author: @swissspidy
-			 * Issue: #7739
-			 * Creation date: 2021-09-17
+			 * Issue: #5315
+			 * Creation date: 2021-09-23
 			 */
 			[
-				'name'        => 'enableAutoAnalyticsMigration',
-				'label'       => __( 'Auto Analytics', 'web-stories' ),
-				'description' => __( 'Enable migration option to story auto analytics', 'web-stories' ),
-				'group'       => 'dashboard',
+				'name'        => 'enableBetterCaptions',
+				'label'       => __( 'Video Captions', 'web-stories' ),
+				'description' => __( 'Improve video captions appearance when viewing stories', 'web-stories' ),
+				'group'       => 'general',
 			],
 		];
 	}
@@ -461,7 +454,7 @@ class Experiments extends Service_Base {
 			return (bool) $experiment['default'];
 		}
 
-		$experiments = get_option( Settings::SETTING_NAME_EXPERIMENTS );
+		$experiments = $this->settings->get_setting( $this->settings::SETTING_NAME_EXPERIMENTS, [] );
 		return ! empty( $experiments[ $name ] );
 	}
 
@@ -472,7 +465,7 @@ class Experiments extends Service_Base {
 	 *
 	 * @return array List of all enabled experiments.
 	 */
-	public function get_enabled_experiments() {
+	public function get_enabled_experiments(): array {
 		$experiments = array_filter(
 			wp_list_pluck( $this->get_experiments(), 'name' ),
 			[ $this, 'is_experiment_enabled' ]

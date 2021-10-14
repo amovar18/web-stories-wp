@@ -34,7 +34,11 @@ trait Kses_Setup {
 	 * Setup KSES init class.
 	 */
 	protected function kses_int() {
-		$this->kses = new \Google\Web_Stories\KSES();
+		$settings    = new \Google\Web_Stories\Settings();
+		$experiments = new \Google\Web_Stories\Experiments( $settings );
+		$this->kses  = new \Google\Web_Stories\KSES(
+			new \Google\Web_Stories\Story_Post_Type( $settings, $experiments )
+		);
 		$this->kses->register();
 	}
 

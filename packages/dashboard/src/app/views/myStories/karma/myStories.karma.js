@@ -291,7 +291,7 @@ describe('Grid view', () => {
       expect(numPublished).toBeGreaterThan(0);
 
       const publishedTabButton = fixture.screen.getByRole('button', {
-        name: new RegExp('^Filter stories by ' + STORY_STATUSES[2].label),
+        name: new RegExp('^Filter stories by ' + STORY_STATUSES[3].label),
       });
 
       expect(publishedTabButton).toBeTruthy();
@@ -1259,22 +1259,6 @@ describe('List view', () => {
       expect(rowModifiedValues).toEqual(
         storieModifiedSortedByModified.reverse()
       );
-    });
-  });
-
-  describe('CUJ: Creator can view their stories in list view: Go to WP list view to do any action', () => {
-    it('should add a link to the classic WordPress list view', async () => {
-      const listViewButton = fixture.screen.getByLabelText(
-        new RegExp(`^${VIEW_STYLE_LABELS[VIEW_STYLE.GRID]}$`)
-      );
-
-      await fixture.events.click(listViewButton);
-
-      const wpListViewLink = fixture.screen.getByRole('link', {
-        name: /^See classic WP list view$/,
-      });
-
-      expect(wpListViewLink).toBeTruthy();
     });
   });
 

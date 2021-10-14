@@ -48,7 +48,12 @@ export const _default = () => {
         <Tags.Input
           id="tags-input"
           aria-describedby="tags-description"
-          name="story-tags"
+          name="web_story_tag"
+          suggestedTerms={[
+            { name: 'banana', id: 1 },
+            { name: 'anna', id: 2 },
+            { name: 'nana', id: 3 },
+          ]}
         />
         <Tags.Description id="tags-description">
           {'Separate with commas or the Enter key.'}

@@ -37,7 +37,6 @@ import { initializeTracking } from '@web-stories-wp/tracking';
 /**
  * Internal dependencies
  */
-import * as apiCallbacks from './api';
 import {
   Layout,
   PostPublishDialog,
@@ -45,6 +44,7 @@ import {
   PostLock,
   MediaUpload,
 } from './components';
+import getApiCallbacks from './api/utils/getApiCallbacks';
 
 /**
  * Initializes the web stories editor.
@@ -69,7 +69,7 @@ const initialize = (id, config, flags) => {
 
   const editorConfig = {
     ...config,
-    apiCallbacks,
+    apiCallbacks: getApiCallbacks(config),
     MediaUpload,
   };
 

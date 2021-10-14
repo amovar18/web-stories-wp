@@ -26,13 +26,20 @@ import './style.css'; // This way the general dashboard styles are loaded before
 /**
  * External dependencies
  */
-import App from '@web-stories-wp/dashboard';
+import Dashboard from '@web-stories-wp/dashboard';
 import { setAppElement } from '@web-stories-wp/design-system';
 import { StrictMode, render } from '@web-stories-wp/react';
 import { updateSettings } from '@web-stories-wp/date';
 import { initializeTracking } from '@web-stories-wp/tracking';
-import { setLocaleData } from '@web-stories-wp/i18n';
 import { FlagsProvider } from 'flagged';
+
+/**
+ * Internal dependencies
+ */
+import getApiCallbacks from './api/utils/getApiCallbacks';
+import { GlobalStyle } from './theme';
+import { LEFT_RAIL_SECONDARY_NAVIGATION } from './constants';
+import { Layout } from './components';
 
 /**
  * Initializes the Web Stories dashboard screen.
@@ -49,17 +56,22 @@ const initialize = async (id, config, flags) => {
 
   updateSettings(config.locale);
 
-  if (config.localeData) {
-    setLocaleData(config.localeData);
-  }
-
   // Already tracking screen views in AppContent, no need to send page views as well.
   await initializeTracking('Dashboard', false);
+
+  const dashboardConfig = {
+    ...config,
+    apiCallbacks: getApiCallbacks(config),
+    leftRailSecondaryNavigation: LEFT_RAIL_SECONDARY_NAVIGATION,
+  };
 
   render(
     <FlagsProvider features={flags}>
       <StrictMode>
-        <App config={config} />
+        <Dashboard config={dashboardConfig}>
+          <GlobalStyle />
+          <Layout />
+        </Dashboard>
       </StrictMode>
     </FlagsProvider>,
     appElement

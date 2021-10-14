@@ -17,10 +17,12 @@
 
 namespace Google\Web_Stories\Tests\Integration\REST_API;
 
+use Google\Web_Stories\Experiments;
+use Google\Web_Stories\Settings;
+use Google\Web_Stories\Story_Post_Type;
 use WP_Error;
 use WP_REST_Request;
 use WP_REST_Server;
-use Spy_REST_Server;
 use Google\Web_Stories\Tests\Integration\Test_REST_TestCase;
 
 /**
@@ -51,6 +53,13 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 */
 	protected $request_count = 0;
 
+	/**
+	 * Test instance.
+	 *
+	 * @var \Google\Web_Stories\REST_API\Hotlinking_Controller
+	 */
+	private $controller;
+
 	public static function wpSetUpBeforeClass( $factory ) {
 		self::$subscriber = $factory->user->create(
 			[
@@ -65,36 +74,22 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 		);
 	}
 
-	public static function wpTearDownAfterClass() {
-		self::delete_user( self::$subscriber );
-		self::delete_user( self::$editor );
-	}
-
-	public function setUp() {
-		parent::setUp();
-
-		/** @var \WP_REST_Server $wp_rest_server */
-		global $wp_rest_server;
-		$wp_rest_server = new Spy_REST_Server();
-		do_action( 'rest_api_init', $wp_rest_server );
+	public function set_up() {
+		parent::set_up();
 
 		add_filter( 'pre_http_request', [ $this, 'mock_http_request' ], 10, 3 );
-
 		$this->request_count = 0;
 
-		$this->add_caps_to_roles();
+		$settings         = new Settings();
+		$this->controller = new \Google\Web_Stories\REST_API\Hotlinking_Controller(
+			new Story_Post_Type( $settings, new Experiments( $settings ) )
+		);
 	}
 
-	public function tearDown() {
-		/** @var \WP_REST_Server $wp_rest_server */
-		global $wp_rest_server;
-		$wp_rest_server = null;
-
-		$this->remove_caps_from_roles();
-
+	public function tear_down() {
 		remove_filter( 'pre_http_request', [ $this, 'mock_http_request' ] );
 
-		parent::tearDown();
+		parent::tear_down();
 	}
 
 	/**
@@ -156,9 +151,11 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	}
 
 	/**
-	 * @covers ::register_routes
+	 * @covers ::register
 	 */
-	public function test_register_routes() {
+	public function test_register() {
+		$this->controller->register();
+
 		$routes = rest_get_server()->get_routes();
 
 		$this->assertArrayHasKey( self::REST_URL, $routes );
@@ -169,8 +166,7 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::validate_url
 	 */
 	public function test_validate_url() {
-		$controller = new \Google\Web_Stories\REST_API\Hotlinking_Controller();
-		$result     = $controller->validate_url( self::URL_VALID );
+		$result = $this->controller->validate_url( self::URL_VALID );
 		$this->assertTrue( $result );
 	}
 
@@ -178,8 +174,7 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::validate_url
 	 */
 	public function test_validate_url_empty() {
-		$controller = new \Google\Web_Stories\REST_API\Hotlinking_Controller();
-		$result     = $controller->validate_url( '' );
+		$result = $this->controller->validate_url( '' );
 		$this->assertErrorResponse( 'rest_invalid_url', $result, 400 );
 	}
 
@@ -187,8 +182,7 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::validate_url
 	 */
 	public function test_validate_url_domain() {
-		$controller = new \Google\Web_Stories\REST_API\Hotlinking_Controller();
-		$result     = $controller->validate_url( self::URL_DOMAIN );
+		$result = $this->controller->validate_url( self::URL_DOMAIN );
 		$this->assertErrorResponse( 'rest_invalid_url_path', $result, 400 );
 	}
 
@@ -196,8 +190,7 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::validate_url
 	 */
 	public function test_validate_url_path() {
-		$controller = new \Google\Web_Stories\REST_API\Hotlinking_Controller();
-		$result     = $controller->validate_url( self::URL_PATH );
+		$result = $this->controller->validate_url( self::URL_PATH );
 		$this->assertErrorResponse( 'rest_invalid_url', $result, 400 );
 	}
 
@@ -205,8 +198,7 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::validate_url
 	 */
 	public function test_validate_url_invalid() {
-		$controller = new \Google\Web_Stories\REST_API\Hotlinking_Controller();
-		$result     = $controller->validate_url( '-1' );
+		$result = $this->controller->validate_url( '-1' );
 		$this->assertErrorResponse( 'rest_invalid_url', $result, 400 );
 	}
 
@@ -214,8 +206,7 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::validate_url
 	 */
 	public function test_validate_url_invalid2() {
-		$controller = new \Google\Web_Stories\REST_API\Hotlinking_Controller();
-		$result     = $controller->validate_url( 'wibble' );
+		$result = $this->controller->validate_url( 'wibble' );
 		$this->assertErrorResponse( 'rest_invalid_url', $result, 400 );
 	}
 
@@ -223,8 +214,7 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::get_item_schema
 	 */
 	public function test_get_item_schema() {
-		$controller = new \Google\Web_Stories\REST_API\Hotlinking_Controller();
-		$data       = $controller->get_item_schema();
+		$data = $this->controller->get_item_schema();
 
 		$properties = $data['properties'];
 		$this->assertArrayHasKey( 'ext', $properties );
@@ -241,6 +231,8 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::parse_url_permissions_check
 	 */
 	public function test_parse_url_without_permission() {
+		$this->controller->register();
+
 		// Test without a login.
 		$request = new WP_REST_Request( WP_REST_Server::READABLE, self::REST_URL );
 		$request->set_param( 'url', self::URL_VALID );
@@ -260,6 +252,8 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	}
 
 	public function test_url_invalid_url() {
+		$this->controller->register();
+
 		wp_set_current_user( self::$editor );
 		$request = new WP_REST_Request( WP_REST_Server::READABLE, self::REST_URL );
 		$request->set_param( 'url', self::URL_INVALID );
@@ -276,6 +270,8 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::parse_url_permissions_check
 	 */
 	public function test_parse_url_empty_string() {
+		$this->controller->register();
+
 		wp_set_current_user( self::$editor );
 		$request = new WP_REST_Request( WP_REST_Server::READABLE, self::REST_URL );
 		$request->set_param( 'url', '' );
@@ -292,6 +288,8 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::parse_url_permissions_check
 	 */
 	public function test_parse_url() {
+		$this->controller->register();
+
 		wp_set_current_user( self::$editor );
 		$request = new WP_REST_Request( WP_REST_Server::READABLE, self::REST_URL );
 		$request->set_param( 'url', self::URL_VALID );
@@ -314,6 +312,8 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::parse_url_permissions_check
 	 */
 	public function test_parse_url_cache() {
+		$this->controller->register();
+
 		wp_set_current_user( self::$editor );
 		$request = new WP_REST_Request( WP_REST_Server::READABLE, self::REST_URL );
 		$request->set_param( 'url', self::URL_VALID );
@@ -350,6 +350,8 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::parse_url_permissions_check
 	 */
 	public function test_parse_url_404() {
+		$this->controller->register();
+
 		wp_set_current_user( self::$editor );
 		$request = new WP_REST_Request( WP_REST_Server::READABLE, self::REST_URL );
 		$request->set_param( 'url', self::URL_404 );
@@ -362,6 +364,8 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::parse_url_permissions_check
 	 */
 	public function test_parse_url_500() {
+		$this->controller->register();
+
 		wp_set_current_user( self::$editor );
 		$request = new WP_REST_Request( WP_REST_Server::READABLE, self::REST_URL );
 		$request->set_param( 'url', self::URL_500 );
@@ -376,6 +380,8 @@ class Hotlinking_Controller extends Test_REST_TestCase {
 	 * @covers ::prepare_item_for_response
 	 */
 	public function test_parse_url_svg() {
+		$this->controller->register();
+
 		wp_set_current_user( self::$editor );
 		$request = new WP_REST_Request( WP_REST_Server::READABLE, self::REST_URL );
 		$request->set_param( 'url', self::URL_SVG );

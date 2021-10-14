@@ -3,7 +3,7 @@
   "private": true,
   "engines": {
     "node": ">= 16",
-    "npm": "~7"
+    "npm": ">= 7.3"
   },
   "exports": {
     "default": "./src/index.js"
@@ -19,6 +19,6 @@
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
-    "@testing-library/react": "^12.1.0"
+    "@testing-library/react": "^12.1.2"
   }
 }

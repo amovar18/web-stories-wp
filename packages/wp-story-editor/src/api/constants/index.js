@@ -36,7 +36,7 @@ export const STORY_FIELDS = [
 export const STORY_EMBED =
   'wp:featuredmedia,wp:lockuser,author,wp:publisherlogo,wp:term';
 
-export const MEDIA_FIELD = [
+export const MEDIA_FIELDS = [
   'id',
   'date_gmt',
   'media_details',
@@ -46,8 +46,8 @@ export const MEDIA_FIELD = [
   'alt_text',
   'source_url',
   'meta',
-  'media_source',
-  'is_muted',
+  'web_stories_media_source',
+  'web_stories_is_muted',
   // _web_stories_envelope will add these fields, we need them too.
   'body',
   'status',

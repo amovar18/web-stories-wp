@@ -71,7 +71,9 @@ function TaxonomyProvider(props) {
         const result = await getTaxonomies();
         setTaxonomies(result);
       } catch (e) {
-        // Do we wanna do anything here?
+        // Log error
+        // eslint-disable-next-line no-console
+        console.error(e.message);
       }
     })();
   }, [hasTaxonomies, getTaxonomies]);
@@ -145,42 +147,34 @@ function TaxonomyProvider(props) {
   );
 
   const addSearchResultsToCache = useCallback(
-    async (
-      taxonomy,
-      {
-        name,
-        // This is the per_page value Gutenberg is using
-        perPage = 20,
-      },
-      addNameToSelection = false
-    ) => {
+    async (taxonomy, args, addNameToSelection = false) => {
       let response = [];
       const termsEndpoint = taxonomy['_links']?.['wp:items']?.[0]?.href;
       if (!termsEndpoint) {
-        return;
+        return [];
       }
       try {
-        response = await getTaxonomyTerm(termsEndpoint, {
-          search: name,
-          per_page: perPage,
-        });
+        response = await getTaxonomyTerm(termsEndpoint, args);
       } catch (e) {
-        // Do we wanna do anything here?
+        // Log error
+        // eslint-disable-next-line no-console
+        console.error(e.message);
       }
 
       // Avoid update if we're not actually adding any terms here
       if (response.length < 1) {
-        return;
+        return response;
       }
 
       // Format results to fit in our { [taxonomy]: { [slug]: term } } map
       const termResults = {
         [taxonomy.restBase]: dictionaryOnKey(response, 'slug'),
       };
+
       setTermCache((cache) => mergeNestedDictionaries(cache, termResults));
 
-      if (addNameToSelection) {
-        const selectedTermSlug = cleanForSlug(name);
+      if (addNameToSelection && args.search) {
+        const selectedTermSlug = cleanForSlug(args.search);
         const selectedTerm = response.find(
           (term) => term.slug === selectedTermSlug
         );
@@ -189,14 +183,23 @@ function TaxonomyProvider(props) {
           addTermToSelection(taxonomy, selectedTerm);
         }
       }
+
+      return response;
     },
     [getTaxonomyTerm, addTermToSelection]
   );
 
   const createTerm = useCallback(
-    async (taxonomy, termName, parentId, addToSelection = false) => {
+    async (taxonomy, termName, parent, addToSelection = false) => {
+      const data = { name: termName };
+      if (parent?.id) {
+        data.parent = parent.id;
+        data.slug = `${parent.slug}-${cleanForSlug(data.name)}`;
+      }
+
       // make sure the term doesn't already exist locally
-      const cachedTerm = termCache[taxonomy.restBase]?.[cleanForSlug(termName)];
+      const preEmptiveSlug = data?.slug || cleanForSlug(termName);
+      const cachedTerm = termCache[taxonomy.restBase]?.[preEmptiveSlug];
       if (cachedTerm) {
         if (addToSelection) {
           addTermToSelection(taxonomy, cachedTerm);
@@ -212,11 +215,6 @@ function TaxonomyProvider(props) {
 
       // create term and add to cache
       try {
-        const data = { name: termName };
-        if (parentId) {
-          data.parent = parentId;
-        }
-
         const newTerm = await createTaxonomyTerm(termsEndpoint, data);
         const incomingCache = {
           [taxonomy.restBase]: { [newTerm.slug]: newTerm },
@@ -234,7 +232,11 @@ function TaxonomyProvider(props) {
         // We could pull down only the exact term, but
         // we're modeling after Gutenberg.
         if (e.code === 'term_exists') {
-          addSearchResultsToCache(taxonomy, { name: termName }, addToSelection);
+          addSearchResultsToCache(
+            taxonomy,
+            { search: termName },
+            addToSelection
+          );
         }
       }
     },
@@ -249,7 +251,7 @@ function TaxonomyProvider(props) {
         (taxonomy) => taxonomy.hierarchical
       );
       hierarchicalTaxonomies.forEach((taxonomy) =>
-        addSearchResultsToCache(taxonomy, { perPage: -1 })
+        addSearchResultsToCache(taxonomy, { per_page: -1 })
       );
 
       setShouldRefetchCategories(false);
@@ -267,6 +269,7 @@ function TaxonomyProvider(props) {
         createTerm,
         addSearchResultsToCache,
         setTerms,
+        addTermToSelection,
       },
     }),
     [
@@ -276,6 +279,7 @@ function TaxonomyProvider(props) {
       createTerm,
       addSearchResultsToCache,
       setTerms,
+      addTermToSelection,
     ]
   );
 

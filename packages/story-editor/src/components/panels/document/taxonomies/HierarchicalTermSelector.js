@@ -31,10 +31,10 @@ import {
 } from '@web-stories-wp/design-system';
 import {
   useCallback,
-  useMemo,
-  useState,
-  useRef,
   useEffect,
+  useMemo,
+  useRef,
+  useState,
 } from '@web-stories-wp/react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -45,7 +45,8 @@ import { v4 as uuidv4 } from 'uuid';
  */
 import { HierarchicalInput } from '../../../form';
 import { useTaxonomy } from '../../../../app/taxonomy';
-import { ContentHeading, TaxonomyPropType } from './shared';
+import { ContentHeading, TaxonomyPropType, LinkButton } from './shared';
+import { makeFlatOptionTree } from './utils';
 
 const NO_PARENT_VALUE = 'NO_PARENT_VALUE';
 
@@ -74,25 +75,6 @@ const ButtonContainer = styled.div`
   gap: 8px;
 `;
 
-const LinkButton = styled(Button).attrs({
-  variant: BUTTON_VARIANTS.LINK,
-})`
-  ${({ $isVisible }) => $isVisible && 'display: none;'}
-
-  margin-bottom: 16px;
-
-  ${({ theme }) =>
-    themeHelpers.expandPresetStyles({
-      preset:
-        theme.typography.presets.link[
-          THEME_CONSTANTS.TYPOGRAPHY.PRESET_SIZES.X_SMALL
-        ],
-      theme,
-    })};
-
-  font-weight: 500;
-`;
-
 const Label = styled(Text).attrs({
   forwardedAs: 'label',
   size: THEME_CONSTANTS.TYPOGRAPHY.PRESET_SIZES.SMALL,
@@ -109,7 +91,11 @@ const AddNewCategoryButton = styled(Button).attrs({
   margin-top: 20px;
 `;
 
-function HierarchicalTermSelector({ noParentId = NO_PARENT_VALUE, taxonomy }) {
+function HierarchicalTermSelector({
+  noParentId = NO_PARENT_VALUE,
+  taxonomy,
+  canCreateTerms,
+}) {
   const { createTerm, termCache, terms, setTerms } = useTaxonomy(
     ({ state: { termCache, terms }, actions: { createTerm, setTerms } }) => ({
       createTerm,
@@ -120,17 +106,15 @@ function HierarchicalTermSelector({ noParentId = NO_PARENT_VALUE, taxonomy }) {
   );
 
   const categories = useMemo(() => {
-    if (termCache[taxonomy.restBase]) {
-      return Object.values(termCache[taxonomy.restBase]).map((category) => {
-        const formattedCategory = { ...category };
-        formattedCategory.value = formattedCategory.id;
-        formattedCategory.label = formattedCategory.name;
-        formattedCategory.checked = terms[taxonomy.restBase]?.includes(
-          category.id
-        );
-
-        return formattedCategory;
-      });
+    if (termCache?.[taxonomy.restBase]) {
+      return Object.values(termCache[taxonomy.restBase]).map((category) => ({
+        id: category.id,
+        parent: category.parent,
+        value: category.id,
+        label: category.name,
+        checked: terms[taxonomy.restBase]?.includes(category.id),
+        slug: category.slug,
+      }));
     }
 
     return [];
@@ -141,10 +125,17 @@ function HierarchicalTermSelector({ noParentId = NO_PARENT_VALUE, taxonomy }) {
       [
         {
           value: NO_PARENT_VALUE,
-          label: `-- ${taxonomy.labels.parent_item} --`,
+          label: __('None', 'web-stories'),
         },
-      ].concat(categories),
-    [categories, taxonomy]
+      ]
+        .concat(makeFlatOptionTree(categories))
+        .map(({ $level, label, ...opt }) => ({
+          ...opt,
+          label: `${Array.from({ length: $level }, () => '— ').join(
+            ''
+          )} ${label}`,
+        })),
+    [categories]
   );
 
   const [showAddNewCategory, setShowAddNewCategory] = useState(false);
@@ -198,11 +189,19 @@ function HierarchicalTermSelector({ noParentId = NO_PARENT_VALUE, taxonomy }) {
     setNewCategoryName(evt.target.value);
   }, []);
 
+  const selectedParentSlug = useMemo(
+    () => categories.find((category) => category.id === selectedParent)?.slug,
+    [selectedParent, categories]
+  );
+
   const handleSubmit = useCallback(
     (evt) => {
       evt.preventDefault();
 
-      const parentValue = selectedParent === noParentId ? 0 : selectedParent;
+      const parentValue = {
+        id: selectedParent === noParentId ? 0 : selectedParent,
+        slug: selectedParentSlug,
+      };
       createTerm(taxonomy, newCategoryName, parentValue, true);
       setShowAddNewCategory(false);
       resetInputs();
@@ -216,6 +215,7 @@ function HierarchicalTermSelector({ noParentId = NO_PARENT_VALUE, taxonomy }) {
       selectedParent,
       showAddNewCategory,
       taxonomy,
+      selectedParentSlug,
     ]
   );
 
@@ -254,49 +254,54 @@ function HierarchicalTermSelector({ noParentId = NO_PARENT_VALUE, taxonomy }) {
         label={taxonomy.labels.search_items}
         options={categories}
         onChange={handleClickCategory}
-        noOptionsText={taxonomy.labels.not_found}
+        noOptionsText={taxonomy.labels?.not_found}
       />
-      <LinkButton
-        ref={toggleRef}
-        aria-expanded={false}
-        onClick={handleToggleNewCategory}
-        $isVisible={showAddNewCategory}
-      >
-        {taxonomy.labels.add_new_item}
-      </LinkButton>
-      {showAddNewCategory ? (
-        <AddNewCategoryForm ref={formRef} onSubmit={handleSubmit}>
-          <Input
-            autoFocus
-            name={taxonomy.labels.new_item_name}
-            label={taxonomy.labels.new_item_name}
-            value={newCategoryName}
-            onChange={handleChangeNewCategoryName}
-            hasFocus={hasFocus}
-          />
-          <Label htmlFor={dropdownId}>{taxonomy.labels.parent_item}</Label>
-          <DropDown
-            id={dropdownId}
-            ariaLabel={taxonomy.labels.parent_item}
-            options={dropdownCategories}
-            selectedValue={selectedParent}
-            onMenuItemClick={handleParentSelect}
-          />
-          <ButtonContainer>
-            <AddNewCategoryButton
-              disabled={!newCategoryName.length}
-              type="submit"
-            >
-              {taxonomy.labels.add_new_item}
-            </AddNewCategoryButton>
-            <AddNewCategoryButton
-              aria-expanded
+      {canCreateTerms ? (
+        <>
+          {!showAddNewCategory && (
+            <LinkButton
+              ref={toggleRef}
+              aria-expanded={false}
               onClick={handleToggleNewCategory}
             >
-              {__('Cancel', 'web-stories')}
-            </AddNewCategoryButton>
-          </ButtonContainer>
-        </AddNewCategoryForm>
+              {taxonomy.labels.add_new_item}
+            </LinkButton>
+          )}
+          {showAddNewCategory ? (
+            <AddNewCategoryForm ref={formRef} onSubmit={handleSubmit}>
+              <Input
+                autoFocus
+                name={taxonomy.labels.new_item_name}
+                label={taxonomy.labels.new_item_name}
+                value={newCategoryName}
+                onChange={handleChangeNewCategoryName}
+                hasFocus={hasFocus}
+              />
+              <Label htmlFor={dropdownId}>{taxonomy.labels.parent_item}</Label>
+              <DropDown
+                id={dropdownId}
+                ariaLabel={taxonomy.labels.parent_item}
+                options={dropdownCategories}
+                selectedValue={selectedParent}
+                onMenuItemClick={handleParentSelect}
+              />
+              <ButtonContainer>
+                <AddNewCategoryButton
+                  disabled={!newCategoryName.length}
+                  type="submit"
+                >
+                  {taxonomy.labels.add_new_item}
+                </AddNewCategoryButton>
+                <AddNewCategoryButton
+                  aria-expanded
+                  onClick={handleToggleNewCategory}
+                >
+                  {__('Cancel', 'web-stories')}
+                </AddNewCategoryButton>
+              </ButtonContainer>
+            </AddNewCategoryForm>
+          ) : null}
+        </>
       ) : null}
     </ContentArea>
   );
@@ -305,6 +310,7 @@ function HierarchicalTermSelector({ noParentId = NO_PARENT_VALUE, taxonomy }) {
 HierarchicalTermSelector.propTypes = {
   noParentId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   taxonomy: TaxonomyPropType,
+  canCreateTerms: PropTypes.bool,
 };
 
 export default HierarchicalTermSelector;

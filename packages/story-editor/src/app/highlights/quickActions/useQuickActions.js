@@ -21,6 +21,7 @@ import { useCallback, useMemo, useRef } from '@web-stories-wp/react';
 import { __ } from '@web-stories-wp/i18n';
 import { useSnackbar, PLACEMENT, Icons } from '@web-stories-wp/design-system';
 import { trackEvent } from '@web-stories-wp/tracking';
+import { canTranscodeResource } from '@web-stories-wp/media';
 
 /**
  * Internal dependencies
@@ -30,12 +31,8 @@ import updateProperties from '../../../components/inspector/design/updatePropert
 import useVideoTrim from '../../../components/videoTrim/useVideoTrim';
 import { useHistory } from '../../history';
 import { useConfig } from '../../config';
-import {
-  useStory,
-  useStoryTriggersDispatch,
-  STORY_EVENTS,
-  ELEMENT_TYPES,
-} from '../../story';
+import { ELEMENT_TYPES } from '../../../elements';
+import { useStory, useStoryTriggersDispatch, STORY_EVENTS } from '../../story';
 import { getResetProperties } from './utils';
 import { ACTIONS, RESET_PROPERTIES, RESET_DEFAULTS } from './constants';
 
@@ -230,7 +227,6 @@ const useQuickActions = () => {
     handleFocusTextSetsPanel,
     handleFocusStylePanel,
     handleFocusCaptionsPanel,
-    handleFocusVideoSettingsPanel,
   } = useMemo(
     () => ({
       handleFocusAnimationPanel: handleFocusPanel(states.ANIMATION),
@@ -241,7 +237,6 @@ const useQuickActions = () => {
       handleFocusTextColor: handleFocusPanel(states.TEXT_COLOR),
       handleFocusStylePanel: handleFocusPanel(states.STYLE),
       handleFocusCaptionsPanel: handleFocusPanel(states.CAPTIONS),
-      handleFocusVideoSettingsPanel: handleFocusPanel(states.VIDEO_SETTINGS),
     }),
     [handleFocusPanel]
   );
@@ -465,13 +460,16 @@ const useQuickActions = () => {
   );
 
   const videoCommonActions = useMemo(() => {
-    return hasTrimMode
+    const resource = selectedElements?.[0]?.resource;
+    if (!resource) {
+      return [];
+    }
+    return canTranscodeResource(resource) && hasTrimMode
       ? [
           {
             Icon: Scissors,
             label: ACTIONS.TRIM_VIDEO.text,
-            onClick: (evt) => {
-              handleFocusVideoSettingsPanel()(evt);
+            onClick: () => {
               toggleTrimMode();
               trackEvent('quick_action', {
                 name: ACTIONS.TRIM_VIDEO.trackingEventName,
@@ -484,10 +482,10 @@ const useQuickActions = () => {
       : [];
   }, [
     actionMenuProps,
-    handleFocusVideoSettingsPanel,
     hasTrimMode,
     selectedElement,
     toggleTrimMode,
+    selectedElements,
   ]);
 
   const videoActions = useMemo(() => {

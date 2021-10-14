@@ -26,6 +26,7 @@
 
 namespace Google\Web_Stories;
 
+use Google\Web_Stories\Infrastructure\HasRequirements;
 use Google\Web_Stories\Infrastructure\PluginDeactivationAware;
 use Google\Web_Stories\Infrastructure\SiteInitializationAware;
 use Google\Web_Stories\REST_API\Stories_Controller;
@@ -38,8 +39,9 @@ use WP_Site;
  * Class Story_Post_Type.
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-class Story_Post_Type extends Service_Base implements PluginDeactivationAware, SiteInitializationAware {
+class Story_Post_Type extends Service_Base implements PluginDeactivationAware, SiteInitializationAware, HasRequirements {
 	use Post_Type;
 
 	/**
@@ -71,6 +73,35 @@ class Story_Post_Type extends Service_Base implements PluginDeactivationAware, S
 	const PUBLISHER_LOGO_META_KEY = 'web_stories_publisher_logo';
 
 	/**
+	 * Settings instance.
+	 *
+	 * @var Settings Settings instance.
+	 */
+	private $settings;
+
+	/**
+	 * Experiments instance.
+	 *
+	 * @var Experiments Experiments instance.
+	 */
+	private $experiments;
+
+	/**
+	 * Analytics constructor.
+	 *
+	 * @since 1.12.0
+	 *
+	 * @param Settings    $settings     Settings instance.
+	 * @param Experiments $experiments  Experiments instance.
+	 *
+	 * @return void
+	 */
+	public function __construct( Settings $settings, Experiments $experiments ) {
+		$this->settings    = $settings;
+		$this->experiments = $experiments;
+	}
+
+	/**
 	 * Registers the post type for stories.
 	 *
 	 * @todo refactor
@@ -89,14 +120,28 @@ class Story_Post_Type extends Service_Base implements PluginDeactivationAware, S
 		add_filter( 'wp_insert_post_data', [ $this, 'change_default_title' ] );
 		add_filter( 'bulk_post_updated_messages', [ $this, 'bulk_post_updated_messages' ], 10, 2 );
 		add_action( 'clean_post_cache', [ $this, 'clear_user_posts_count' ], 10, 2 );
+		add_filter( 'pre_handle_404', [ $this, 'redirect_post_type_archive_urls' ], 10, 2 );
 
-		add_action( 'add_option_' . Settings::SETTING_NAME_ARCHIVE, [ $this, 'update_archive_setting' ] );
-		add_action( 'update_option_' . Settings::SETTING_NAME_ARCHIVE, [ $this, 'update_archive_setting' ] );
-		add_action( 'add_option_' . Settings::SETTING_NAME_ARCHIVE_PAGE_ID, [ $this, 'update_archive_setting' ] );
-		add_action( 'update_option_' . Settings::SETTING_NAME_ARCHIVE_PAGE_ID, [ $this, 'update_archive_setting' ] );
+		add_action( 'add_option_' . $this->settings::SETTING_NAME_ARCHIVE, [ $this, 'update_archive_setting' ] );
+		add_action( 'update_option_' . $this->settings::SETTING_NAME_ARCHIVE, [ $this, 'update_archive_setting' ] );
+		add_action( 'add_option_' . $this->settings::SETTING_NAME_ARCHIVE_PAGE_ID, [ $this, 'update_archive_setting' ] );
+		add_action( 'update_option_' . $this->settings::SETTING_NAME_ARCHIVE_PAGE_ID, [ $this, 'update_archive_setting' ] );
 
 		add_filter( 'display_post_states', [ $this, 'filter_display_post_states' ], 10, 2 );
 		add_action( 'pre_get_posts', [ $this, 'pre_get_posts' ] );
+	}
+
+	/**
+	 * Get the list of service IDs required for this service to be registered.
+	 *
+	 * Needed because settings needs to be registered first.
+	 *
+	 * @since 1.13.0
+	 *
+	 * @return string[] List of required services.
+	 */
+	public static function get_requirements(): array {
+		return [ 'settings' ];
 	}
 
 	/**
@@ -215,7 +260,7 @@ class Story_Post_Type extends Service_Base implements PluginDeactivationAware, S
 	 * @return void
 	 */
 	protected function register_meta() {
-		$active_publisher_logo_id = absint( get_option( Settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO ) );
+		$active_publisher_logo_id = absint( $this->settings->get_setting( $this->settings::SETTING_NAME_ACTIVE_PUBLISHER_LOGO, 0 ) );
 
 		register_post_meta(
 			self::POST_TYPE_SLUG,
@@ -316,6 +361,44 @@ class Story_Post_Type extends Service_Base implements PluginDeactivationAware, S
 	}
 
 	/**
+	 * Handles redirects to the post type archive.
+	 *
+	 * @since 1.13.0
+	 *
+	 * @param bool|mixed $bypass Pass-through of the pre_handle_404 filter value.
+	 * @param \WP_Query  $query The WP_Query object.
+	 * @return bool|mixed Whether to pass-through or not.
+	 */
+	public function redirect_post_type_archive_urls( $bypass, $query ) {
+		global $wp_rewrite;
+
+		if ( ! $this->experiments->is_experiment_enabled( 'archivePageCustomization' ) ) {
+			return $bypass;
+		}
+
+		if ( $bypass || ! is_string( $this->get_has_archive() ) || ( ! $wp_rewrite instanceof \WP_Rewrite || ! $wp_rewrite->using_permalinks() ) ) {
+			return $bypass;
+		}
+
+		// 'pagename' is for most permalink types, name is for when the %postname% is used as a top-level field.
+		if ( self::REWRITE_SLUG === $query->get( 'pagename' ) || self::REWRITE_SLUG === $query->get( 'name' ) ) {
+			$redirect_url = get_post_type_archive_link( self::POST_TYPE_SLUG );
+
+			if ( ! $redirect_url ) {
+				return $bypass;
+			}
+
+			// Only exit if there was actually a location to redirect to.
+			// Allows filtering location in tests to verify behavior.
+			if ( wp_safe_redirect( $redirect_url, 301 ) ) {
+				exit;
+			}
+		}
+
+		return $bypass;
+	}
+
+	/**
 	 * Invalid cache.
 	 *
 	 * @since 1.10.0
@@ -358,8 +441,12 @@ class Story_Post_Type extends Service_Base implements PluginDeactivationAware, S
 	 * @return bool|string Whether the post type should have an archive, or archive slug.
 	 */
 	private function get_has_archive() {
-		$archive_page_option    = get_option( Settings::SETTING_NAME_ARCHIVE );
-		$custom_archive_page_id = (int) get_option( Settings::SETTING_NAME_ARCHIVE_PAGE_ID );
+		if ( ! $this->experiments->is_experiment_enabled( 'archivePageCustomization' ) ) {
+			return true;
+		}
+
+		$archive_page_option    = $this->settings->get_setting( $this->settings::SETTING_NAME_ARCHIVE );
+		$custom_archive_page_id = (int) $this->settings->get_setting( $this->settings::SETTING_NAME_ARCHIVE_PAGE_ID );
 		$has_archive            = true;
 
 		if ( 'disabled' === $archive_page_option ) {
@@ -399,7 +486,7 @@ class Story_Post_Type extends Service_Base implements PluginDeactivationAware, S
 			return;
 		}
 
-		$custom_archive_page_id = (int) get_option( Settings::SETTING_NAME_ARCHIVE_PAGE_ID );
+		$custom_archive_page_id = (int) $this->settings->get_setting( $this->settings::SETTING_NAME_ARCHIVE_PAGE_ID );
 
 		$query->set( 'page_id', $custom_archive_page_id );
 		$query->set( 'post_type', 'page' );
@@ -415,11 +502,11 @@ class Story_Post_Type extends Service_Base implements PluginDeactivationAware, S
 	 * @since 1.12.0
 	 *
 	 * @param string[]|mixed $post_states An array of post display states.
-	 * @param WP_Post        $post        The current post object.
+	 * @param WP_Post|null   $post        The current post object.
 	 * @return string[]|mixed Filtered post display states.
 	 */
-	public function filter_display_post_states( $post_states, WP_Post $post ) {
-		if ( ! is_array( $post_states ) ) {
+	public function filter_display_post_states( $post_states, $post ) {
+		if ( ! is_array( $post_states ) || ! $post ) {
 			return $post_states;
 		}
 
@@ -427,7 +514,7 @@ class Story_Post_Type extends Service_Base implements PluginDeactivationAware, S
 			return $post_states;
 		}
 
-		$custom_archive_page_id = (int) get_option( Settings::SETTING_NAME_ARCHIVE_PAGE_ID );
+		$custom_archive_page_id = (int) $this->settings->get_setting( $this->settings::SETTING_NAME_ARCHIVE_PAGE_ID );
 
 		if ( $post->ID === $custom_archive_page_id ) {
 			$post_states['web_stories_archive_page'] = __( 'Web Stories Archive Page', 'web-stories' );

@@ -77,8 +77,9 @@ function BasicColorPicker({
   showCustomPicker,
   handleClose,
 }) {
-  const { savedColors } = useStory((state) => ({
+  const { savedColors, storyColors } = useStory((state) => ({
     savedColors: state.state.story?.globalStoryStyles?.colors || [],
+    storyColors: state.state.story?.currentStoryStyles?.colors || [],
   }));
 
   return (
@@ -97,7 +98,7 @@ function BasicColorPicker({
           allowsGradient={allowsGradient}
           aria-labelledby="colorpicker-default-colors-title"
         />
-        {allowsSavedColors && savedColors.length && (
+        {allowsSavedColors && savedColors.length > 0 && (
           <>
             <Label id="colorpicker-saved-colors-title">
               {__('Saved colors', 'web-stories')}
@@ -109,6 +110,21 @@ function BasicColorPicker({
               allowsOpacity={allowsOpacity}
               allowsGradient={allowsGradient}
               aria-labelledby="colorpicker-saved-colors-title"
+            />
+          </>
+        )}
+        {allowsSavedColors && storyColors.length > 0 && (
+          <>
+            <Label id="colorpicker-story-colors-title">
+              {__('Story colors', 'web-stories')}
+            </Label>
+            <BasicColorList
+              color={color}
+              colors={storyColors}
+              handleColorChange={handleColorChange}
+              allowsOpacity={allowsOpacity}
+              allowsGradient={allowsGradient}
+              aria-labelledby="colorpicker-story-colors-title"
             />
           </>
         )}
