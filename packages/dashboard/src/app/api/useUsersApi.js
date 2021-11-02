@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Google LLC
+ * Copyright 2021 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,15 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * External dependencies
  */
-import { __ } from '@web-stories-wp/i18n';
-import { Icons } from '@web-stories-wp/design-system';
+import { useCallback } from '@web-stories-wp/react';
 
-function Media3pIcon() {
-  return <Icons.Picture title={__('Explore Media', 'web-stories')} />;
+/**
+ * Internal dependencies
+ */
+import { useConfig } from '../config';
+
+function useUsersApi() {
+  const {
+    apiCallbacks: { getAuthors: getAuthorsCallback },
+  } = useConfig();
+
+  const getAuthors = useCallback(
+    (search) => getAuthorsCallback(search),
+    [getAuthorsCallback]
+  );
+
+  return {
+    api: {
+      getAuthors,
+    },
+  };
 }
 
-export default Media3pIcon;
+export default useUsersApi;

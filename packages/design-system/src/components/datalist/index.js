@@ -15,13 +15,12 @@
  */
 
 /**
- * External dependencies
+ * Internal dependencies
  */
-import { __ } from '@web-stories-wp/i18n';
-import { Icons } from '@web-stories-wp/design-system';
+import { default as DropDown } from './datalist';
+import * as styles from './list/styled';
 
-function Media3pIcon() {
-  return <Icons.Picture title={__('Explore Media', 'web-stories')} />;
-}
-
-export default Media3pIcon;
+export default {
+  DropDown,
+  ...styles,
+};
