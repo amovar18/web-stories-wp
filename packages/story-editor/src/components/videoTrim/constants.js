@@ -14,4 +14,5 @@
  * limitations under the License.
  */
 
-export { default } from './textBox';
+export const RAIL_HEIGHT = 36;
+export const RAIL_PADDING = 2;

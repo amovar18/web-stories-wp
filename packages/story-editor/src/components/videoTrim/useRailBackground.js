@@ -17,26 +17,27 @@
 /**
  * External dependencies
  */
-import { screen } from '@testing-library/react';
+import { useState, useEffect } from '@web-stories-wp/react';
+import { generateVideoStrip } from '@web-stories-wp/media';
 
 /**
  * Internal dependencies
  */
-import { renderWithProviders } from '../../../testUtils';
-import CardGrid from '..';
+import { RAIL_HEIGHT } from './constants';
 
-describe('CardGrid', () => {
-  it('should render CardGrid', () => {
-    renderWithProviders(
-      <CardGrid pageSize={{ width: 210, height: 316 }}>
-        <div data-testid={'test-child'}>{'Item 1'}</div>
-        <div data-testid={'test-child'}>{'Item 2'}</div>
-        <div data-testid={'test-child'}>{'Item 3'}</div>
-        <div data-testid={'test-child'}>{'Item 4'}</div>
-        <div data-testid={'test-child'}>{'Item 5'}</div>
-      </CardGrid>
+function useRailBackground(isReady, videoData, railWidth) {
+  const [railBackgroundImage, setRailBackgroundImage] = useState(null);
+  useEffect(() => {
+    if (!isReady) {
+      return;
+    }
+    const { element, resource } = videoData;
+    generateVideoStrip(element, resource, railWidth, RAIL_HEIGHT).then(
+      setRailBackgroundImage
     );
+  }, [isReady, videoData, railWidth]);
 
-    expect(screen.getAllByTestId('test-child')).toHaveLength(5);
-  });
-});
+  return railBackgroundImage;
+}
+
+export default useRailBackground;
