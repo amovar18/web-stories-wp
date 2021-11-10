@@ -58,7 +58,8 @@ const InnerContainer = styled.div`
   position: relative;
   display: flex;
   margin-bottom: 10px;
-  background-color: ${({ theme }) => rgba(theme.colors.standard.black, 0.3)};
+  background-color: ${({ theme, baseColor }) =>
+    baseColor ? baseColor : rgba(theme.colors.standard.black, 0.3)};
   body${KEYBOARD_USER_SELECTOR} .mediaElement:focus > & {
     outline: solid 2px #fff;
   }
@@ -86,6 +87,7 @@ function Element({
     isTranscoding,
     isMuting,
     isTrimming,
+    baseColor: backgroundColor,
   } = resource;
 
   const oRatio =
@@ -203,7 +205,7 @@ function Element({
       onBlur={makeInactive}
       tabIndex={index === 0 ? 0 : -1}
     >
-      <InnerContainer>
+      <InnerContainer baseColor={backgroundColor}>
         <InnerElement
           type={type}
           src={src}
