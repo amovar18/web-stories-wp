@@ -70,9 +70,6 @@ export default {
   ],
   modulePathIgnorePatterns: ['<rootDir>/build', '<rootDir>/vendor'],
   reporters: [
-    [
-      'jest-silent-reporter',
-      { useDots: true, showWarnings: true, showPaths: true },
-    ],
+    ['default', { useDots: true, showWarnings: true, showPaths: true }],
   ],
 };
