@@ -48,6 +48,7 @@ module.exports = function (config) {
       'karma-sourcemap-loader',
       'karma-webpack',
       'karma-coverage-istanbul-reporter',
+      'karma-spec-reporter',
       require('@web-stories-wp/karma-puppeteer-launcher'),
       require('@web-stories-wp/karma-puppeteer-client'),
       require('@web-stories-wp/karma-failed-tests-reporter'),

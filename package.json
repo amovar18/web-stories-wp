@@ -273,5 +273,8 @@
       "github-actions",
       "imgbot"
     ]
+  },
+  "dependencies": {
+    "karma-spec-reporter": "^0.0.32"
   }
 }
