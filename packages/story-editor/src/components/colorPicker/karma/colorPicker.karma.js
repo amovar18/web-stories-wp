@@ -139,7 +139,7 @@ describe('ColorPicker', () => {
             '#c4c4c4'
           )
         ).toBeTruthy();
-        const elements = document.querySelectorAll('video,audio,svg,img');
+        const elements = document.querySelectorAll('video,audio');
         elements.forEach((element) => {
           element.currentSrc = null;
           element.src = '';
