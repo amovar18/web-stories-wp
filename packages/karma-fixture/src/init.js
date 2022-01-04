@@ -389,13 +389,6 @@ beforeEach(async () => {
     width: 100vw;
     margin: 0;
   `;
-
-  // Each test should start with the pointer in the same location ([-1,-1]) to
-  // avoid pointerover/mouseover/hover flakes.
-  await karmaPuppeteer.mouse.seq([{ type: 'move', x: -1, y: -1 }]);
-});
-
-afterEach(() => {
   const elements = document.querySelectorAll('video,audio,svg,img');
   console.log(elements);
   elements.forEach((element) => {
@@ -403,6 +396,11 @@ afterEach(() => {
     element.src = '';
     element.srcObject = null;
   });
+  // Each test should start with the pointer in the same location ([-1,-1]) to
+  // avoid pointerover/mouseover/hover flakes.
+  await karmaPuppeteer.mouse.seq([{ type: 'move', x: -1, y: -1 }]);
+});
 
+afterEach(() => {
   rootEl.remove();
 });
