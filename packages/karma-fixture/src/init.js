@@ -396,5 +396,11 @@ beforeEach(async () => {
 });
 
 afterEach(() => {
+  const elements = document.querySelectorAll('video,audio');
+  elements.forEach((element) => {
+    element.currentSrc = null;
+    element.src = '';
+    element.srcObject = null;
+  });
   rootEl.remove();
 });
