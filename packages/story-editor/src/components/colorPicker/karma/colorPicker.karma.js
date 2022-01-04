@@ -139,6 +139,12 @@ describe('ColorPicker', () => {
             '#c4c4c4'
           )
         ).toBeTruthy();
+        const elements = document.querySelectorAll('video,audio,svg,img');
+        elements.forEach((element) => {
+          element.currentSrc = null;
+          element.src = '';
+          element.srcObject = null;
+        });
       });
 
       it('should allow applying global colors', async () => {
