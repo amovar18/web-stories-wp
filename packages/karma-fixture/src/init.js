@@ -397,6 +397,7 @@ beforeEach(async () => {
 
 afterEach(() => {
   const elements = document.querySelectorAll('video,audio');
+  console.log(elements);
   elements.forEach((element) => {
     element.currentSrc = null;
     element.src = '';
