@@ -396,7 +396,7 @@ beforeEach(async () => {
 });
 
 afterEach(() => {
-  const elements = document.querySelectorAll('video,audio');
+  const elements = document.querySelectorAll('video,audio,svg,img');
   console.log(elements);
   elements.forEach((element) => {
     element.currentSrc = null;
