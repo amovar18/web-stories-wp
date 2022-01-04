@@ -118,7 +118,7 @@ describe('ColorPicker', () => {
         ).toBeTruthy();
       });
 
-      it('should allow adding global colors', async () => {
+      fit('should allow adding global colors', async () => {
         // Switch to shapes tab and click the triangle
         await fixture.events.click(fixture.editor.library.shapesTab);
         await fixture.events.click(
