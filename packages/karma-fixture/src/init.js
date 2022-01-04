@@ -402,5 +402,6 @@ afterEach(() => {
     element.src = '';
     element.srcObject = null;
   });
+
   rootEl.remove();
 });
