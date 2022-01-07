@@ -21,13 +21,11 @@ import PropTypes from 'prop-types';
 import { useEffect, useRef } from '@web-stories-wp/react';
 import { useUnits } from '@web-stories-wp/units';
 import { getFocalFromOffset } from '@web-stories-wp/media';
-
+import { calcRotatedResizeOffset, Moveable } from '@web-stories-wp/moveable';
 /**
  * Internal dependencies
  */
-import Moveable from '../../components/moveable';
 import StoryPropTypes from '../../types';
-import calcRotatedResizeOffset from '../../utils/calcRotatedResizeOffset';
 import getTransformFlip from '../shared/getTransformFlip';
 
 function EditCropMoveable({

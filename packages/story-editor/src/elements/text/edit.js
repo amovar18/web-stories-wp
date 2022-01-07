@@ -29,11 +29,12 @@ import {
 import PropTypes from 'prop-types';
 import { generatePatternStyles } from '@web-stories-wp/patterns';
 import { useUnits } from '@web-stories-wp/units';
-
+import { useTransform, useTransformHandler } from '@web-stories-wp/transform';
+import { calcRotatedResizeOffset } from '@web-stories-wp/moveable';
 /**
  * Internal dependencies
  */
-import { useStory, useFont, useTransform } from '../../app';
+import { useStory, useFont } from '../../app';
 import RichTextEditor from '../../components/richText/editor';
 import { getHTMLInfo } from '../../components/richText/htmlManipulation';
 import {
@@ -47,9 +48,7 @@ import {
 import StoryPropTypes from '../../types';
 import { BACKGROUND_TEXT_MODE } from '../../constants';
 import stripHTML from '../../utils/stripHTML';
-import calcRotatedResizeOffset from '../../utils/calcRotatedResizeOffset';
 import useRichText from '../../components/richText/useRichText';
-import { useTransformHandler } from '../../components/transform';
 import {
   getBorderPositionCSS,
   shouldDisplayBorder,

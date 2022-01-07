@@ -21,7 +21,7 @@ import styled from 'styled-components';
 import { useRef } from '@web-stories-wp/react';
 import PropTypes from 'prop-types';
 import { useUnits } from '@web-stories-wp/units';
-
+import { useTransformHandler } from '@web-stories-wp/transform';
 /**
  * Internal dependencies
  */
@@ -31,7 +31,6 @@ import {
   elementWithBorder,
 } from '../shared';
 import StoryPropTypes from '../../types';
-import { useTransformHandler } from '../../components/transform';
 import {
   getResponsiveBorder,
   shouldDisplayBorder,

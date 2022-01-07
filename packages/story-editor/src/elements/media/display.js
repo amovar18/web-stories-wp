@@ -20,7 +20,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { getMediaSizePositionProps } from '@web-stories-wp/media';
-
+import { useTransformHandler } from '@web-stories-wp/transform';
 /**
  * Internal dependencies
  */
@@ -32,7 +32,6 @@ import {
   elementWithBorder,
   elementWithBackgroundColor,
 } from '../shared';
-import { useTransformHandler } from '../../components/transform';
 import {
   getResponsiveBorder,
   shouldDisplayBorder,

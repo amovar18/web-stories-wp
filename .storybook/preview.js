@@ -32,9 +32,9 @@ import {
 import {
   theme,
   GlobalStyle,
-  CropMoveableGlobalStyle,
   EditorConfigProvider,
 } from '@web-stories-wp/story-editor';
+import { cropStyle as CropMoveableGlobalStyle } from '@web-stories-wp/moveable';
 import {
   DashboardGlobalStyle,
   DashboardKeyboardOnlyOutline,

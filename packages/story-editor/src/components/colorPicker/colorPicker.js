@@ -30,12 +30,11 @@ import {
 import { __ } from '@web-stories-wp/i18n';
 import { PatternPropType, hasGradient } from '@web-stories-wp/patterns';
 import { useKeyDownEffect } from '@web-stories-wp/design-system';
-
+import { useTransform } from '@web-stories-wp/transform';
 /**
  * Internal dependencies
  */
 import useFocusTrapping from '../../utils/useFocusTrapping';
-import { useTransform } from '../transform';
 import useStory from '../../app/story/useStory';
 import CustomColorPicker from './customColorPicker';
 import BasicColorPicker from './basicColorPicker';

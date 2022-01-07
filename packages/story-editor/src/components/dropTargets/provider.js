@@ -20,12 +20,11 @@
 import PropTypes from 'prop-types';
 import { useState, useMemo, useCallback } from '@web-stories-wp/react';
 import { noop, useGlobalIsKeyPressed } from '@web-stories-wp/design-system';
-
+import { useTransform } from '@web-stories-wp/transform';
 /**
  * Internal dependencies
  */
 import { useStory } from '../../app/story';
-import { useTransform } from '../transform';
 import { getElementProperties } from '../canvas/useInsertElement';
 import { getDefinitionForType } from '../../elements';
 import Context from './context';

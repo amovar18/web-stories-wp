@@ -15,21 +15,30 @@
  */
 
 /**
+ * External dependencies
+ */
+import { forwardRef } from '@web-stories-wp/react';
+import Moveable from 'react-moveable';
+
+/**
  * Internal dependencies
  */
-import StoryPropTypes from '../types';
-import VisibleImage from '../media/visibleImage';
+import InOverlay from './overlay';
 
-function GifLayerIcon({
-  element: {
-    resource: { poster, alt },
-  },
-}) {
-  return <VisibleImage src={poster} alt={alt} height={21} width={21} />;
+const DEFAULT_Z_INDEX = 10;
+
+// eslint-disable-next-line react/prop-types
+function MoveableWithRef({ onContextMenu, ...moveableProps }, ref) {
+  return (
+    <InOverlay
+      onContextMenu={onContextMenu}
+      zIndex={DEFAULT_Z_INDEX}
+      pointerEvents="initial"
+      render={({ container }) => {
+        return <Moveable ref={ref} container={container} {...moveableProps} />;
+      }}
+    />
+  );
 }
 
-GifLayerIcon.propTypes = {
-  element: StoryPropTypes.element.isRequired,
-};
-
-export default GifLayerIcon;
+export default forwardRef(MoveableWithRef);

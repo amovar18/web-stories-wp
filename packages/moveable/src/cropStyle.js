@@ -24,7 +24,7 @@ const SIDE_NARROW = 8;
 const SIDE_BORDER = 1;
 const SIDES_DIFF = SIDE_WIDE - SIDE_NARROW;
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   .crop-moveable .moveable-control {
     background: ${({ theme }) => theme.colors.bg.primary} !important;
     border: none !important;
@@ -237,3 +237,4 @@ export const GlobalStyle = createGlobalStyle`
     pointer-events: none;
   }
 `;
+export default GlobalStyle;

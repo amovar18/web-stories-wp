@@ -22,10 +22,10 @@ import styled from 'styled-components';
 import { _x } from '@web-stories-wp/i18n';
 import { Slider } from '@web-stories-wp/design-system';
 import { BG_MIN_SCALE, BG_MAX_SCALE } from '@web-stories-wp/animation';
+import { InOverlay } from '@web-stories-wp/moveable';
 /**
  * Internal dependencies
  */
-import InOverlay from '../../components/overlay';
 import { Z_INDEX_CANVAS } from '../../constants';
 
 const MIN_WIDTH = 165;

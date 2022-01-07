@@ -17,12 +17,12 @@
  * External dependencies
  */
 import { UnitsProvider, getBox, PAGE_RATIO } from '@web-stories-wp/units';
+import { TransformProvider } from '@web-stories-wp/transform';
 /**
  * Internal dependencies
  */
 import TextSet from '../textSet';
 import LibraryProvider from '../../../../libraryProvider';
-import { TransformProvider } from '../../../../../transform';
 import { FontProvider } from '../../../../../../app/font';
 import { APIProvider } from '../../../../../../app/api';
 import { ConfigProvider } from '../../../../../../app/config';

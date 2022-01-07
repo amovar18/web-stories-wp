@@ -20,13 +20,13 @@
 import PropTypes from 'prop-types';
 import { useRef, useEffect, useState } from '@web-stories-wp/react';
 import { useUnits } from '@web-stories-wp/units';
+import { useTransform } from '@web-stories-wp/transform';
+import { Moveable } from '@web-stories-wp/moveable';
 /**
  * Internal dependencies
  */
-import Moveable from '../../moveable';
 import { useStory, useCanvas, useLayout } from '../../../app';
 import objectWithout from '../../../utils/objectWithout';
-import { useTransform } from '../../transform';
 import { getDefinitionForType } from '../../../elements';
 import isTargetOutOfContainer from '../../../utils/isTargetOutOfContainer';
 import useSnapping from '../utils/useSnapping';

@@ -23,7 +23,7 @@ import styled, { css } from 'styled-components';
 import { generatePatternStyles } from '@web-stories-wp/patterns';
 import { useUnits } from '@web-stories-wp/units';
 import { StoryAnimation } from '@web-stories-wp/animation';
-
+import { useTransformHandler } from '@web-stories-wp/transform';
 /**
  * Internal dependencies
  */
@@ -35,7 +35,6 @@ import {
 } from '../../elements/shared';
 import WithMask from '../../masks/display';
 import StoryPropTypes from '../../types';
-import { useTransformHandler } from '../transform';
 import useColorTransformHandler from '../../elements/shared/useColorTransformHandler';
 import {
   getBorderPositionCSS,

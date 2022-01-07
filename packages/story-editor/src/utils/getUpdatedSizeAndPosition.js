@@ -18,12 +18,11 @@
  * External dependencies
  */
 import { dataPixels } from '@web-stories-wp/units';
-
+import { calcRotatedResizeOffset } from '@web-stories-wp/moveable';
 /**
  * Internal dependencies
  */
 import { calculateTextHeight } from './textMeasurements';
-import calcRotatedResizeOffset from './calcRotatedResizeOffset';
 
 /**
  * Gets updated size and position of the element if relevant properties have changed.

@@ -21,13 +21,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useEffect, useRef, useMemo, useCallback } from '@web-stories-wp/react';
 import { PAGE_RATIO, useUnits } from '@web-stories-wp/units';
-
+import { withOverlay, InOverlay } from '@web-stories-wp/moveable';
 /**
  * Internal dependencies
  */
 import { useStory, useCanvas } from '../../app';
-import withOverlay from '../overlay/withOverlay';
-import InOverlay from '../overlay';
 
 const LASSO_ACTIVE_THRESHOLD = 10;
 

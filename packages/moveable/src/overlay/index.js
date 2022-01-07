@@ -17,15 +17,22 @@
 /**
  * External dependencies
  */
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { forwardRef, useContext, createPortal } from '@web-stories-wp/react';
 
 /**
  * Internal dependencies
  */
-import pointerEventsCss from '../../utils/pointerEventsCss';
 import Context from './context';
 
+const pointerEventsCss = css`
+  ${({ pointerEvents }) => {
+    if (pointerEvents && typeof pointerEvents === 'string') {
+      return `pointer-events: ${pointerEvents};`;
+    }
+    return '';
+  }}
+`;
 const Wrapper = styled.div`
   ${pointerEventsCss}
   position: absolute;

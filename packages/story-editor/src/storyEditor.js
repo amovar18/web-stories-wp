@@ -25,9 +25,13 @@ import {
   ModalGlobalStyle,
   deepMerge,
 } from '@web-stories-wp/design-system';
+import { TransformProvider } from '@web-stories-wp/transform';
 import { useMemo } from '@web-stories-wp/react';
 import { FlagsProvider } from 'flagged';
-
+import {
+  moveStyle as DefaultMoveableGlobalStyle,
+  cropStyle as CropMoveableGlobalStyle,
+} from '@web-stories-wp/moveable';
 /**
  * Internal dependencies
  */
@@ -43,12 +47,9 @@ import { MediaProvider } from './app/media';
 import { CurrentUserProvider } from './app/currentUser';
 import { TaxonomyProvider } from './app/taxonomy';
 import AutoSaveHandler from './components/autoSaveHandler';
-import { TransformProvider } from './components/transform';
 import { DropTargetsProvider } from './components/dropTargets';
 import { HelpCenterProvider } from './app/helpCenter';
 import DevTools from './components/devTools';
-import { GlobalStyle as DefaultMoveableGlobalStyle } from './components/moveable/moveStyle';
-import { GlobalStyle as CropMoveableGlobalStyle } from './components/moveable/cropStyle';
 import { GlobalStyle as CalendarStyle } from './components/form/dateTime/calendarStyle';
 import KeyboardOnlyOutlines from './utils/keyboardOnlyOutline';
 import defaultConfig from './defaultConfig';

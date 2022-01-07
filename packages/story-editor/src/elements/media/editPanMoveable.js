@@ -21,11 +21,10 @@ import PropTypes from 'prop-types';
 import { useEffect, useRef, useCallback } from '@web-stories-wp/react';
 import { getFocalFromOffset } from '@web-stories-wp/media';
 import { useKeyDownEffect } from '@web-stories-wp/design-system';
-
+import { Moveable } from '@web-stories-wp/moveable';
 /**
  * Internal dependencies
  */
-import Moveable from '../../components/moveable';
 import StoryPropTypes from '../../types';
 import getTransformFlip from '../shared/getTransformFlip';
 import getKeyboardMovement from '../../utils/getKeyboardMovement';

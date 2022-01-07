@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Google LLC
+ * Copyright 2021 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/**
- * Internal dependencies
- */
-export { default as Edit } from './edit';
-export { default as Frame } from './frame';
-export { default as LayerContent } from './layer';
-export { default as Output } from './output';
-export { default as LayerIcon } from './icon';
-export { default as TextContent } from '../media/textContent';
-export { default as Display } from './display';
-
-export * from './constants';
+export { default as Moveable } from './moveable';
+export { default as calcRotatedResizeOffset } from './calcRotatedResizeOffset';
+export { default as cropStyle } from './cropStyle';
+export { default as moveStyle } from './moveStyle';
+export { default as InOverlay } from './overlay';
+export { default as withOverlay } from './overlay/withOverlay';

@@ -18,10 +18,7 @@
  * External dependencies
  */
 import { generatePatternStyles, convertToCSS } from '@web-stories-wp/patterns';
-/**
- * Internal dependencies
- */
-import { useTransformHandler } from '../../components/transform';
+import { useTransformHandler } from '@web-stories-wp/transform';
 
 function useColorTransformHandler({
   id,

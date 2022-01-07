@@ -28,14 +28,13 @@ import {
 } from '@web-stories-wp/react';
 import classnames from 'classnames';
 import { useUnits } from '@web-stories-wp/units';
-
+import { useTransform } from '@web-stories-wp/transform';
+import { Moveable } from '@web-stories-wp/moveable';
 /**
  * Internal dependencies
  */
 import { useStory, useCanvas, useLayout } from '../../../app';
-import Moveable from '../../moveable';
 import objectWithout from '../../../utils/objectWithout';
-import { useTransform } from '../../transform';
 import useSnapping from '../utils/useSnapping';
 import useUpdateSelectionRectangle from '../utils/useUpdateSelectionRectangle';
 import useWindowResizeHandler from '../useWindowResizeHandler';

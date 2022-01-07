@@ -29,7 +29,7 @@ import {
   useEffect,
 } from '@web-stories-wp/react';
 import { useFeature } from 'flagged';
-
+import { TransformProvider } from '@web-stories-wp/transform';
 /**
  * Internal dependencies
  */
@@ -38,7 +38,6 @@ import {
   requestIdleCallback,
   cancelIdleCallback,
 } from '../../../utils/idleCallback';
-import { TransformProvider } from '../../transform';
 import DisplayElement from '../../canvas/displayElement';
 import usePerformanceTracking from '../../../utils/usePerformanceTracking';
 import { TRACKING_EVENTS } from '../../../constants/performanceTrackingEvents';

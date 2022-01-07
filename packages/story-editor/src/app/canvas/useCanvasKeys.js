@@ -21,7 +21,7 @@ import { useCallback, useEffect, useRef } from '@web-stories-wp/react';
 import { trackEvent } from '@web-stories-wp/tracking';
 import { useGlobalKeyDownEffect } from '@web-stories-wp/design-system';
 import { STORY_ANIMATION_STATE } from '@web-stories-wp/animation';
-
+import { useTransform } from '@web-stories-wp/transform';
 /**
  * Internal dependencies
  */
@@ -29,7 +29,6 @@ import { useStory } from '../story';
 import { LAYER_DIRECTIONS } from '../../constants';
 import getKeyboardMovement from '../../utils/getKeyboardMovement';
 import { getDefinitionForType, duplicateElement } from '../../elements';
-import { useTransform } from '../../components/transform';
 import useAddPastedElements from './useAddPastedElements';
 import { useCanvas } from '.';
 

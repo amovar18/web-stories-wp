@@ -15,9 +15,9 @@
  */
 
 /**
- * Internal dependencies
+ * External dependencies
  */
-import { useTransformHandler } from '../../components/transform';
+import { useTransformHandler } from '@web-stories-wp/transform';
 
 function useCSSVarColorTransformHandler({
   id,

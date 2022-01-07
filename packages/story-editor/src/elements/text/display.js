@@ -22,6 +22,7 @@ import { useEffect, useRef, useMemo } from '@web-stories-wp/react';
 import PropTypes from 'prop-types';
 import { createSolid } from '@web-stories-wp/patterns';
 import { useUnits } from '@web-stories-wp/units';
+import { useTransformHandler } from '@web-stories-wp/transform';
 /**
  * Internal dependencies
  */
@@ -36,7 +37,6 @@ import {
 } from '../shared';
 import StoryPropTypes from '../../types';
 import { BACKGROUND_TEXT_MODE } from '../../constants';
-import { useTransformHandler } from '../../components/transform';
 import {
   getHTMLFormatters,
   getHTMLInfo,

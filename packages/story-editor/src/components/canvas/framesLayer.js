@@ -22,19 +22,13 @@ import { memo, useRef, useCallback } from '@web-stories-wp/react';
 import { __ } from '@web-stories-wp/i18n';
 import { PAGE_WIDTH } from '@web-stories-wp/units';
 import { STORY_ANIMATION_STATE } from '@web-stories-wp/animation';
-
+import { useTransform } from '@web-stories-wp/transform';
 /**
  * Internal dependencies
  */
 import { useKeyDownEffect } from '@web-stories-wp/design-system';
 import { DESIGN_SPACE_MARGIN } from '../../constants';
-import {
-  useStory,
-  useCanvas,
-  useLayout,
-  useTransform,
-  useRightClickMenu,
-} from '../../app';
+import { useStory, useCanvas, useLayout, useRightClickMenu } from '../../app';
 import useCanvasKeys from '../../app/canvas/useCanvasKeys';
 import { Layer, NavNextArea, NavPrevArea, PageArea } from './layout';
 import FrameElement from './frameElement';

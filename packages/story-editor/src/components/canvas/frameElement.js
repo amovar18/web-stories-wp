@@ -25,13 +25,13 @@ import {
   useState,
 } from '@web-stories-wp/react';
 import { useUnits } from '@web-stories-wp/units';
-
+import { useTransform, useTransformHandler } from '@web-stories-wp/transform';
 /**
  * Internal dependencies
  */
 import StoryPropTypes from '../../types';
 import { getDefinitionForType } from '../../elements';
-import { useStory, useTransform, useCanvas } from '../../app';
+import { useStory, useCanvas } from '../../app';
 import {
   elementWithPosition,
   elementWithSize,
@@ -39,7 +39,6 @@ import {
 } from '../../elements/shared';
 import WithMask from '../../masks/frame';
 import WithLink from '../elementLink/frame';
-import { useTransformHandler } from '../transform';
 import { getElementMask } from '../../masks';
 import { MaskTypes } from '../../masks/constants';
 import useDoubleClick from '../../utils/useDoubleClick';

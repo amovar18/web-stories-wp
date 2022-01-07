@@ -22,17 +22,16 @@ import { useCallback, useRef, useState } from '@web-stories-wp/react';
 import styled from 'styled-components';
 import { editorToDataX, editorToDataY } from '@web-stories-wp/units';
 import { useKeyDownEffect } from '@web-stories-wp/design-system';
+import { Moveable, InOverlay } from '@web-stories-wp/moveable';
 /**
  * Internal dependencies
  */
 import { ZOOM_SETTING } from '../../../../constants';
-import Moveable from '../../../moveable';
 import { useDropTargets } from '../../../dropTargets';
 import { useLayout } from '../../../../app/layout';
 import useInsertElement from '../../../canvas/useInsertElement';
 import { useInsertTextSet } from '../../../canvas';
 import areEventsDragging from '../../../../utils/areEventsDragging';
-import InOverlay from '../../../overlay';
 import isTargetOutOfContainer from '../../../../utils/isTargetOutOfContainer';
 import useSnapping from '../../../canvas/utils/useSnapping';
 import { useStory, useCanvas } from '../../../../app';
