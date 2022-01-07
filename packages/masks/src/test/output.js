@@ -23,7 +23,7 @@ import { renderToStaticMarkup } from '@web-stories-wp/react';
  * Internal dependencies
  */
 import WithMask from '../output';
-import { MaskTypes } from '../constants';
+import { MaskTypes } from '../masks';
 
 describe('WithMask', () => {
   it('should produce valid AMP output when no mask is set', async () => {

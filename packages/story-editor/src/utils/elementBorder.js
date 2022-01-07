@@ -15,9 +15,9 @@
  */
 
 /**
- * Internal dependencies
+ * External dependencies
  */
-import { canMaskHaveBorder } from '../masks';
+import { canMaskHaveBorder } from '@web-stories-wp/masks';
 
 function hasBorder({ border }) {
   if (!border) {

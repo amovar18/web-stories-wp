@@ -20,11 +20,10 @@
 import PropTypes from 'prop-types';
 import { useCallback } from '@web-stories-wp/react';
 import { __ } from '@web-stories-wp/i18n';
-
+import { canMaskHaveBorder } from '@web-stories-wp/masks';
 /**
  * Internal dependencies
  */
-import { canMaskHaveBorder } from '../../../../masks';
 import { Color, Row } from '../../../form';
 import { SimplePanel } from '../../panel';
 import { useCommonObjectValue } from '../../shared';

@@ -20,17 +20,15 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { useRef, useEffect, useState } from '@web-stories-wp/react';
-
+import { getTransformFlip, StoryPropTypes } from '@web-stories-wp/elements';
+import { MaskTypes } from '@web-stories-wp/masks';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../types';
-import { useDropTargets } from '../app';
-import getTransformFlip from '../elements/shared/getTransformFlip';
-import { TRACKING_EVENTS } from '../constants/performanceTrackingEvents';
-import usePerformanceTracking from '../utils/usePerformanceTracking';
-import { MaskTypes } from './constants';
-import { getElementMask } from '.';
+import { useDropTargets } from '../../app';
+import { TRACKING_EVENTS } from '../../constants/performanceTrackingEvents';
+import usePerformanceTracking from '../../utils/usePerformanceTracking';
+import { getElementMask } from '../../../../masks/src/utils';
 
 const FILL_STYLE = {
   position: 'absolute',

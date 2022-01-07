@@ -13,24 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/**
- * External dependencies
- */
-import { __ } from '@web-stories-wp/i18n';
-import { getMaskByType } from '@web-stories-wp/masks';
-/**
- * Internal dependencies
- */
-import StoryPropTypes from '../../types';
-import { LayerText } from '../shared/layerText';
-
-function ShapeLayerContent({ element }) {
-  const maskDef = getMaskByType(element.mask.type);
-
-  return <LayerText>{maskDef.name || __('Shape', 'web-stories')}</LayerText>;
-}
-ShapeLayerContent.propTypes = {
-  element: StoryPropTypes.element.isRequired,
-};
-
-export default ShapeLayerContent;
+export * from './utils';
+export { default as WithMaskDisplay } from './display';
+export { default as WithMaskOutput } from './output';
+export * from './masks';

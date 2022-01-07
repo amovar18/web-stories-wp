@@ -20,7 +20,7 @@
 import { useCallback } from '@web-stories-wp/react';
 import STICKERS from '@web-stories-wp/stickers';
 import { dataPixels } from '@web-stories-wp/units';
-
+import { DEFAULT_MASK } from '@web-stories-wp/masks';
 /**
  * Internal dependencies
  */
@@ -28,7 +28,6 @@ import { createNewElement, getDefinitionForType } from '../../elements';
 import { useLocalMedia } from '../../app/media';
 import { useStory } from '../../app/story';
 import { useLayout } from '../../app/layout';
-import { DEFAULT_MASK } from '../../masks/constants';
 import { ZOOM_SETTING } from '../../constants';
 import useMedia3pApi from '../../app/media/media3p/api/useMedia3pApi';
 import getInsertedElementSize from '../../utils/getInsertedElementSize';

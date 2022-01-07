@@ -24,6 +24,8 @@ import { generatePatternStyles } from '@web-stories-wp/patterns';
 import { useUnits } from '@web-stories-wp/units';
 import { StoryAnimation } from '@web-stories-wp/animation';
 import { useTransformHandler } from '@web-stories-wp/transform';
+import { WithMaskDisplay as WithMask } from '@web-stories-wp/masks';
+
 /**
  * Internal dependencies
  */
@@ -33,7 +35,6 @@ import {
   elementWithRotation,
   elementWithSize,
 } from '../../elements/shared';
-import WithMask from '../../masks/display';
 import StoryPropTypes from '../../types';
 import useColorTransformHandler from '../../elements/shared/useColorTransformHandler';
 import {

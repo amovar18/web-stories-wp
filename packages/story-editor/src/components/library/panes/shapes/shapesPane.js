@@ -21,12 +21,11 @@ import styled from 'styled-components';
 import { __ } from '@web-stories-wp/i18n';
 import { useRef } from '@web-stories-wp/react';
 import STICKERS from '@web-stories-wp/stickers';
-
+import { MASKS } from '@web-stories-wp/masks';
 /**
  * Internal dependencies
  */
 import { useFeatures } from 'flagged';
-import { MASKS } from '../../../../masks/constants';
 import { Section, SearchInput } from '../../common';
 import { Pane } from '../shared';
 import useRovingTabIndex from '../../../../utils/useRovingTabIndex';

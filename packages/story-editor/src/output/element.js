@@ -20,13 +20,12 @@
 import { generatePatternStyles } from '@web-stories-wp/patterns';
 import { getBox } from '@web-stories-wp/units';
 import { StoryAnimation } from '@web-stories-wp/animation';
-
+import { WithMaskOutput as WithMask } from '@web-stories-wp/masks';
 /**
  * Internal dependencies
  */
 import WithLink from '../components/elementLink/output';
 import { getDefinitionForType } from '../elements';
-import WithMask from '../masks/output';
 import StoryPropTypes from '../types';
 import {
   getBorderPositionCSS,

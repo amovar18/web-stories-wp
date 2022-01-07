@@ -18,11 +18,10 @@
  * External dependencies
  */
 import styled from 'styled-components';
-
+import { getMaskByType } from '@web-stories-wp/masks';
 /**
  * Internal dependencies
  */
-import { getMaskByType } from '../../masks';
 import { elementWithBackgroundColor } from '../shared';
 import StoryPropTypes from '../../types';
 

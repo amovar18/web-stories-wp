@@ -14,10 +14,13 @@
  * limitations under the License.
  */
 /**
+ * External dependencies
+ */
+import { getDefinitionForType } from '@web-stories-wp/elements';
+/**
  * Internal dependencies
  */
-import { getDefinitionForType } from '../elements';
-import { DEFAULT_MASK, MASKS } from './constants';
+import { DEFAULT_MASK, MASKS } from './masks';
 
 export function getElementMask({ type, mask }) {
   if (mask?.type) {

@@ -26,6 +26,7 @@ import {
 } from '@web-stories-wp/react';
 import { useUnits } from '@web-stories-wp/units';
 import { useTransform, useTransformHandler } from '@web-stories-wp/transform';
+import { MaskTypes, getElementMask } from '@web-stories-wp/masks';
 /**
  * Internal dependencies
  */
@@ -37,10 +38,8 @@ import {
   elementWithSize,
   elementWithRotation,
 } from '../../elements/shared';
-import WithMask from '../../masks/frame';
+import WithMask from '../masks/frame';
 import WithLink from '../elementLink/frame';
-import { getElementMask } from '../../masks';
-import { MaskTypes } from '../../masks/constants';
 import useDoubleClick from '../../utils/useDoubleClick';
 import usePerformanceTracking from '../../utils/usePerformanceTracking';
 import { TRACKING_EVENTS } from '../../constants/performanceTrackingEvents';

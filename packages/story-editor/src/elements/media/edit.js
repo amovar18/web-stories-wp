@@ -32,14 +32,13 @@ import {
   calculateSrcSet,
 } from '@web-stories-wp/media';
 import { BG_MIN_SCALE, BG_MAX_SCALE } from '@web-stories-wp/animation';
-
+import { WithMaskDisplay as WithMask } from '@web-stories-wp/masks';
 /**
  * Internal dependencies
  */
 import { elementFillContent, elementWithFlip } from '../shared';
 import { useStory } from '../../app';
 import StoryPropTypes from '../../types';
-import WithMask from '../../masks/display';
 import getTransformFlip from '../shared/getTransformFlip';
 import { shouldDisplayBorder } from '../../utils/elementBorder';
 import useCORSProxy from '../../utils/useCORSProxy';

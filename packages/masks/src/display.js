@@ -20,15 +20,16 @@
 import PropTypes from 'prop-types';
 import { useMemo } from '@web-stories-wp/react';
 import { v4 as uuidv4 } from 'uuid';
-
+import {
+  getTransformFlip,
+  shouldDisplayBorder,
+  StoryPropTypes,
+} from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../types';
-import getTransformFlip from '../elements/shared/getTransformFlip';
-import { shouldDisplayBorder } from '../utils/elementBorder';
-import { MaskTypes } from './constants';
-import { getElementMask } from '.';
+import { MaskTypes } from './masks';
+import { getElementMask } from './utils';
 
 const FILL_STYLE = {
   position: 'absolute',

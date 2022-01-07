@@ -17,7 +17,7 @@
 /**
  * Internal dependencies
  */
-import { MASKS } from '../constants';
+import { MASKS } from '../masks';
 
 describe('Masks', () => {
   it('every path should end with a closepath function', () => {
