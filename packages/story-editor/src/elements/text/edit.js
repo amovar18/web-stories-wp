@@ -31,12 +31,12 @@ import { generatePatternStyles } from '@web-stories-wp/patterns';
 import { useUnits } from '@web-stories-wp/units';
 import { useTransform, useTransformHandler } from '@web-stories-wp/transform';
 import { calcRotatedResizeOffset } from '@web-stories-wp/moveable';
+import { getHTMLInfo } from '@web-stories-wp/rich-text';
 /**
  * Internal dependencies
  */
 import { useStory, useFont } from '../../app';
 import RichTextEditor from '../../components/richText/editor';
-import { getHTMLInfo } from '../../components/richText/htmlManipulation';
 import {
   elementFillContent,
   elementWithFont,

@@ -20,15 +20,11 @@
 import { useMemo, useCallback, useRef, useEffect } from '@web-stories-wp/react';
 import { isPatternEqual } from '@web-stories-wp/patterns';
 import { useGlobalKeyDownEffect } from '@web-stories-wp/design-system';
-
+import { getHTMLFormatters, getHTMLInfo } from '@web-stories-wp/rich-text';
 /**
  * Internal dependencies
  */
 import useRichText from '../../../richText/useRichText';
-import {
-  getHTMLFormatters,
-  getHTMLInfo,
-} from '../../../richText/htmlManipulation';
 import { MULTIPLE_VALUE } from '../../../../constants';
 import { useCanvas } from '../../../../app';
 

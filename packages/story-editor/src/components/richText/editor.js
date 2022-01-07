@@ -26,12 +26,12 @@ import {
   forwardRef,
   useUnmount,
 } from '@web-stories-wp/react';
+import { customInlineDisplay } from '@web-stories-wp/rich-text';
 
 /**
  * Internal dependencies
  */
 import useRichText from './useRichText';
-import customInlineDisplay from './customInlineDisplay';
 
 function RichTextEditor({ content, onChange }, ref) {
   const editorRef = useRef(null);

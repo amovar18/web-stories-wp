@@ -26,12 +26,11 @@ import {
   dataToFontSizeY as dataToFontSize,
 } from '@web-stories-wp/units';
 import classnames from 'classnames';
-
+import { getHTMLFormatters } from '@web-stories-wp/rich-text';
 /**
  * Internal dependencies
  */
 import StoryPropTypes from '../../types';
-import { getHTMLFormatters } from '../../components/richText/htmlManipulation';
 import { BACKGROUND_TEXT_MODE } from '../../constants';
 import {
   generateParagraphTextStyle,

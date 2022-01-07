@@ -19,25 +19,25 @@
  */
 import PropTypes from 'prop-types';
 import { useState, useCallback, useMemo, useRef } from '@web-stories-wp/react';
-import { EditorState } from 'draft-js';
+import {
+  EditorState,
+  getSelectionForAll,
+  getSelectionForOffset,
+  getFilteredState,
+  getHandleKeyCommandFromState,
+  getStateInfo,
+  useFauxSelection,
+  customImport,
+  customExport,
+  useHandlePastedText,
+  useSelectionManipulation,
+} from '@web-stories-wp/rich-text';
 
 /**
  * Internal dependencies
  */
 import { useCanvas } from '../../app';
 import RichTextContext from './context';
-import {
-  getSelectionForAll,
-  getSelectionForOffset,
-  getFilteredState,
-  getHandleKeyCommandFromState,
-} from './util';
-import getStateInfo from './getStateInfo';
-import { useFauxSelection } from './fauxSelection';
-import customImport from './customImport';
-import customExport from './customExport';
-import useHandlePastedText from './useHandlePastedText';
-import useSelectionManipulation from './useSelectionManipulation';
 
 function RichTextProvider({ children }) {
   const { editingElementState } = useCanvas((state) => ({

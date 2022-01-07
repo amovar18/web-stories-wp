@@ -23,14 +23,13 @@ import {
   useState,
 } from '@web-stories-wp/react';
 import { dataFontEm, PAGE_HEIGHT } from '@web-stories-wp/units';
-
+import { getHTMLFormatters } from '@web-stories-wp/rich-text';
 /**
  * Internal dependencies
  */
 import getInsertedElementSize from '../../../../utils/getInsertedElementSize';
 import useLibrary from '../../useLibrary';
 import { useHistory } from '../../../../app';
-import { getHTMLFormatters } from '../../../richText/htmlManipulation';
 import { BACKGROUND_TEXT_MODE } from '../../../../constants';
 import { applyHiddenPadding } from '../../../panels/design/textStyle/utils';
 import usePageAsCanvas from '../../../../utils/usePageAsCanvas';

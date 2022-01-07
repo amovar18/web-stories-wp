@@ -23,6 +23,7 @@ import PropTypes from 'prop-types';
 import { createSolid } from '@web-stories-wp/patterns';
 import { useUnits } from '@web-stories-wp/units';
 import { useTransformHandler } from '@web-stories-wp/transform';
+import { getHTMLFormatters, getHTMLInfo } from '@web-stories-wp/rich-text';
 /**
  * Internal dependencies
  */
@@ -37,10 +38,6 @@ import {
 } from '../shared';
 import StoryPropTypes from '../../types';
 import { BACKGROUND_TEXT_MODE } from '../../constants';
-import {
-  getHTMLFormatters,
-  getHTMLInfo,
-} from '../../components/richText/htmlManipulation';
 import stripHTML from '../../utils/stripHTML';
 import {
   getResponsiveBorder,
