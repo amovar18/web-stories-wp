@@ -20,12 +20,10 @@
 import { forwardRef, useCallback, useMemo } from '@web-stories-wp/react';
 import PropTypes from 'prop-types';
 import { __ } from '@web-stories-wp/i18n';
-import { Datalist } from '@web-stories-wp/design-system';
-
+import { Datalist, stripHTML } from '@web-stories-wp/design-system';
 /**
  * Internal dependencies
  */
-import stripHTML from '../../../../utils/stripHTML';
 import { useFont } from '../../../../app/font';
 import { MULTIPLE_DISPLAY_VALUE, MULTIPLE_VALUE } from '../../../../constants';
 import { getCommonValue } from '../../shared';

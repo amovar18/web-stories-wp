@@ -24,10 +24,10 @@ import {
   isPatternEqual,
 } from '@web-stories-wp/patterns';
 import { getHTMLInfo } from '@web-stories-wp/rich-text';
+import { generateFontFamily } from '@web-stories-wp/fonts';
 /**
  * Internal dependencies
  */
-import { generateFontFamily } from '../elements/text/util';
 import {
   BACKGROUND_TEXT_MODE,
   MULTIPLE_VALUE,

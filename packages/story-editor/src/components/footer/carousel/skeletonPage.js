@@ -23,12 +23,11 @@ import {
   generatePatternStyles,
   getSolidFromHex,
 } from '@web-stories-wp/patterns';
-
+import { getDefinitionForType } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import isHexColorString from '../../../utils/isHexColorString';
-import { getDefinitionForType } from '../../../elements';
 import useCarousel from './useCarousel';
 
 const EmptyPage = styled.li.attrs({ role: 'presentation' })`

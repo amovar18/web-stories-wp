@@ -24,14 +24,13 @@ import { useCallback } from '@web-stories-wp/react';
  * External dependencies
  */
 import { __, sprintf } from '@web-stories-wp/i18n';
-
+import { getDefinitionForType } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { OverlayPreset, OverlayType } from '../../../../utils/overlay';
 import { Row, Color, FilterToggle } from '../../../form';
 import { SimplePanel } from '../../panel';
-import { getDefinitionForType } from '../../../../elements';
 import { useCommonColorValue } from '../../shared';
 import { MULTIPLE_VALUE } from '../../../../constants';
 import convertOverlay from './convertOverlay';

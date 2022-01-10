@@ -13,21 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/**
+ * Internal dependencies
+ */
+import StoryPropTypes from './types';
 export * from './constants';
 export * from './utils/elementBorder';
 export * from './utils/styles';
-export {
-  default as StoryPropTypes,
-  PageSizePropType,
-  BackgroundAudioPropType,
-} from './types';
+export { PageSizePropType, BackgroundAudioPropType } from './types';
+export { StoryPropTypes };
 export {
   default as elementTypes,
   registerElementType,
   ELEMENT_TYPES,
 } from './elementTypes';
 export { default as PanelTypes } from './panelTypes';
+export { default as objectWithout } from './utils/objectWithout';
 export { default as canElementHaveBorder } from './utils/canElementHaveBorder';
 export { default as createNewElement } from './utils/createNewElement';
 export { default as createPage } from './utils/createPage';
@@ -41,7 +42,13 @@ export {
   calculateFitTextFontSize,
   calculateTextHeight,
 } from './utils/textMeasurements';
+export { default as getKeyboardMovement } from './utils/getKeyboardMovement';
 export { default as calcFontMetrics } from './utils/calcFontMetrics';
 export { default as generateParagraphTextStyle } from './utils/generateParagraphTextStyle';
 export { default as getHighlightLineHeight } from './utils/getHighlightLineHeight';
 export { default as TextOutputWithUnits } from './utils/TextOutputWithUnits';
+export { default as areEventsDragging } from './utils/areEventsDragging';
+export {
+  default as duplicateElement,
+  getOffsetCoordinates,
+} from './utils/duplicateElement';

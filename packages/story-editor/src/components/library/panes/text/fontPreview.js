@@ -25,16 +25,18 @@ import {
   useCallback,
   useRef,
 } from '@web-stories-wp/react';
-import { Text, useKeyDownEffect } from '@web-stories-wp/design-system';
+import {
+  Text,
+  useKeyDownEffect,
+  stripHTML,
+} from '@web-stories-wp/design-system';
 import { trackEvent } from '@web-stories-wp/tracking';
 import { useUnits } from '@web-stories-wp/units';
-
 /**
  * Internal dependencies
  */
 import { useFont, useHistory } from '../../../../app';
 import StoryPropTypes from '../../../../types';
-import stripHTML from '../../../../utils/stripHTML';
 import { focusStyle } from '../../../panels/shared';
 import usePageAsCanvas from '../../../../utils/usePageAsCanvas';
 import useLibrary from '../../useLibrary';

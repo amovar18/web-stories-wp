@@ -23,12 +23,15 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { StoryPropTypes, getTransformFlip } from '@web-stories-wp/elements';
+import {
+  StoryPropTypes,
+  getTransformFlip,
+  getElementMask,
+} from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { DEFAULT_MASK } from './masks';
-import { getElementMask } from './utils';
 
 const FILL_STYLE = {
   position: 'absolute',

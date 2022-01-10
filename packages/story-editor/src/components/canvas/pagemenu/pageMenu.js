@@ -21,12 +21,11 @@ import styled from 'styled-components';
 import { memo, useCallback, useRef } from '@web-stories-wp/react';
 import { __ } from '@web-stories-wp/i18n';
 import { Icons } from '@web-stories-wp/design-system';
-
+import { createPage, duplicatePage } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { useStory } from '../../../app';
-import { createPage, duplicatePage } from '../../../elements';
 import usePerformanceTracking from '../../../utils/usePerformanceTracking';
 import { TRACKING_EVENTS } from '../../../constants/performanceTrackingEvents';
 import PageMenuButton from './pageMenuButton';

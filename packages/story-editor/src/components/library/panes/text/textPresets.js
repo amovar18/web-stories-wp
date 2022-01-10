@@ -19,12 +19,11 @@
  */
 import { __, _x } from '@web-stories-wp/i18n';
 import { dataFontEm, PAGE_HEIGHT } from '@web-stories-wp/units';
-
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
 /**
  * Internal dependencies
  */
 import { FONT_WEIGHT, BACKGROUND_TEXT_MODE } from '../../../../constants';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '../../../../app/font/defaultFonts';
 
 // Measured in editor. As small as you can make
 // width with preset font before line wraps

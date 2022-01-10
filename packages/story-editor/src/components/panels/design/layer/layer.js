@@ -28,14 +28,13 @@ import {
   Tooltip,
 } from '@web-stories-wp/design-system';
 import { useRef } from '@web-stories-wp/react';
-
+import { getDefinitionForType } from '@web-stories-wp/elements';
+import { LayerText } from '@web-stories-wp/elements-library';
 /**
  * Internal dependencies
  */
 import StoryPropTypes from '../../../../types';
-import { getDefinitionForType } from '../../../../elements';
 import { useStory } from '../../../../app';
-import { LayerText } from '../../../../elements/shared/layerText';
 import usePerformanceTracking from '../../../../utils/usePerformanceTracking';
 import { TRACKING_EVENTS } from '../../../../constants/performanceTrackingEvents';
 import useLayerSelection from './useLayerSelection';

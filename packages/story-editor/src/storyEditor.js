@@ -26,12 +26,13 @@ import {
   deepMerge,
 } from '@web-stories-wp/design-system';
 import { TransformProvider } from '@web-stories-wp/transform';
-import { useMemo } from '@web-stories-wp/react';
+import { useMemo, useEffect } from '@web-stories-wp/react';
 import { FlagsProvider } from 'flagged';
 import {
   moveStyle as DefaultMoveableGlobalStyle,
   cropStyle as CropMoveableGlobalStyle,
 } from '@web-stories-wp/moveable';
+import { registerElementTypes } from '@web-stories-wp/elements-library';
 /**
  * Internal dependencies
  */
@@ -57,7 +58,9 @@ import defaultConfig from './defaultConfig';
 function StoryEditor({ config, initialEdits, children }) {
   const _config = useMemo(() => deepMerge(defaultConfig, config), [config]);
   const { storyId, isRTL, flags } = _config;
-
+  useEffect(() => {
+    registerElementTypes();
+  }, []);
   return (
     <FlagsProvider features={flags}>
       <StyleSheetManager stylisPlugins={isRTL ? [stylisRTLPlugin] : []}>

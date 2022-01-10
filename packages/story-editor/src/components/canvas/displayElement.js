@@ -25,23 +25,17 @@ import { useUnits } from '@web-stories-wp/units';
 import { StoryAnimation } from '@web-stories-wp/animation';
 import { useTransformHandler } from '@web-stories-wp/transform';
 import { WithMaskDisplay as WithMask } from '@web-stories-wp/masks';
-
-/**
- * Internal dependencies
- */
-import { getDefinitionForType } from '../../elements';
 import {
+  getDefinitionForType,
   elementWithPosition,
   elementWithRotation,
   elementWithSize,
-} from '../../elements/shared';
-import StoryPropTypes from '../../types';
-import useColorTransformHandler from '../../elements/shared/useColorTransformHandler';
-import {
+  useColorTransformHandler,
   getBorderPositionCSS,
   getResponsiveBorder,
   shouldDisplayBorder,
-} from '../../utils/elementBorder';
+  StoryPropTypes,
+} from '@web-stories-wp/elements';
 
 // Using attributes to avoid creation of hundreds of classes by styled components for previewMode.
 const Wrapper = styled.div.attrs(

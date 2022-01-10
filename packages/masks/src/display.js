@@ -23,14 +23,13 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   getTransformFlip,
   shouldDisplayBorder,
+  getElementMask,
   StoryPropTypes,
 } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { MaskTypes } from './masks';
-import { getElementMask } from './utils';
-
 const FILL_STYLE = {
   position: 'absolute',
   top: 0,
@@ -38,7 +37,6 @@ const FILL_STYLE = {
   right: 0,
   bottom: 0,
 };
-
 export default function WithMask({
   element,
   fill,

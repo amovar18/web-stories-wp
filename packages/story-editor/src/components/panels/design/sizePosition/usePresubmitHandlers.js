@@ -22,12 +22,12 @@ import {
   dataPixels,
   calcRotatedObjectPositionAndSize,
 } from '@web-stories-wp/units';
+import { getDefinitionForType } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 
 import clamp from '../../../../utils/clamp';
-import { getDefinitionForType } from '../../../../elements';
 import usePresubmitHandler from '../../../form/usePresubmitHandler';
 import { MIN_MAX } from './constants';
 import { isNum } from './utils';

@@ -18,3 +18,5 @@
  * Internal dependencies
  */
 export { default as VideoTrimProvider } from './provider';
+export { default as useVideoTrim } from './useVideoTrim';
+export { default as VideoTrimmer } from './videoTrimmer';

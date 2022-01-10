@@ -26,18 +26,19 @@ import {
 } from '@web-stories-wp/react';
 import { useUnits } from '@web-stories-wp/units';
 import { useTransform, useTransformHandler } from '@web-stories-wp/transform';
-import { MaskTypes, getElementMask } from '@web-stories-wp/masks';
-/**
- * Internal dependencies
- */
-import StoryPropTypes from '../../types';
-import { getDefinitionForType } from '../../elements';
-import { useStory, useCanvas } from '../../app';
+import { MaskTypes } from '@web-stories-wp/masks';
 import {
+  getDefinitionForType,
   elementWithPosition,
   elementWithSize,
   elementWithRotation,
-} from '../../elements/shared';
+  StoryPropTypes,
+  getElementMask,
+} from '@web-stories-wp/elements';
+/**
+ * Internal dependencies
+ */
+import { useStory, useCanvas } from '../../app';
 import WithMask from '../masks/frame';
 import WithLink from '../elementLink/frame';
 import useDoubleClick from '../../utils/useDoubleClick';

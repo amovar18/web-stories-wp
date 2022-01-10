@@ -22,13 +22,16 @@ import { trackEvent } from '@web-stories-wp/tracking';
 import { useGlobalKeyDownEffect } from '@web-stories-wp/design-system';
 import { STORY_ANIMATION_STATE } from '@web-stories-wp/animation';
 import { useTransform } from '@web-stories-wp/transform';
+import {
+  getKeyboardMovement,
+  getDefinitionForType,
+  duplicateElement,
+} from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { useStory } from '../story';
 import { LAYER_DIRECTIONS } from '../../constants';
-import getKeyboardMovement from '../../utils/getKeyboardMovement';
-import { getDefinitionForType, duplicateElement } from '../../elements';
 import useAddPastedElements from './useAddPastedElements';
 import { useCanvas } from '.';
 

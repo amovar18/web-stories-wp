@@ -31,7 +31,10 @@ export const MEDIA_DEFAULT_ATTRIBUTES = {
     alt: '',
   },
 };
-
+export const Z_INDEX_CANVAS = {
+  MOVABLE: 10,
+  FLOAT_PANEL: 11,
+};
 // @todo: only provide font family, and use font provider to fill the rest.
 export const TEXT_ELEMENT_DEFAULT_FONT = {
   family: 'Roboto',

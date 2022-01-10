@@ -24,6 +24,7 @@ import { __ } from '@web-stories-wp/i18n';
 import { trackEvent } from '@web-stories-wp/tracking';
 import { UnitsProvider } from '@web-stories-wp/units';
 import { useSnackbar } from '@web-stories-wp/design-system';
+import { duplicatePage } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
@@ -35,7 +36,6 @@ import {
   PANEL_GRID_ROW_GAP,
   VirtualizedWrapper,
 } from '../shared/virtualizedPanelGrid';
-import { duplicatePage } from '../../../../elements';
 import { useStory } from '../../../../app/story';
 import PageTemplate from './pageTemplate';
 

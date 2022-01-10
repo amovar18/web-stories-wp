@@ -28,10 +28,10 @@ import styled from 'styled-components';
 import { __ } from '@web-stories-wp/i18n';
 import { trackEvent } from '@web-stories-wp/tracking';
 import { useGridViewKeys, useSnackbar } from '@web-stories-wp/design-system';
+import { duplicatePage } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import { duplicatePage } from '../../../../elements';
 import { useStory } from '../../../../app/story';
 import { PANE_PADDING } from '../shared';
 import { useConfig } from '../../../../app/config';

@@ -30,7 +30,7 @@ import {
   Text as DefaultText,
   THEME_CONSTANTS,
 } from '@web-stories-wp/design-system';
-
+import { getDefinitionForType } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
@@ -38,7 +38,6 @@ import { Color, Row as DefaultRow } from '../../../form';
 import { useStory } from '../../../../app';
 import { SimplePanel } from '../../panel';
 import { FlipControls } from '../../shared';
-import { getDefinitionForType } from '../../../../elements';
 import { states, styles, useHighlights } from '../../../../app/highlights';
 
 const DEFAULT_FLIP = { horizontal: false, vertical: false };

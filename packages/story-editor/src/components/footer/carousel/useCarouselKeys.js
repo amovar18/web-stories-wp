@@ -22,12 +22,11 @@ import {
   useEscapeToBlurEffect,
   useKeyDownEffect,
 } from '@web-stories-wp/design-system';
-
+import { duplicatePage } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { useStory, useConfig } from '../../../app';
-import { duplicatePage } from '../../../elements';
 
 function useCarouselKeys({ listElement, pageRefs }) {
   const { isRTL } = useConfig();

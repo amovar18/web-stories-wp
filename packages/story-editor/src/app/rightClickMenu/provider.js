@@ -32,14 +32,17 @@ import {
   useRef,
 } from '@web-stories-wp/react';
 import { v4 as uuidv4 } from 'uuid';
-
+import {
+  createPage,
+  duplicatePage,
+  ELEMENT_TYPES,
+} from '@web-stories-wp/elements';
 /** @typedef {import('react')} Node */
 
 /**
  * Internal dependencies
  */
 import { useStory } from '..';
-import { createPage, duplicatePage, ELEMENT_TYPES } from '../../elements';
 import updateProperties from '../../components/inspector/design/updateProperties';
 import useAddPreset from '../../utils/useAddPreset';
 import useApplyStyle from '../../components/panels/design/textStyle/stylePresets/useApplyStyle';

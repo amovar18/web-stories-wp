@@ -22,15 +22,11 @@ import {
   dataToEditorY,
   dataToFontSizeY as dataToFontSize,
 } from '@web-stories-wp/units';
-
-/**
- * Internal dependencies
- */
 import {
-  generateFontFamily,
-  getHighlightLineheight,
+  getHighlightLineHeight,
   generateParagraphTextStyle,
-} from '../util';
+} from '@web-stories-wp/elements';
+import { generateFontFamily } from '@web-stories-wp/fonts';
 
 const TEXT_ELEMENT = {
   opacity: 100,
@@ -137,25 +133,25 @@ describe('Text/util', () => {
 
   describe('getHighlightLineheight', () => {
     it('should return correct value when just line-height', () => {
-      const actual = getHighlightLineheight(3);
+      const actual = getHighlightLineHeight(3);
       const expected = '3em';
       expect(actual).toStrictEqual(expected);
     });
 
     it('should return correct value with positive padding', () => {
-      const actual = getHighlightLineheight(3, 10);
+      const actual = getHighlightLineHeight(3, 10);
       const expected = 'calc(3em + 20px)';
       expect(actual).toStrictEqual(expected);
     });
 
     it('should return correct value with negative padding', () => {
-      const actual = getHighlightLineheight(3, -6);
+      const actual = getHighlightLineHeight(3, -6);
       const expected = 'calc(3em - 12px)';
       expect(actual).toStrictEqual(expected);
     });
 
     it('should return correct value with given units', () => {
-      const actual = getHighlightLineheight(3, 2, '%');
+      const actual = getHighlightLineHeight(3, 2, '%');
       const expected = 'calc(3em + 4%)';
       expect(actual).toStrictEqual(expected);
     });

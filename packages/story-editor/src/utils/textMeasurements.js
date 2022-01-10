@@ -19,12 +19,7 @@
  */
 import { renderToStaticMarkup } from '@web-stories-wp/react';
 import { dataPixels, PAGE_HEIGHT } from '@web-stories-wp/units';
-
-/**
- * Internal dependencies
- */
-import { TextOutputWithUnits } from '../elements/text/output';
-import { calcFontMetrics } from '../elements/text/util';
+import { TextOutputWithUnits, calcFontMetrics } from '@web-stories-wp/elements';
 
 const MEASURER_STYLES = {
   boxSizing: 'border-box',

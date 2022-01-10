@@ -21,12 +21,12 @@ import PropTypes from 'prop-types';
 import { useState, useMemo, useCallback } from '@web-stories-wp/react';
 import { noop, useGlobalIsKeyPressed } from '@web-stories-wp/design-system';
 import { useTransform } from '@web-stories-wp/transform';
+import { getDefinitionForType } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { useStory } from '../../app/story';
 import { getElementProperties } from '../canvas/useInsertElement';
-import { getDefinitionForType } from '../../elements';
 import Context from './context';
 
 const DROP_SOURCE_ALLOWED_TYPES = ['image', 'gif', 'video'];

@@ -22,12 +22,12 @@ import { useRef, useEffect, useState } from '@web-stories-wp/react';
 import { useUnits } from '@web-stories-wp/units';
 import { useTransform } from '@web-stories-wp/transform';
 import { Moveable } from '@web-stories-wp/moveable';
+import { getDefinitionForType } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { useStory, useCanvas, useLayout } from '../../../app';
 import objectWithout from '../../../utils/objectWithout';
-import { getDefinitionForType } from '../../../elements';
 import isTargetOutOfContainer from '../../../utils/isTargetOutOfContainer';
 import useSnapping from '../utils/useSnapping';
 import useUpdateSelectionRectangle from '../utils/useUpdateSelectionRectangle';

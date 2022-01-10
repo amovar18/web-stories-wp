@@ -18,3 +18,5 @@
  * Internal dependencies
  */
 export { default as RichTextProvider } from './provider';
+export { default as useRichText } from './useRichText';
+export { default as RichTextEditor } from './editor';

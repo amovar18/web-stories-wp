@@ -31,7 +31,10 @@ export * from './components/panels/shared';
 export * from './components/checklist';
 export * from './components/checklistCard';
 export * from './app/currentUser';
-
+export * from './app/font';
+export * from './components/richText';
+export * from './app/canvas';
+export * from './components/videoTrim';
 export { default as getStoryPropsToSave } from './app/story/utils/getStoryPropsToSave';
 export { default as useRefreshPostEditURL } from './utils/useRefreshPostEditURL';
 export { default as FontContext } from './app/font/context';
@@ -44,6 +47,7 @@ export { default as Tooltip } from './components/tooltip';
 export { default as Popup } from './components/popup';
 export { default as useInspector } from './components/inspector/useInspector';
 export { default as InspectorContext } from './components/inspector/context';
+export { default as useCORSProxy } from './utils/useCORSProxy';
 export {
   styles as highlightStyles,
   states as highlightStates,

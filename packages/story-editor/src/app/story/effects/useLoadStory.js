@@ -19,13 +19,12 @@
  */
 import { useEffect } from '@web-stories-wp/react';
 import { migrate } from '@web-stories-wp/migration';
-
+import { createPage } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { useAPI } from '../../api';
 import { useHistory } from '../../history';
-import { createPage } from '../../../elements';
 import getUniquePresets from '../../../utils/getUniquePresets';
 
 function loadStory(storyId, post, restore, clearHistory) {

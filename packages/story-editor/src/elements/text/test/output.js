@@ -18,11 +18,7 @@
  * External dependencies
  */
 import { renderToStaticMarkup } from '@web-stories-wp/react';
-
-/**
- * Internal dependencies
- */
-import TextOutput from '../output';
+import { TextOutput } from '@web-stories-wp/elements-library';
 
 function renderViaString(...args) {
   // Render an element via string to test that Output templates do not use

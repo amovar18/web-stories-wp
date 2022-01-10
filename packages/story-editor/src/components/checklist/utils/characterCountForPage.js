@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 /**
- * Internal dependencies
+ * External dependencies
  */
-import stripHTML from '../../../utils/stripHTML';
+import { stripHTML } from '@web-stories-wp/design-system';
 
 export function characterCountForPage(page) {
   let characterCount = 0;

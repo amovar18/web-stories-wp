@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/**
+ * External dependencies
+ */
+import { elementTypes } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import { elementTypes } from '../../../elements';
 import {
   AnimationPanel,
   BorderStylePanel,

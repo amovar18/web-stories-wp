@@ -24,11 +24,10 @@ import {
   PAGE_WIDTH,
 } from '@web-stories-wp/units';
 import { getHTMLFormatters } from '@web-stories-wp/rich-text';
+import { ELEMENT_TYPES, objectWithout } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import objectWithout from '../../utils/objectWithout';
-import { ELEMENT_TYPES } from '../../elements';
 import { useStory } from '../../app/story';
 import usePageAsCanvas from '../../utils/usePageAsCanvas';
 import useInsertElement from './useInsertElement';

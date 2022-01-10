@@ -27,13 +27,13 @@ import {
   ToggleButton,
   BUTTON_SIZES,
   BUTTON_VARIANTS,
+  stripHTML,
 } from '@web-stories-wp/design-system';
-
 /**
  * Internal dependencies
  */
 import { useFont } from '../../../../app/font';
-import stripHTML from '../../../../utils/stripHTML';
+
 import clamp from '../../../../utils/clamp';
 import { Row, usePresubmitHandler } from '../../../form';
 import { MULTIPLE_VALUE, MULTIPLE_DISPLAY_VALUE } from '../../../../constants';

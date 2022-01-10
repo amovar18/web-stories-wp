@@ -23,11 +23,7 @@ import {
   PAGE_WIDTH,
   DEFAULT_DPR,
 } from '@web-stories-wp/units';
-
-/**
- * Internal dependencies
- */
-import { getDefinitionForType } from '../elements';
+import { getDefinitionForType } from '@web-stories-wp/elements';
 
 const RESIZE_WIDTH_DIRECTION = [1, 0];
 

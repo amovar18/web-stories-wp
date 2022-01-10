@@ -20,17 +20,16 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useUnits } from '@web-stories-wp/units';
-
-/**
- * Internal dependencies
- */
-import { useState, useRef } from '@web-stories-wp/react';
-import { getDefinitionForType } from '../../elements';
 import {
   elementWithPosition,
   elementWithSize,
   elementWithRotation,
-} from '../../elements/shared';
+  getDefinitionForType,
+} from '@web-stories-wp/elements';
+/**
+ * Internal dependencies
+ */
+import { useState, useRef } from '@web-stories-wp/react';
 import SingleSelectionMoveable from './singleSelectionMoveable';
 
 const Wrapper = styled.div`

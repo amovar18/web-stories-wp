@@ -21,13 +21,15 @@ import PropTypes from 'prop-types';
 import { useMemo, useCallback } from '@web-stories-wp/react';
 import styled from 'styled-components';
 import { __ } from '@web-stories-wp/i18n';
-import { DropDown, NumericInput } from '@web-stories-wp/design-system';
-
+import {
+  DropDown,
+  NumericInput,
+  stripHTML,
+} from '@web-stories-wp/design-system';
 /**
  * Internal dependencies
  */
 import { useFont } from '../../../../app/font';
-import stripHTML from '../../../../utils/stripHTML';
 import clamp from '../../../../utils/clamp';
 import { MULTIPLE_VALUE, MULTIPLE_DISPLAY_VALUE } from '../../../../constants';
 import { Row, usePresubmitHandler } from '../../../form';

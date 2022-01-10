@@ -36,12 +36,11 @@ import {
   BUTTON_VARIANTS,
   Tooltip,
 } from '@web-stories-wp/design-system';
-
+import { getDefinitionForType } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { MULTIPLE_DISPLAY_VALUE, MULTIPLE_VALUE } from '../../../../constants';
-import { getDefinitionForType } from '../../../../elements';
 import { SimplePanel } from '../../panel';
 import FlipControls from '../../shared/flipControls';
 import {

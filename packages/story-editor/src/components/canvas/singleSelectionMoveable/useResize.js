@@ -20,12 +20,11 @@
 import { useState } from '@web-stories-wp/react';
 import classnames from 'classnames';
 import { useUnits } from '@web-stories-wp/units';
-
+import { getDefinitionForType } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { useStory } from '../../../app';
-import { getDefinitionForType } from '../../../elements';
 import useElementOutOfCanvas from '../utils/useElementOutOfCanvas';
 
 const EMPTY_HANDLES = [];

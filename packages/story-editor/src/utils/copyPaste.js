@@ -18,14 +18,11 @@
  * External dependencies
  */
 import { renderToStaticMarkup } from '@web-stories-wp/react';
-/**
- * Internal dependencies
- */
 import {
   duplicateElement,
   getDefinitionForType,
   getOffsetCoordinates,
-} from '../elements';
+} from '@web-stories-wp/elements';
 
 const DOUBLE_DASH_ESCAPE = '_DOUBLEDASH_';
 

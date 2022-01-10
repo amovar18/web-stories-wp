@@ -20,13 +20,13 @@
       "@web-stories-wp/react": "*",
       "@web-stories-wp/transform": "*",
       "@web-stories-wp/units": "*",
-      "prop-types": "^15.7.2",
       "react": "^16.14.0",
       "react-dom": "^16.14.0",
       "styled-components": "^5.2.1",
       "uuid": "^8.3.2"
     },
     "devDependencies": {
+      "prop-types": "^15.8.0",
       "@testing-library/react": "^11.2.3"
     }
   }

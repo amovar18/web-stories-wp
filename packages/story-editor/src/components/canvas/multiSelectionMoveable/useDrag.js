@@ -18,11 +18,10 @@
  * External dependencies
  */
 import { useRef } from '@web-stories-wp/react';
-
+import { areEventsDragging } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import areEventsDragging from '../../../utils/areEventsDragging';
 import { useDropTargets } from '../../dropTargets';
 import { useCanvas } from '../../../app';
 

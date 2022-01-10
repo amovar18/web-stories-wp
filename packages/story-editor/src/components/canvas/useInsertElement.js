@@ -21,10 +21,13 @@ import { useCallback } from '@web-stories-wp/react';
 import STICKERS from '@web-stories-wp/stickers';
 import { dataPixels } from '@web-stories-wp/units';
 import { DEFAULT_MASK } from '@web-stories-wp/masks';
+import {
+  createNewElement,
+  getDefinitionForType,
+} from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import { createNewElement, getDefinitionForType } from '../../elements';
 import { useLocalMedia } from '../../app/media';
 import { useStory } from '../../app/story';
 import { useLayout } from '../../app/layout';
