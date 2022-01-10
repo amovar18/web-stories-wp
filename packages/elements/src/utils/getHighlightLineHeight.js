@@ -13,18 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-const elementTypes = [];
-export const ELEMENT_TYPES = {
-  IMAGE: 'image',
-  SHAPE: 'shape',
-  TEXT: 'text',
-  VIDEO: 'video',
-  GIF: 'gif',
-  STICKER: 'sticker',
+const getHighlightLineheight = function (
+  lineHeight,
+  verticalPadding = 0,
+  unit = 'px'
+) {
+  if (verticalPadding === 0) {
+    return `${lineHeight}em`;
+  }
+  return `calc(${lineHeight}em ${verticalPadding > 0 ? '+' : '-'} ${
+    2 * Math.abs(verticalPadding)
+  }${unit})`;
 };
-
-export const registerElementType = (elementType) =>
-  elementTypes.push(elementType);
-
-export default elementTypes;
+export default getHighlightLineheight;

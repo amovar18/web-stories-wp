@@ -14,17 +14,22 @@
  * limitations under the License.
  */
 
-const elementTypes = [];
-export const ELEMENT_TYPES = {
-  IMAGE: 'image',
-  SHAPE: 'shape',
-  TEXT: 'text',
-  VIDEO: 'video',
-  GIF: 'gif',
-  STICKER: 'sticker',
-};
+/**
+ * Internal dependencies
+ */
+import getElementMask from './getElementMask';
 
-export const registerElementType = (elementType) =>
-  elementTypes.push(elementType);
+/**
+ * Determine whether an element can have a border.
+ *
+ * Only no-mask and masks with supportsBorder support border.
+ *
+ * @param {Object} element Element.
+ * @return {boolean} Whether the element can have a border.
+ */
+function canElementHaveBorder(element) {
+  const mask = getElementMask(element);
+  return !mask || mask.supportsBorder;
+}
 
-export default elementTypes;
+export default canElementHaveBorder;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,18 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-const elementTypes = [];
-export const ELEMENT_TYPES = {
-  IMAGE: 'image',
-  SHAPE: 'shape',
-  TEXT: 'text',
-  VIDEO: 'video',
-  GIF: 'gif',
-  STICKER: 'sticker',
-};
-
-export const registerElementType = (elementType) =>
-  elementTypes.push(elementType);
-
-export default elementTypes;
+export * from './queryByAriaLabel';
+export * from './queryByAutoAdvanceAfter';
+export * from './queryById';

@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,17 +14,8 @@
  * limitations under the License.
  */
 
-const elementTypes = [];
-export const ELEMENT_TYPES = {
-  IMAGE: 'image',
-  SHAPE: 'shape',
-  TEXT: 'text',
-  VIDEO: 'video',
-  GIF: 'gif',
-  STICKER: 'sticker',
-};
-
-export const registerElementType = (elementType) =>
-  elementTypes.push(elementType);
-
-export default elementTypes;
+export default function objectWithout(obj, propertiesToRemove) {
+  return Object.keys(obj)
+    .filter((key) => !propertiesToRemove.includes(key))
+    .reduce((newObj, key) => ({ ...newObj, [key]: obj[key] }), {});
+}

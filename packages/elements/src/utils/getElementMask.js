@@ -14,17 +14,29 @@
  * limitations under the License.
  */
 
-const elementTypes = [];
-export const ELEMENT_TYPES = {
-  IMAGE: 'image',
-  SHAPE: 'shape',
-  TEXT: 'text',
-  VIDEO: 'video',
-  GIF: 'gif',
-  STICKER: 'sticker',
-};
+/**
+ * External dependencies
+ */
+import { MASKS, DEFAULT_MASK } from '@web-stories-wp/masks';
 
-export const registerElementType = (elementType) =>
-  elementTypes.push(elementType);
+/**
+ * Internal dependencies
+ */
+import getDefinitionForType from './getDefinitionForType';
 
-export default elementTypes;
+function getDefaultElementMask(type) {
+  if (!type) {
+    return null;
+  }
+  const { isMaskable } = getDefinitionForType(type);
+  return isMaskable ? DEFAULT_MASK : null;
+}
+
+function getElementMask({ type, mask }) {
+  if (mask?.type) {
+    return MASKS.find((m) => m.type === mask.type);
+  }
+  return getDefaultElementMask(type);
+}
+
+export default getElementMask;

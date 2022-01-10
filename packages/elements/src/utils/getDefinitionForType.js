@@ -14,17 +14,12 @@
  * limitations under the License.
  */
 
-const elementTypes = [];
-export const ELEMENT_TYPES = {
-  IMAGE: 'image',
-  SHAPE: 'shape',
-  TEXT: 'text',
-  VIDEO: 'video',
-  GIF: 'gif',
-  STICKER: 'sticker',
-};
+/**
+ * Internal dependencies
+ */
+import elementTypes from '../elementTypes';
 
-export const registerElementType = (elementType) =>
-  elementTypes.push(elementType);
+const getDefinitionForType = (type) =>
+  elementTypes.find((el) => el.type === type);
 
-export default elementTypes;
+export default getDefinitionForType;

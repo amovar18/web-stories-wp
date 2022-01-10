@@ -17,28 +17,32 @@
 /**
  * External dependencies
  */
-import { getSmallestUrlForWidth } from '@web-stories-wp/media';
+import PropTypes from 'prop-types';
 import { StoryPropTypes } from '@web-stories-wp/elements';
-import { VisibleImage } from '@web-stories-wp/elements-library';
-/**
- * Internal dependencies
- */
-import useCORSProxy from '../../utils/useCORSProxy';
 
-function ImageLayerIcon({
-  element: {
-    resource,
-    resource: { alt },
-  },
-}) {
-  const url = getSmallestUrlForWidth(0, resource);
-  const { getProxiedUrl } = useCORSProxy();
-  const src = getProxiedUrl(resource, url);
-  return <VisibleImage src={src} alt={alt} height={21} width={21} />;
+function WithLink({ element, children, ...rest }) {
+  const { link = null } = element;
+
+  if (!link?.url?.length) {
+    return children;
+  }
+  return (
+    <a
+      href={link.url}
+      data-tooltip-icon={link.icon}
+      data-tooltip-text={link.desc}
+      target="_blank"
+      rel="noreferrer"
+      {...rest}
+    >
+      {children}
+    </a>
+  );
 }
 
-ImageLayerIcon.propTypes = {
+WithLink.propTypes = {
   element: StoryPropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
-export default ImageLayerIcon;
+export default WithLink;

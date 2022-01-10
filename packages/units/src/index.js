@@ -24,3 +24,4 @@ export {
   calcRotatedObjectPositionAndSize,
   getCorners,
 } from './getBoundRect';
+export { default as isElementBelowLimit } from './isElementBelowLimit';

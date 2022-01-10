@@ -14,17 +14,19 @@
  * limitations under the License.
  */
 
-const elementTypes = [];
-export const ELEMENT_TYPES = {
-  IMAGE: 'image',
-  SHAPE: 'shape',
-  TEXT: 'text',
-  VIDEO: 'video',
-  GIF: 'gif',
-  STICKER: 'sticker',
-};
+/**
+ * Internal dependencies
+ */
+import { getCorners } from './getBoundRect';
+import { DANGER_ZONE_HEIGHT, FULLBLEED_HEIGHT } from './constants';
 
-export const registerElementType = (elementType) =>
-  elementTypes.push(elementType);
-
-export default elementTypes;
+function isElementBelowLimit(element, verifyLink = true) {
+  if (verifyLink && !element.link?.url?.length) {
+    return false;
+  }
+  const limit = FULLBLEED_HEIGHT * 0.8 - DANGER_ZONE_HEIGHT;
+  const { x, y, width, height, rotationAngle } = element;
+  const points = getCorners(rotationAngle, x, y, width, height);
+  return Object.keys(points).find((point) => points[point].y > limit);
+}
+export default isElementBelowLimit;

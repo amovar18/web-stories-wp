@@ -16,18 +16,11 @@
 /**
  * External dependencies
  */
-import { getDefinitionForType } from '@web-stories-wp/elements';
+import { getElementMask } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { DEFAULT_MASK, MASKS } from './masks';
-
-export function getElementMask({ type, mask }) {
-  if (mask?.type) {
-    return MASKS.find((m) => m.type === mask.type);
-  }
-  return getDefaultElementMask(type);
-}
 
 // Only no-mask and masks with supportsBorder support border.
 export function canMaskHaveBorder(element) {
@@ -37,12 +30,4 @@ export function canMaskHaveBorder(element) {
 
 export function getMaskByType(type) {
   return MASKS.find((mask) => mask.type === type) || DEFAULT_MASK;
-}
-
-function getDefaultElementMask(type) {
-  if (!type) {
-    return null;
-  }
-  const { isMaskable } = getDefinitionForType(type);
-  return isMaskable ? DEFAULT_MASK : null;
 }
