@@ -34,6 +34,7 @@ export * from './app/currentUser';
 export * from './app/font';
 export * from './components/richText';
 export * from './app/canvas';
+export * from './app/media';
 export * from './components/videoTrim';
 export { default as getStoryPropsToSave } from './app/story/utils/getStoryPropsToSave';
 export { default as useRefreshPostEditURL } from './utils/useRefreshPostEditURL';
