@@ -17,11 +17,11 @@
  * External dependencies
  */
 import { waitFor } from '@testing-library/react';
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
 /**
  * Internal dependencies
  */
 import { useStory } from '../../../app';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '../../../app/font/defaultFonts';
 import { ACTIONS } from '../../../app/highlights';
 import { Fixture } from '../../../karma';
 import useInsertElement from '../useInsertElement';
@@ -860,7 +860,6 @@ describe('Quick Actions integration', () => {
           lengthFormatted: '0:06',
           alt: 'small-video',
           sizes: {},
-          local: false,
           isOptimized: false,
           baseColor: '#734727',
         },

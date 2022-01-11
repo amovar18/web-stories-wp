@@ -23,7 +23,6 @@ import {
 } from '@web-stories-wp/design-system';
 import { __, sprintf } from '@web-stories-wp/i18n';
 import { trackEvent } from '@web-stories-wp/tracking';
-import { canTranscodeResource } from '@web-stories-wp/media';
 import PropTypes from 'prop-types';
 import {
   useCallback,
@@ -42,7 +41,8 @@ import {
 /**
  * Internal dependencies
  */
-import { useStory } from '..';
+import useStory from '../story/useStory';
+import { useLocalMedia } from '../media';
 import updateProperties from '../../components/inspector/design/updateProperties';
 import useAddPreset from '../../utils/useAddPreset';
 import useApplyStyle from '../../components/panels/design/textStyle/stylePresets/useApplyStyle';
@@ -155,6 +155,12 @@ function RightClickMenuProvider({ children }) {
       selectedElements,
       setBackgroundElement,
       updateElementsById,
+    })
+  );
+
+  const { canTranscodeResource } = useLocalMedia(
+    ({ state: { canTranscodeResource } }) => ({
+      canTranscodeResource,
     })
   );
 
@@ -895,6 +901,7 @@ function RightClickMenuProvider({ children }) {
       ...pageManipulationItems,
     ];
   }, [
+    canTranscodeResource,
     handleClearElementStyles,
     handleOpenScaleAndCrop,
     handleRemoveMediaFromBackground,
@@ -1023,6 +1030,7 @@ function RightClickMenuProvider({ children }) {
       },
     ];
   }, [
+    canTranscodeResource,
     copiedElement,
     handleClearElementStyles,
     handleCopyStyles,

@@ -26,7 +26,7 @@ import { getDefinitionForType } from '@web-stories-wp/elements';
  * Internal dependencies
  */
 import { useStory } from '../../app/story';
-import { getElementProperties } from '../canvas/useInsertElement';
+import getElementProperties from '../canvas/utils/getElementProperties';
 import Context from './context';
 
 const DROP_SOURCE_ALLOWED_TYPES = ['image', 'gif', 'video'];
