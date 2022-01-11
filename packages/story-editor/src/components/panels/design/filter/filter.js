@@ -19,12 +19,8 @@
  */
 import PropTypes from 'prop-types';
 import { useCallback } from '@web-stories-wp/react';
-
-/**
- * External dependencies
- */
 import { __, sprintf } from '@web-stories-wp/i18n';
-import { getDefinitionForType } from '@web-stories-wp/elements';
+import { getDefinitionForType, MULTIPLE_VALUE } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
@@ -32,7 +28,6 @@ import { OverlayPreset, OverlayType } from '../../../../utils/overlay';
 import { Row, Color, FilterToggle } from '../../../form';
 import { SimplePanel } from '../../panel';
 import { useCommonColorValue } from '../../shared';
-import { MULTIPLE_VALUE } from '../../../../constants';
 import convertOverlay from './convertOverlay';
 
 function FilterPanel({ selectedElements, pushUpdate }) {

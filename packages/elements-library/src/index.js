@@ -15,6 +15,9 @@
  */
 
 export * from './constants';
+export { clearableAttributes as imageAttributeDefaults } from './image/constants';
+export { clearableAttributes as textAttributeDefaults } from './text/constants';
+export { clearableAttributes as shapeAttributeDefaults } from './shape/constants';
 export { default as elementTypes, registerElementTypes } from './elementTypes';
 export { default as VisibleImage } from './media/visibleImage';
 export { LayerText } from './shared/layerText';

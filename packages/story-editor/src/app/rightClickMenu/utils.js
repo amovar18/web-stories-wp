@@ -16,13 +16,11 @@
 /**
  * External dependencies
  */
-import { getDefinitionForType, ELEMENT_TYPES } from '@web-stories-wp/elements';
+import { getDefinitionForType, elementTypes } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import objectPick from '../../utils/objectPick';
-
-const elementTypes = Object.values(ELEMENT_TYPES);
 
 /**
  * Extracts the styles from an element based off of the element type.

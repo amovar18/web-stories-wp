@@ -17,10 +17,13 @@
 /**
  * Internal dependencies
  */
+/**
+ * External dependencies
+ */
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
 import { Fixture } from '../../../karma';
 import { useStory } from '../../../app/story';
 import { useInsertElement } from '..';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '../../../app/font/defaultFonts';
 
 describe('Lasso integration', () => {
   let fixture;

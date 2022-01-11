@@ -49,7 +49,6 @@ function getDesignPanelsForSelection(elements) {
   if (elements.length === 0) {
     return [];
   }
-
   const isBackground = elements.length === 1 && elements[0].isBackground;
 
   // Only display background panel in case of background element.
