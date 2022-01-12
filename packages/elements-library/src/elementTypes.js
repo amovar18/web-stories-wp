@@ -28,7 +28,14 @@ import * as shapeElement from './shape';
 import * as videoElement from './video';
 import * as gifElement from './gif';
 import * as stickerElement from './sticker';
-
+export const ELEMENT_TYPES = {
+  IMAGE: 'image',
+  SHAPE: 'shape',
+  TEXT: 'text',
+  VIDEO: 'video',
+  GIF: 'gif',
+  STICKER: 'sticker',
+};
 const elementTypes = [
   {
     type: 'page',
