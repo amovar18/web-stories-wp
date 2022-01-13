@@ -52,61 +52,63 @@ describe('Right Click Menu integration', () => {
   });
 
   function rightClickMenu() {
-    return fixture.screen.getByRole('group', {
-      name: 'Context Menu for the selected element',
-    });
+    return within(
+      fixture.screen.getByRole('dialog', {
+        name: 'Context Menu for the selected element',
+      })
+    ).getByRole('menu');
   }
 
   function sendBackward() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Send Backward/i,
     });
   }
 
   function sendToBack() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Send to Back/i,
     });
   }
 
   function bringForward() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Bring Forward/i,
     });
   }
 
   function bringToFront() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Bring to Front/i,
     });
   }
 
   function setAsPageBackground() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Set as page Background/i,
     });
   }
 
   function scaleAndCropImage() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Scale & Crop Image/i,
     });
   }
 
   function scaleAndCropBackgroundImage() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Scale & Crop Background Image/i,
     });
   }
 
   function scaleAndCropVideo() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Scale & Crop Video/i,
     });
   }
 
   function scaleAndCropBackgroundVideo() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Scale & Crop Background Video/i,
     });
   }
@@ -114,7 +116,7 @@ describe('Right Click Menu integration', () => {
   function duplicatePage() {
     const menu = rightClickMenu();
 
-    return within(menu).queryByRole('button', {
+    return within(menu).queryByRole('menuitem', {
       name: /^Duplicate Page/i,
     });
   }
@@ -122,67 +124,67 @@ describe('Right Click Menu integration', () => {
   function deletePage() {
     const menu = rightClickMenu();
 
-    return within(menu).queryByRole('button', {
+    return within(menu).queryByRole('menuitem', {
       name: /^Delete Page/i,
     });
   }
 
   function copyImageStyles() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Copy Image Styles/i,
     });
   }
 
   function pasteImageStyles() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Paste Image Styles/i,
     });
   }
 
   function clearImageStyles() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Clear Image Styles/i,
     });
   }
 
   function clearStyles() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Clear Styles/i,
     });
   }
 
   function detachImageFromBackground() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Detach Image From Background/i,
     });
   }
 
   function copyStyles() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Copy Style/i,
     });
   }
 
   function pasteStyles() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Paste Style/i,
     });
   }
 
   function addToSavedStyles() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Add Style to/i,
     });
   }
 
   function addToSavedColors() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Add Color to/i,
     });
   }
 
   function duplicateElements() {
-    return fixture.screen.getByRole('button', {
+    return fixture.screen.getByRole('menuitem', {
       name: /^Duplicate Element/i,
     });
   }
@@ -388,7 +390,7 @@ describe('Right Click Menu integration', () => {
         }
       );
       expect(
-        fixture.screen.queryByRole('group', {
+        fixture.screen.queryByRole('menu', {
           name: 'Context Menu for the selected element',
         })
       ).toBeNull();
@@ -420,7 +422,7 @@ describe('Right Click Menu integration', () => {
       await fixture.events.keyboard.shortcut('mod+alt+shift+m');
 
       expect(
-        fixture.screen.queryByRole('group', {
+        fixture.screen.queryByRole('dialog', {
           name: 'Context Menu for the selected element',
         })
       ).not.toBeNull();
@@ -428,7 +430,7 @@ describe('Right Click Menu integration', () => {
       // close right click menu
       await fixture.events.keyboard.press('esc');
       expect(
-        fixture.screen.queryByRole('group', {
+        fixture.screen.queryByRole('dialog', {
           name: 'Context Menu for the selected element',
         })
       ).toBeNull();
