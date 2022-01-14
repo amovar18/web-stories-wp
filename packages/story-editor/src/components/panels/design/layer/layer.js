@@ -27,13 +27,12 @@ import {
   themeHelpers,
   Tooltip,
 } from '@web-stories-wp/design-system';
-import { useRef } from '@web-stories-wp/react';
-import { getDefinitionForType } from '@web-stories-wp/elements';
+import { useRef, memo } from '@web-stories-wp/react';
+import { getDefinitionForType, StoryPropTypes } from '@web-stories-wp/elements';
 import { LayerText } from '@web-stories-wp/elements-library';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../../../../types';
 import { useStory } from '../../../../app';
 import usePerformanceTracking from '../../../../utils/usePerformanceTracking';
 import { TRACKING_EVENTS } from '../../../../constants/performanceTrackingEvents';
@@ -251,31 +250,29 @@ function preventReorder(e) {
   e.preventDefault();
 }
 
-function Layer({ layer }) {
-  const { LayerIcon, LayerContent } = getDefinitionForType(layer.type);
-  const { isSelected, handleClick } = useLayerSelection(layer);
-  const { currentPage, deleteElementById, duplicateElementById } = useStory(
-    (state) => ({
-      currentPage: state.state.currentPage,
-      deleteElementById: state.actions.deleteElementById,
-      duplicateElementById: state.actions.duplicateElementById,
+function Layer({ element }) {
+  const { LayerIcon, LayerContent } = getDefinitionForType(element.type);
+  const { isSelected, handleClick } = useLayerSelection(element);
+  const { duplicateElementById, deleteElementById } = useStory(
+    ({ actions }) => ({
+      duplicateElementById: actions.duplicateElementById,
+      deleteElementById: actions.deleteElementById,
     })
   );
 
   const layerRef = useRef(null);
   usePerformanceTracking({
     node: layerRef.current,
-    eventData: { ...TRACKING_EVENTS.SELECT_ELEMENT, label: layer.type },
+    eventData: { ...TRACKING_EVENTS.SELECT_ELEMENT, label: element.type },
   });
 
   const deleteButtonRef = useRef(null);
   usePerformanceTracking({
     node: deleteButtonRef.current,
-    eventData: { ...TRACKING_EVENTS.DELETE_ELEMENT, label: layer.type },
+    eventData: { ...TRACKING_EVENTS.DELETE_ELEMENT, label: element.type },
   });
 
-  const isBackground = currentPage.elements[0].id === layer.id;
-  const layerId = `layer-${layer.id}`;
+  const layerId = `layer-${element.id}`;
 
   return (
     <LayerContainer>
@@ -286,17 +283,17 @@ function Layer({ layer }) {
         isSelected={isSelected}
       >
         <LayerIconWrapper>
-          <LayerIcon element={layer} currentPage={currentPage} />
+          <LayerIcon element={element} />
         </LayerIconWrapper>
         <LayerDescription>
           <LayerContentContainer>
-            {isBackground ? (
+            {element.isBackground ? (
               <LayerText>{__('Background', 'web-stories')}</LayerText>
             ) : (
-              <LayerContent element={layer} />
+              <LayerContent element={element} />
             )}
           </LayerContentContainer>
-          {isBackground && (
+          {element.isBackground && (
             <IconWrapper>
               <Icons.LockClosed />
             </IconWrapper>
@@ -304,7 +301,7 @@ function Layer({ layer }) {
         </LayerDescription>
       </LayerButton>
       <ActionsContainer>
-        {isBackground ? (
+        {element.isBackground ? (
           <LayerAction
             aria-label={__('Locked', 'web-stories')}
             aria-describedby={layerId}
@@ -324,7 +321,7 @@ function Layer({ layer }) {
                 aria-label={__('Delete', 'web-stories')}
                 aria-describedby={layerId}
                 onPointerDown={preventReorder}
-                onClick={() => deleteElementById({ elementId: layer.id })}
+                onClick={() => deleteElementById({ elementId: element.id })}
               >
                 <Icons.Trash />
               </LayerAction>
@@ -338,7 +335,7 @@ function Layer({ layer }) {
                 aria-label={__('Duplicate', 'web-stories')}
                 aria-describedby={layerId}
                 onPointerDown={preventReorder}
-                onClick={() => duplicateElementById({ elementId: layer.id })}
+                onClick={() => duplicateElementById({ elementId: element.id })}
               >
                 <Icons.PagePlus />
               </LayerAction>
@@ -351,7 +348,7 @@ function Layer({ layer }) {
 }
 
 Layer.propTypes = {
-  layer: StoryPropTypes.layer.isRequired,
+  element: StoryPropTypes.element.isRequired,
 };
 
-export default Layer;
+export default memo(Layer);

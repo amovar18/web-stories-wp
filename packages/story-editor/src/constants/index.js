@@ -93,3 +93,5 @@ export const PRESET_TYPES = {
   STYLE: 'style',
   COLOR: 'colors',
 };
+
+export const STABLE_ARRAY = [];

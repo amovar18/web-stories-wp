@@ -19,12 +19,12 @@
  */
 import styled from 'styled-components';
 import { getMaskByType } from '@web-stories-wp/masks';
-import { elementWithBackgroundColor } from '@web-stories-wp/elements';
+import {
+  elementWithBackgroundColor,
+  StoryPropTypes,
+} from '@web-stories-wp/elements';
+import { useStory } from '@web-stories-wp/story-editor';
 
-/**
- * Internal dependencies
- */
-import StoryPropTypes from '../types';
 const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -56,13 +56,15 @@ https://caniuse.com/css-clip-path
 
 function ShapeLayerIcon({
   element: { id, mask, backgroundColor, isDefaultBackground },
-  currentPage,
 }) {
   const maskDef = getMaskByType(mask.type);
+  const currentPageBackgroundColor = useStory(
+    (v) => !isDefaultBackground || v.state.currentPage?.backgroundColor
+  );
 
   const maskId = `mask-${maskDef.type}-${id}-layer-preview`;
   if (isDefaultBackground) {
-    backgroundColor = currentPage.backgroundColor;
+    backgroundColor = currentPageBackgroundColor;
   }
 
   return (
@@ -89,7 +91,6 @@ function ShapeLayerIcon({
 
 ShapeLayerIcon.propTypes = {
   element: StoryPropTypes.element.isRequired,
-  currentPage: StoryPropTypes.page,
 };
 
 export default ShapeLayerIcon;

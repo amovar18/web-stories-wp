@@ -25,8 +25,7 @@ import { MASKS } from '@web-stories-wp/masks';
 /**
  * Internal dependencies
  */
-import { useFeatures } from 'flagged';
-import { Section, SearchInput } from '../../common';
+import { Section } from '../../common';
 import { Pane } from '../shared';
 import useRovingTabIndex from '../../../../utils/useRovingTabIndex';
 import ShapePreview from './shapePreview';
@@ -53,8 +52,6 @@ const SectionContent = styled.div`
 const STICKER_TYPES = Object.keys(STICKERS);
 
 function ShapesPane(props) {
-  const { showTextAndShapesSearchInput } = useFeatures();
-
   const ref = useRef();
   useRovingTabIndex({ ref });
 
@@ -62,14 +59,6 @@ function ShapesPane(props) {
   useRovingTabIndex({ ref: stickersRef });
   return (
     <Pane id={paneId} {...props} isOverflowScrollable>
-      {showTextAndShapesSearchInput && (
-        <SearchInput
-          initialValue={''}
-          placeholder={__('Search', 'web-stories')}
-          onSearch={() => {}}
-          disabled
-        />
-      )}
       <Section
         data-testid="shapes-library-pane"
         title={__('Shapes', 'web-stories')}
