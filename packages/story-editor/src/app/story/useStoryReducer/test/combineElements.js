@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/**
+ * External dependencies
+ */
+import { MaskTypes } from '@web-stories-wp/masks';
 /**
  * Internal dependencies
  */
-import { MaskTypes } from '../../../../masks/constants';
 import { setupReducer } from './_utils';
 
 describe('combineElements', () => {

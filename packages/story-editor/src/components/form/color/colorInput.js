@@ -39,11 +39,13 @@ import {
   Swatch,
   PLACEMENT,
 } from '@web-stories-wp/design-system';
-
+import {
+  MULTIPLE_VALUE,
+  MULTIPLE_DISPLAY_VALUE,
+} from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import { MULTIPLE_VALUE, MULTIPLE_DISPLAY_VALUE } from '../../../constants';
 import Popup from '../../popup';
 import ColorPicker from '../../colorPicker';
 import useInspector from '../../inspector/useInspector';

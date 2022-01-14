@@ -18,12 +18,11 @@
  * External dependencies
  */
 import { UnitsProvider, getBox, PAGE_RATIO } from '@web-stories-wp/units';
-
+import { TransformContext } from '@web-stories-wp/transform';
 /**
  * Internal dependencies
  */
 import LibraryContext from '../../../../context';
-import TransformContext from '../../../../../transform/context';
 import FontContext from '../../../../../../app/font/context';
 import APIContext from '../../../../../../app/api/context';
 import ConfigContext from '../../../../../../app/config/context';

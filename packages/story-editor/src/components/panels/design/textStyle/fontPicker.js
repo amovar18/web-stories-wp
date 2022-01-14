@@ -21,11 +21,14 @@ import { forwardRef, useCallback, useMemo } from '@web-stories-wp/react';
 import PropTypes from 'prop-types';
 import { __ } from '@web-stories-wp/i18n';
 import { Datalist, stripHTML } from '@web-stories-wp/design-system';
+import {
+  MULTIPLE_VALUE,
+  MULTIPLE_DISPLAY_VALUE,
+} from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { useFont } from '../../../../app/font';
-import { MULTIPLE_DISPLAY_VALUE, MULTIPLE_VALUE } from '../../../../constants';
 import { getCommonValue } from '../../shared';
 import useRichTextFormatting from './useRichTextFormatting';
 import getClosestFontWeight from './getClosestFontWeight';

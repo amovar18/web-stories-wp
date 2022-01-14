@@ -18,13 +18,13 @@
  * External dependencies
  */
 import { fireEvent } from '@testing-library/react';
-
+import { queryByAriaLabel } from '@web-stories-wp/testing-library';
 /**
  * Internal dependencies
  */
 import StoryContext from '../../../../app/story/context';
 import GridView from '../gridView';
-import { queryByAriaLabel, renderWithTheme } from '../../../../testUtils';
+import { renderWithTheme } from '../../../../testUtils';
 import { noop } from '../../../../utils/noop';
 
 function setupGridView() {

@@ -25,12 +25,11 @@ import {
   MediaInput as Input,
   themeHelpers,
 } from '@web-stories-wp/design-system';
-
+import { MULTIPLE_VALUE } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { useConfig } from '../../app';
-import { MULTIPLE_VALUE } from '../../constants';
 
 const StyledInput = styled(Input)`
   button:focus {

@@ -18,11 +18,10 @@
  * External dependencies
  */
 import { createSolid } from '@web-stories-wp/patterns';
-
+import { createPage } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import { createPage } from '../../elements';
 import isDefaultPage from '../isDefaultPage';
 
 describe('isDefaultPage', () => {

@@ -26,12 +26,15 @@ import {
   NumericInput,
   stripHTML,
 } from '@web-stories-wp/design-system';
+import {
+  MULTIPLE_VALUE,
+  MULTIPLE_DISPLAY_VALUE,
+} from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { useFont } from '../../../../app/font';
 import clamp from '../../../../utils/clamp';
-import { MULTIPLE_VALUE, MULTIPLE_DISPLAY_VALUE } from '../../../../constants';
 import { Row, usePresubmitHandler } from '../../../form';
 import {
   focusStyle,

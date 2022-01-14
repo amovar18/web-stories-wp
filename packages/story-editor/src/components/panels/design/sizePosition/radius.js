@@ -23,12 +23,15 @@ import styled from 'styled-components';
 import { __ } from '@web-stories-wp/i18n';
 import { LockToggle, Icons } from '@web-stories-wp/design-system';
 import { canMaskHaveBorder } from '@web-stories-wp/masks';
+import {
+  MULTIPLE_VALUE,
+  MULTIPLE_DISPLAY_VALUE,
+} from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { StackableGroup, StackableInput } from '../../../form/stackable';
 import { useCommonObjectValue, focusStyle } from '../../shared';
-import { MULTIPLE_DISPLAY_VALUE, MULTIPLE_VALUE } from '../../../../constants';
 import Tooltip from '../../../tooltip';
 
 const DEFAULT_BORDER_RADIUS = {

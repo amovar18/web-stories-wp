@@ -23,15 +23,14 @@ import { MockMoveable } from 'react-moveable';
 import PropTypes from 'prop-types';
 import { forwardRef } from '@web-stories-wp/react';
 import { UnitsProvider } from '@web-stories-wp/units';
-
+import { TransformProvider } from '@web-stories-wp/transform';
+import { withOverlay } from '@web-stories-wp/moveable';
 /**
  * Internal dependencies
  */
-import withOverlay from '../../overlay/withOverlay';
 import CanvasContext from '../../../app/canvas/context';
 import Selection from '../selection';
 import StoryContext from '../../../app/story/context';
-import TransformProvider from '../../transform/transformProvider';
 
 const pageSize = { width: 100, height: 100 };
 

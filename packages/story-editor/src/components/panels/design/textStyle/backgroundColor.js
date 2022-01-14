@@ -22,11 +22,10 @@ import styled from 'styled-components';
 import { useCallback, useRef } from '@web-stories-wp/react';
 import { __ } from '@web-stories-wp/i18n';
 import { PillGroup } from '@web-stories-wp/design-system';
-
+import { BACKGROUND_TEXT_MODE } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import { BACKGROUND_TEXT_MODE } from '../../../../constants';
 import { Color, Row } from '../../../form';
 import { useCommonColorValue, getCommonValue, focusStyle } from '../../shared';
 import { applyHiddenPadding, removeHiddenPadding } from './utils';

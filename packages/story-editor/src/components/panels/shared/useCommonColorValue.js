@@ -19,12 +19,7 @@
  */
 import { useMemo } from '@web-stories-wp/react';
 import { convertToCSS, generatePatternStyles } from '@web-stories-wp/patterns';
-
-/**
- * Internal dependencies
- */
-import { MULTIPLE_VALUE } from '../../../constants';
-
+import { MULTIPLE_VALUE } from '@web-stories-wp/elements';
 /**
  * Memoizes the common color value.
  *

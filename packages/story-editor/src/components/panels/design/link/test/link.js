@@ -19,7 +19,7 @@
  */
 import { screen } from '@testing-library/react';
 import { FlagsProvider } from 'flagged';
-
+import { MULTIPLE_DISPLAY_VALUE } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
@@ -27,7 +27,6 @@ import APIContext from '../../../../../app/api/context';
 import ConfigContext from '../../../../../app/config/context';
 import StoryContext from '../../../../../app/story/context';
 import CanvasContext from '../../../../../app/canvas/context';
-import { MULTIPLE_DISPLAY_VALUE } from '../../../../../constants';
 import { renderPanel } from '../../../shared/test/_utils';
 import LinkPanel from '../link';
 

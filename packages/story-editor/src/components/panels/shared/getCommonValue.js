@@ -15,9 +15,9 @@
  */
 
 /**
- * Internal dependencies
+ * External dependencies
  */
-import { MULTIPLE_VALUE } from '../../../constants';
+import { MULTIPLE_VALUE } from '@web-stories-wp/elements';
 
 /**
  * Get the common value `property` for all objects in `list`, if they

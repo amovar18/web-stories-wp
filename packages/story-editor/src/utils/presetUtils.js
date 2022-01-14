@@ -25,14 +25,11 @@ import {
 } from '@web-stories-wp/patterns';
 import { getHTMLInfo } from '@web-stories-wp/rich-text';
 import { generateFontFamily } from '@web-stories-wp/fonts';
+import { MULTIPLE_VALUE, BACKGROUND_TEXT_MODE } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import {
-  BACKGROUND_TEXT_MODE,
-  MULTIPLE_VALUE,
-  PRESET_TYPES,
-} from '../constants';
+import { PRESET_TYPES } from '../constants';
 import objectPick from './objectPick';
 
 const TEXT_PRESET_STYLES = [

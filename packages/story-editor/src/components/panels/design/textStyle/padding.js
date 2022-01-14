@@ -26,6 +26,10 @@ import {
   LockToggle as DefaultLockToggle,
   NumericInput,
 } from '@web-stories-wp/design-system';
+import {
+  MULTIPLE_VALUE,
+  MULTIPLE_DISPLAY_VALUE,
+} from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
@@ -37,7 +41,6 @@ import {
   useCommonObjectValue,
 } from '../../shared';
 import { metricsForTextPadding } from '../../utils/metricsForTextPadding';
-import { MULTIPLE_DISPLAY_VALUE, MULTIPLE_VALUE } from '../../../../constants';
 import { getHiddenPadding, removeHiddenPadding } from './utils';
 
 const DEFAULT_PADDING = {

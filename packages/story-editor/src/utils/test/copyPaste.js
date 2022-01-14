@@ -19,14 +19,16 @@
  */
 import { createSolid } from '@web-stories-wp/patterns';
 import { PAGE_WIDTH } from '@web-stories-wp/units';
+import {
+  SHARED_DEFAULT_ATTRIBUTES,
+  getDefinitionForType,
+  MEDIA_DEFAULT_ATTRIBUTES,
+} from '@web-stories-wp/elements';
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
 /**
  * Internal dependencies
  */
 import { addElementsToClipboard, processPastedElements } from '../copyPaste';
-import { SHARED_DEFAULT_ATTRIBUTES } from '../../elements/shared/constants';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '../../app/font/defaultFonts';
-import { getDefinitionForType } from '../../elements';
-import { MEDIA_DEFAULT_ATTRIBUTES } from '../../elements/media/constants';
 
 describe('copyPaste utils', () => {
   const PAGE = {

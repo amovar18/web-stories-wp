@@ -18,14 +18,13 @@
  * External dependencies
  */
 import { renderHook, act } from '@testing-library/react-hooks';
-
+import { getStoryMarkup } from '@web-stories-wp/output';
 /**
  * Internal dependencies
  */
 import APIContext from '../../../api/context';
 import ConfigContext from '../../../config/context';
 import useAutoSave from '../useAutoSave';
-import getStoryMarkup from '../../../../output/utils/getStoryMarkup';
 
 jest.mock('../../../../output/utils/getStoryMarkup', () => jest.fn());
 

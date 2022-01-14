@@ -18,11 +18,7 @@
  * External dependencies
  */
 import { createSolid, generatePatternStyles } from '@web-stories-wp/patterns';
-
-/**
- * Internal dependencies
- */
-import { MULTIPLE_VALUE } from '../../../constants';
+import { MULTIPLE_VALUE } from '@web-stories-wp/elements';
 
 function getPreviewStyle(pattern) {
   if (!pattern || pattern === MULTIPLE_VALUE) {

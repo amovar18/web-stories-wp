@@ -13,7 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/**
+ * External dependencies
+ */
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
+import { BACKGROUND_TEXT_MODE } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
@@ -23,9 +27,8 @@ import {
   getShapePresets,
   getTextPresets,
 } from '../presetUtils';
-import { BACKGROUND_TEXT_MODE, PRESET_TYPES } from '../../constants';
+import { PRESET_TYPES } from '../../constants';
 import objectWithout from '../objectWithout';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '../../app/font/defaultFonts';
 
 describe('presetUtils', () => {
   const TEST_COLOR = {

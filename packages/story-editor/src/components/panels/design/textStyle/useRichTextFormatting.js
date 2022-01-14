@@ -21,11 +21,11 @@ import { useMemo, useCallback, useRef, useEffect } from '@web-stories-wp/react';
 import { isPatternEqual } from '@web-stories-wp/patterns';
 import { useGlobalKeyDownEffect } from '@web-stories-wp/design-system';
 import { getHTMLFormatters, getHTMLInfo } from '@web-stories-wp/rich-text';
+import { MULTIPLE_VALUE } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import useRichText from '../../../richText/useRichText';
-import { MULTIPLE_VALUE } from '../../../../constants';
 import { useCanvas } from '../../../../app';
 
 /**

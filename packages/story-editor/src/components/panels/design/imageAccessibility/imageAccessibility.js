@@ -19,7 +19,10 @@
  */
 import PropTypes from 'prop-types';
 import { __ } from '@web-stories-wp/i18n';
-
+import {
+  MULTIPLE_VALUE,
+  MULTIPLE_DISPLAY_VALUE,
+} from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
@@ -28,7 +31,6 @@ import styled from 'styled-components';
 import { Row, TextArea } from '../../../form';
 import { getCommonValue, useCommonObjectValue } from '../../shared';
 import { SimplePanel } from '../../panel';
-import { MULTIPLE_DISPLAY_VALUE, MULTIPLE_VALUE } from '../../../../constants';
 import { useHighlights, states, styles } from '../../../../app/highlights';
 
 const StyledText = styled(Text)`

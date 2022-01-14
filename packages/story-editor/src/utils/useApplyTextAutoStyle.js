@@ -17,10 +17,10 @@
  * External dependencies
  */
 import { getHTMLFormatters } from '@web-stories-wp/rich-text';
+import { BACKGROUND_TEXT_MODE } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import { BACKGROUND_TEXT_MODE } from '../constants';
 import { applyHiddenPadding } from '../components/panels/design/textStyle/utils';
 import usePageAsCanvas from './usePageAsCanvas';
 

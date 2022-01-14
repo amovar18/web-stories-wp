@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/**
+ * External dependencies
+ */
+import { MULTIPLE_VALUE } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import { MULTIPLE_VALUE } from '../../../../constants';
 import getCommonObjectValue from '../getCommonObjectValue';
 
 describe('getCommonObjectValue', () => {

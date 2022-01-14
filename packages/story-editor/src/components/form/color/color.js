@@ -29,11 +29,10 @@ import {
   BUTTON_VARIANTS,
   Icons,
 } from '@web-stories-wp/design-system';
-
+import { MULTIPLE_VALUE } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import { MULTIPLE_VALUE } from '../../../constants';
 import useEyedropper from '../../eyedropper';
 import Tooltip from '../../tooltip';
 import { focusStyle } from '../../panels/shared';

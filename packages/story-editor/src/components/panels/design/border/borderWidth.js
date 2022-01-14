@@ -22,14 +22,16 @@ import { useCallback } from '@web-stories-wp/react';
 import styled, { css } from 'styled-components';
 import { __ } from '@web-stories-wp/i18n';
 import { LockToggle, Icons } from '@web-stories-wp/design-system';
-
+import {
+  MULTIPLE_DISPLAY_VALUE,
+  MULTIPLE_VALUE,
+} from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { StackableGroup, StackableInput } from '../../../form/stackable';
 import Tooltip from '../../../tooltip';
 import { focusStyle, useCommonObjectValue } from '../../shared';
-import { MULTIPLE_DISPLAY_VALUE, MULTIPLE_VALUE } from '../../../../constants';
 import { DEFAULT_BORDER } from './shared';
 
 const BorderInputsFlexContainer = styled.div`

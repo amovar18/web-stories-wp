@@ -20,7 +20,12 @@
 import PropTypes from 'prop-types';
 import { act, fireEvent, screen } from '@testing-library/react';
 import { createSolid } from '@web-stories-wp/patterns';
-
+import { calcRotatedResizeOffset } from '@web-stories-wp/moveable';
+import {
+  MULTIPLE_VALUE,
+  MULTIPLE_DISPLAY_VALUE,
+  BACKGROUND_TEXT_MODE,
+} from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
@@ -29,13 +34,7 @@ import FontContext from '../../../../../app/font/context';
 import { StoryContext } from '../../../../../app/story';
 import RichTextContext from '../../../../richText/context';
 import { calculateTextHeight } from '../../../../../utils/textMeasurements';
-import calcRotatedResizeOffset from '../../../../../utils/calcRotatedResizeOffset';
 import CanvasContext from '../../../../../app/canvas/context';
-import {
-  MULTIPLE_VALUE,
-  MULTIPLE_DISPLAY_VALUE,
-  BACKGROUND_TEXT_MODE,
-} from '../../../../../constants';
 import { renderPanel } from '../../../shared/test/_utils';
 
 let mockControls;

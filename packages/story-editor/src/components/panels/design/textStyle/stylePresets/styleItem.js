@@ -22,10 +22,10 @@ import PropTypes from 'prop-types';
 import { __ } from '@web-stories-wp/i18n';
 import { generatePatternStyles } from '@web-stories-wp/patterns';
 import { Icons, stripHTML } from '@web-stories-wp/design-system';
+import { BACKGROUND_TEXT_MODE } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import { BACKGROUND_TEXT_MODE } from '../../../../../constants';
 import { generatePresetStyle } from '../../../../../utils/presetUtils';
 import { useStory } from '../../../../../app/story';
 import { focusStyle } from '../../../shared';

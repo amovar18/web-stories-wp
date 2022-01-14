@@ -13,11 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
- * Internal dependencies
+ * External dependencies
  */
-import areEventsDragging from '../areEventsDragging';
+import { areEventsDragging } from '@web-stories-wp/elements';
 
 describe('areEventsDragging', () => {
   it('should *not* consider a quick sequence of events at about the same point dragging', () => {

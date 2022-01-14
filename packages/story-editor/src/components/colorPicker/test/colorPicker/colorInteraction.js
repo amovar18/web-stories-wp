@@ -19,13 +19,13 @@
  */
 import { fireEvent, screen } from '@testing-library/react';
 import { setAppElement } from '@web-stories-wp/design-system';
-
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
+import { BACKGROUND_TEXT_MODE } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import ColorPicker from '../../colorPicker';
 import { StoryContext } from '../../../../app/story';
-import { BACKGROUND_TEXT_MODE } from '../../../../constants';
 import {
   getShapePresets,
   getTextPresets,
@@ -33,7 +33,6 @@ import {
   areAllType,
 } from '../../../../utils/presetUtils';
 import { renderWithTheme } from '../../../../testUtils';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '../../../../app/font/defaultFonts';
 
 jest.mock('../../../../utils/presetUtils');
 

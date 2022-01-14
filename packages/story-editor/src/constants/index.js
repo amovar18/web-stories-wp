@@ -16,7 +16,6 @@
 
 export * from './fonts';
 export * from './media';
-export * from './multipleValue';
 
 export const ADMIN_TOOLBAR_HEIGHT = 32;
 export const HEADER_HEIGHT = 64;
@@ -50,23 +49,11 @@ export const DESIGN_SPACE_MARGIN = 48;
 
 export const TEXT_SET_SIZE = 150;
 
-export const DEFAULT_ATTRIBUTES_FOR_MEDIA = {
-  scale: 100,
-  focalX: 50,
-  focalY: 50,
-};
-
 export const LAYER_DIRECTIONS = {
   FRONT: 'FRONT',
   BACK: 'BACK',
   FORWARD: 'FORWARD',
   BACKWARD: 'BACKWARD',
-};
-
-export const BACKGROUND_TEXT_MODE = {
-  NONE: 'NONE',
-  FILL: 'FILL',
-  HIGHLIGHT: 'HIGHLIGHT',
 };
 
 export const FONT_WEIGHT = {

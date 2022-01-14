@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 /**
+ * External dependencies
+ */
+import { getDefinitionForType, ELEMENT_TYPES } from '@web-stories-wp/elements';
+/**
  * Internal dependencies
  */
-import { getDefinitionForType, ELEMENT_TYPES } from '../../../elements';
 import objectPick from '../../../utils/objectPick';
 import { getElementStyles, getDefaultPropertiesForType } from '../utils';
 

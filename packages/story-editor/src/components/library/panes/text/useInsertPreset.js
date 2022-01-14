@@ -24,13 +24,13 @@ import {
 } from '@web-stories-wp/react';
 import { dataFontEm, PAGE_HEIGHT } from '@web-stories-wp/units';
 import { getHTMLFormatters } from '@web-stories-wp/rich-text';
+import { BACKGROUND_TEXT_MODE } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import getInsertedElementSize from '../../../../utils/getInsertedElementSize';
 import useLibrary from '../../useLibrary';
 import { useHistory } from '../../../../app';
-import { BACKGROUND_TEXT_MODE } from '../../../../constants';
 import { applyHiddenPadding } from '../../../panels/design/textStyle/utils';
 import usePageAsCanvas from '../../../../utils/usePageAsCanvas';
 import { calculateTextHeight } from '../../../../utils/textMeasurements';

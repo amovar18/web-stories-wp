@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+export { default as TransformContext } from './context';
 export { default as TransformProvider } from './transformProvider';
 export { default as useTransform } from './useTransform';
 export { default as useTransformHandler } from './useTransformHandler';
