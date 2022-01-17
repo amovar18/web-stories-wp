@@ -21,15 +21,17 @@ import PropTypes from 'prop-types';
 import { useMemo } from '@web-stories-wp/react';
 import { v4 as uuidv4 } from 'uuid';
 import {
+  StoryPropTypes,
   getTransformFlip,
   shouldDisplayBorder,
   getElementMask,
-  StoryPropTypes,
 } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
+
 import { MaskTypes } from './masks';
+
 const FILL_STYLE = {
   position: 'absolute',
   top: 0,
@@ -37,6 +39,7 @@ const FILL_STYLE = {
   right: 0,
   bottom: 0,
 };
+
 export default function WithMask({
   element,
   fill,

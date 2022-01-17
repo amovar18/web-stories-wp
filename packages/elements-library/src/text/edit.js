@@ -29,35 +29,35 @@ import {
 import PropTypes from 'prop-types';
 import { generatePatternStyles } from '@web-stories-wp/patterns';
 import { useUnits } from '@web-stories-wp/units';
-import { getHTMLInfo } from '@web-stories-wp/rich-text';
-import { calcRotatedResizeOffset } from '@web-stories-wp/moveable';
 import {
+  useStory,
+  useFont,
+  useRichText,
+  RichTextEditor,
+} from '@web-stories-wp/story-editor';
+import { useTransform, useTransformHandler } from '@web-stories-wp/transform';
+import { getHTMLInfo } from '@web-stories-wp/rich-text';
+import {
+  StoryPropTypes,
+  BACKGROUND_TEXT_MODE,
   elementFillContent,
   elementWithBackgroundColor,
   elementWithBorder,
   elementWithHighlightBorderRadius,
-  BACKGROUND_TEXT_MODE,
-  shouldDisplayBorder,
-  useColorTransformHandler,
-  getHighlightLineHeight,
-  calcFontMetrics,
   getBorderPositionCSS,
-  useCSSVarColorTransformHandler,
+  shouldDisplayBorder,
+  calcFontMetrics,
   generateParagraphTextStyle,
+  getHighlightLineHeight,
+  useCSSVarColorTransformHandler,
+  useColorTransformHandler,
 } from '@web-stories-wp/elements';
-import { useTransformHandler, useTransform } from '@web-stories-wp/transform';
 import { stripHTML } from '@web-stories-wp/design-system';
-import {
-  useStory,
-  RichTextEditor,
-  useRichText,
-  useFont,
-} from '@web-stories-wp/story-editor';
+import { calcRotatedResizeOffset } from '@web-stories-wp/moveable';
 /**
  * Internal dependencies
  */
 import { elementWithFont, elementWithTextParagraphStyle } from '../shared';
-import StoryPropTypes from '../types';
 // Wrapper bounds the text editor within the element bounds. The resize
 // logic updates the height of this element to show the new height based
 // on the content and properties.
