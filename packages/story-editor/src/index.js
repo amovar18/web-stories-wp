@@ -40,7 +40,6 @@ export { default as getStoryPropsToSave } from './app/story/utils/getStoryPropsT
 export { default as useRefreshPostEditURL } from './utils/useRefreshPostEditURL';
 export { default as FontContext } from './app/font/context';
 export { default as useLoadFontFiles } from './app/font/actions/useLoadFontFiles';
-export { default as StoryPropTypes } from './types';
 export { GlobalStyle, default as theme } from './theme'; // @todo To be refactored.
 export { default as CircularProgress } from './components/circularProgress';
 export { default as InterfaceSkeleton } from './components/layout';

@@ -35,10 +35,10 @@ import {
   Icons,
 } from '@web-stories-wp/design-system';
 import { STORY_ANIMATION_STATE } from '@web-stories-wp/animation';
+import { PageSizePropType } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import { PageSizePropType } from '../../../../types';
 import { PreviewPage, PreviewErrorBoundary } from '../../../previewPage';
 import { focusStyle } from '../../../panels/shared';
 

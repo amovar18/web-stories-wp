@@ -20,11 +20,10 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useCallback, useMemo, useRef, useState } from '@web-stories-wp/react';
-
+import { StoryPropTypes } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../../../types';
 import FormContext from '../../form/context';
 import useHandlers from '../../../utils/useHandlers';
 import updateProperties from './updateProperties';

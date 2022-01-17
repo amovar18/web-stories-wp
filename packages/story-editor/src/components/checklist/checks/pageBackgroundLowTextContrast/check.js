@@ -37,8 +37,8 @@ import { getSpansFromContent } from '../../utils';
 import getMediaBaseColor from '../../../../utils/getMediaBaseColor';
 
 /**
- * @typedef {import('../../../../types').Page} Page
- * @typedef {import('../../../../types').Element} Element
+ * @typedef {import('@web-stories-wp/elements').Page} Page
+ * @typedef {import('@web-stories-wp/elements').Element} Element
  * @typedef RGB The shape of color objects used for calculating color use against accessibility standards
  * @property {number} r red value
  * @property {number} g green value

@@ -29,7 +29,7 @@ import {
 } from '@web-stories-wp/design-system';
 import { __, sprintf, translateToExclusiveList } from '@web-stories-wp/i18n';
 import { useCallback } from '@web-stories-wp/react';
-
+import { BackgroundAudioPropType } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
@@ -37,7 +37,6 @@ import { Row } from '../../form';
 import AudioPlayer from '../../audioPlayer';
 import Tooltip from '../../tooltip';
 import { useConfig } from '../../../app';
-import { BackgroundAudioPropType } from '../../../types';
 
 const StyledButton = styled(Button)`
   ${({ theme }) =>

@@ -18,12 +18,11 @@
  * External dependencies
  */
 import { memo } from '@web-stories-wp/react';
-
+import { StoryPropTypes } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import DisplayElement from '../canvas/displayElement';
-import StoryPropTypes from '../../types';
 
 function PreviewPageElements({ page }) {
   return page.elements.map((element) => (

@@ -25,11 +25,10 @@ import {
   useStoryAnimationContext,
   STORY_ANIMATION_STATE,
 } from '@web-stories-wp/animation';
-
+import { StoryPropTypes, PageSizePropType } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes, { PageSizePropType } from '../../types';
 import PagePreviewElements from './previewPageElements';
 
 /*

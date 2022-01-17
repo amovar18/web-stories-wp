@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 /**
+ * External dependencies
+ */
+import { StoryPropTypes } from '@web-stories-wp/elements';
+/**
  * Internal dependencies
  */
-import StoryPropTypes from '../../../types';
 import PagePreview from '../../footer/pagepreview';
 import { THUMBNAIL_DIMENSIONS } from '../../thumbnail';
 

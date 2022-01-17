@@ -41,10 +41,10 @@ import {
   STORY_ANIMATION_STATE,
   getAnimationEffectDefaults,
 } from '@web-stories-wp/animation';
+import { StoryPropTypes, AnimationPropType } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes, { AnimationPropType } from '../../../../types';
 import { Row } from '../../../form';
 import { SimplePanel } from '../../panel';
 import { states, styles, useHighlights } from '../../../../app/highlights';

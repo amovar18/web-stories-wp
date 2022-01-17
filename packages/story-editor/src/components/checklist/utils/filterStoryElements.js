@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /**
- * @typedef {import('../../../types').Page} Page
+ * @typedef {import('@web-stories-wp/elements').Page} Page
  */
 
 /**

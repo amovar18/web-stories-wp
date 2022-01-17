@@ -21,7 +21,7 @@ import { shallowEqual } from '@web-stories-wp/react';
 import { createPage } from '@web-stories-wp/elements';
 
 /**
- * @typedef {import('../../../types').Page} Page
+ * @typedef {import('@web-stories-wp/elements').Page} Page
  */
 
 /**

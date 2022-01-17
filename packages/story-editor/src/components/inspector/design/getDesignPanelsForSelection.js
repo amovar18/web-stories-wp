@@ -16,7 +16,7 @@
 /**
  * External dependencies
  */
-import { elementTypes } from '@web-stories-wp/elements';
+import { elementTypes, PanelTypes } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
@@ -37,7 +37,6 @@ import {
   VideoOptionsPanel,
   PageBackgroundAudioPanel,
 } from '../../panels/design';
-import PanelTypes from '../../panels/design/types';
 
 const ALL = Object.values(PanelTypes);
 

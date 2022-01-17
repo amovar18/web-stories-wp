@@ -20,7 +20,11 @@ import StoryPropTypes from './types';
 export * from './constants';
 export * from './utils/elementBorder';
 export * from './utils/styles';
-export { PageSizePropType, BackgroundAudioPropType } from './types';
+export {
+  PageSizePropType,
+  BackgroundAudioPropType,
+  AnimationPropType,
+} from './types';
 export { StoryPropTypes };
 export {
   default as elementTypes,

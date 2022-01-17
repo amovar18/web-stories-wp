@@ -32,11 +32,11 @@ import {
 } from '@web-stories-wp/design-system';
 import { trackEvent } from '@web-stories-wp/tracking';
 import { useUnits } from '@web-stories-wp/units';
+import { StoryPropTypes } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
 import { useFont, useHistory } from '../../../../app';
-import StoryPropTypes from '../../../../types';
 import { focusStyle } from '../../../panels/shared';
 import usePageAsCanvas from '../../../../utils/usePageAsCanvas';
 import useLibrary from '../../useLibrary';

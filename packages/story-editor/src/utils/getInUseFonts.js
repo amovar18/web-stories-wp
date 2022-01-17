@@ -17,7 +17,7 @@
 /**
  * Returns a list of font names used across all pages in a story.
  *
- * @param {Array<import('../types').Page>} pages List of pages.
+ * @param {Array<import('@web-stories-wp/elements').Page>} pages List of pages.
  * @return {Array<string>} Font names.
  */
 export function getInUseFontsForPages(pages) {

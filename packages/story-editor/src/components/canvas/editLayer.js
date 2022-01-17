@@ -23,11 +23,10 @@ import { memo, useEffect, useRef } from '@web-stories-wp/react';
 import { _x, __ } from '@web-stories-wp/i18n';
 import { useKeyDownEffect } from '@web-stories-wp/design-system';
 import { withOverlay } from '@web-stories-wp/moveable';
-import { getDefinitionForType } from '@web-stories-wp/elements';
+import { getDefinitionForType, StoryPropTypes } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../../types';
 import { useStory, useCanvas } from '../../app';
 import EditElement from './editElement';
 import { Layer, PageArea, FooterArea, Z_INDEX } from './layout';

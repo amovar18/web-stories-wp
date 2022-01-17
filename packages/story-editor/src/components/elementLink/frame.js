@@ -22,11 +22,10 @@ import { rgba } from 'polished';
 import PropTypes from 'prop-types';
 import { __ } from '@web-stories-wp/i18n';
 import { TOOLTIP_PLACEMENT } from '@web-stories-wp/design-system';
-
+import { StoryPropTypes } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../../types';
 import Tooltip from '../tooltip';
 import { getLinkFromElement } from '.';
 

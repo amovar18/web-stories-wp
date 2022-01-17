@@ -30,10 +30,10 @@ import {
 } from '@web-stories-wp/react';
 import { useFeature } from 'flagged';
 import { TransformProvider } from '@web-stories-wp/transform';
+import { StoryPropTypes } from '@web-stories-wp/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../../../types';
 import {
   requestIdleCallback,
   cancelIdleCallback,

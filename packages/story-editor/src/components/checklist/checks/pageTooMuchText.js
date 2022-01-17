@@ -41,7 +41,7 @@ import { useRegisterCheck } from '../countContext';
 import { useIsChecklistMounted } from '../popupMountedContext';
 
 /**
- * @typedef {import('../../../types').Page} Page
+ * @typedef {import('@web-stories-wp/elements').Page} Page
  */
 
 /**
