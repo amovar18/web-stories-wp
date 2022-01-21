@@ -17,7 +17,7 @@
 /**
  * External dependencies
  */
-import { MASKS, DEFAULT_MASK } from '@web-stories-wp/masks';
+import { MASKS, DEFAULT_MASK } from '@googleforcreators/masks';
 
 /**
  * Internal dependencies

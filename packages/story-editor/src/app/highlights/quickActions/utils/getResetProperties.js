@@ -16,7 +16,7 @@
 /**
  * External dependencies
  */
-import { ELEMENT_TYPES } from '@web-stories-wp/elements';
+import { ELEMENT_TYPES } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

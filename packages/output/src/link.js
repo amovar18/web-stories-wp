@@ -18,7 +18,7 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { StoryPropTypes } from '@web-stories-wp/elements';
+import { StoryPropTypes } from '@googleforcreators/elements';
 
 function WithLink({ element, children, ...rest }) {
   const { link = null } = element;

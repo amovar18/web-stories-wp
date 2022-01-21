@@ -16,7 +16,7 @@
 /**
  * External dependencies
  */
-import { PanelTypes } from '@web-stories-wp/elements';
+import { PanelTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

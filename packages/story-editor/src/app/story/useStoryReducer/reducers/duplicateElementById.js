@@ -17,7 +17,7 @@
 /**
  * External dependencies
  */
-import { duplicateElement } from '@web-stories-wp/elements';
+import { duplicateElement } from '@googleforcreators/elements';
 
 function duplicateElementById(state, { elementId }) {
   const pageIndex = state.pages.findIndex(({ id }) => id === state.current);

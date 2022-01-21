@@ -18,10 +18,13 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { PatternPropType } from '@web-stories-wp/patterns';
-import { ResourcePropTypes } from '@web-stories-wp/media';
-import { AnimationProps } from '@web-stories-wp/animation';
-import { BACKGROUND_TEXT_MODE, MULTIPLE_VALUE } from '@web-stories-wp/elements';
+import { PatternPropType } from '@googleforcreators/patterns';
+import { ResourcePropTypes } from '@googleforcreators/media';
+import { AnimationProps } from '@googleforcreators/animation';
+import {
+  BACKGROUND_TEXT_MODE,
+  MULTIPLE_VALUE,
+} from '@googleforcreators/elements';
 
 const OverlayType = {
   NONE: 'none',

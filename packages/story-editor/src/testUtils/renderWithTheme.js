@@ -19,7 +19,7 @@
  */
 import { render, queries } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
-import * as allQueries from '@web-stories-wp/testing-library';
+import * as allQueries from '@googleforcreators/testing-library';
 /**
  * Internal dependencies
  */

@@ -16,8 +16,8 @@
 /**
  * External dependencies
  */
-import { getHTMLFormatters } from '@web-stories-wp/rich-text';
-import { BACKGROUND_TEXT_MODE } from '@web-stories-wp/elements';
+import { getHTMLFormatters } from '@googleforcreators/rich-text';
+import { BACKGROUND_TEXT_MODE } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

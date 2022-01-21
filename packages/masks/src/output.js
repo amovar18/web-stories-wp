@@ -27,7 +27,7 @@ import {
   StoryPropTypes,
   getTransformFlip,
   getElementMask,
-} from '@web-stories-wp/elements';
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

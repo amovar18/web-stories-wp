@@ -16,7 +16,7 @@
 /**
  * External dependencies
  */
-import { getDefinitionForType } from '@web-stories-wp/elements';
+import { getDefinitionForType } from '@googleforcreators/elements';
 
 /**
  * Among all elements, returns the media element with the longest duration.

@@ -19,7 +19,7 @@
 import {
   DEFAULT_ATTRIBUTES_FOR_MEDIA,
   PanelTypes,
-} from '@web-stories-wp/elements';
+} from '@googleforcreators/elements';
 
 export const MEDIA_DEFAULT_ATTRIBUTES = {
   ...DEFAULT_ATTRIBUTES_FOR_MEDIA,

@@ -16,7 +16,7 @@
 /**
  * External dependencies
  */
-import { useTransformHandler } from '@web-stories-wp/transform';
+import { useTransformHandler } from '@googleforcreators/transform';
 
 function useCSSVarColorTransformHandler({
   id,

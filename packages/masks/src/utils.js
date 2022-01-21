@@ -16,7 +16,7 @@
 /**
  * External dependencies
  */
-import { getElementMask } from '@web-stories-wp/elements';
+import { getElementMask } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

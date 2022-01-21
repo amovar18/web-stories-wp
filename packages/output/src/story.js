@@ -21,7 +21,7 @@ import PropTypes from 'prop-types';
 import {
   BackgroundAudioPropType,
   StoryPropTypes,
-} from '@web-stories-wp/elements';
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

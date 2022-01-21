@@ -16,7 +16,7 @@
 /**
  * External dependencies
  */
-import { stripHTML } from '@web-stories-wp/design-system';
+import { stripHTML } from '@googleforcreators/design-system';
 /**
  * Internal dependencies
  */

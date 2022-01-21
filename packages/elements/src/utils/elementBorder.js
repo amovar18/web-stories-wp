@@ -17,7 +17,7 @@
 /**
  * External dependencies
  */
-import { canMaskHaveBorder } from '@web-stories-wp/masks';
+import { canMaskHaveBorder } from '@googleforcreators/masks';
 
 function hasBorder({ border }) {
   if (!border) {

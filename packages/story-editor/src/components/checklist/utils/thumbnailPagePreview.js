@@ -16,7 +16,7 @@
 /**
  * External dependencies
  */
-import { StoryPropTypes } from '@web-stories-wp/elements';
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

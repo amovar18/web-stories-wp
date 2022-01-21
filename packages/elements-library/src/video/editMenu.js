@@ -17,7 +17,7 @@
 /**
  * External dependencies
  */
-import { useVideoTrim, VideoTrimmer } from '@web-stories-wp/story-editor';
+import { useVideoTrim, VideoTrimmer } from '@googleforcreators/story-editor';
 
 function VideoEditMenu() {
   const { isTrimMode } = useVideoTrim(({ state: { isTrimMode } }) => ({

@@ -16,7 +16,7 @@
 /**
  * External dependencies
  */
-import { generateFontFamily } from '@web-stories-wp/fonts';
+import { generateFontFamily } from '@googleforcreators/fonts';
 /**
  * Internal dependencies
  */

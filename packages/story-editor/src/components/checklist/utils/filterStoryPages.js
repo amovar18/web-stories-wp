@@ -15,7 +15,7 @@
  */
 
 /**
- * @typedef {import('@web-stories-wp/elements').Page} Page
+ * @typedef {import('@googleforcreators/elements').Page} Page
  */
 
 /**

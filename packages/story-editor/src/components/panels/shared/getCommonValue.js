@@ -17,7 +17,7 @@
 /**
  * External dependencies
  */
-import { MULTIPLE_VALUE } from '@web-stories-wp/elements';
+import { MULTIPLE_VALUE } from '@googleforcreators/elements';
 
 /**
  * Get the common value `property` for all objects in `list`, if they

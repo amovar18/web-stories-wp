@@ -18,9 +18,12 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { useMemo } from '@web-stories-wp/react';
-import { generatePatternStyles, createSolid } from '@web-stories-wp/patterns';
-import { getHTMLFormatters } from '@web-stories-wp/rich-text';
+import { useMemo } from '@googleforcreators/react';
+import {
+  generatePatternStyles,
+  createSolid,
+} from '@googleforcreators/patterns';
+import { getHTMLFormatters } from '@googleforcreators/rich-text';
 
 /**
  * Internal dependencies

@@ -16,7 +16,7 @@
 /**
  * External dependencies
  */
-import { useTransform } from '@web-stories-wp/transform';
+import { useTransform } from '@googleforcreators/transform';
 /**
  * Internal dependencies
  */

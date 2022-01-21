@@ -17,7 +17,7 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { getDefinitionForType } from '@web-stories-wp/elements';
+import { getDefinitionForType } from '@googleforcreators/elements';
 
 export const LayerThumbnail = ({ page }) => {
   const { LayerIcon } = getDefinitionForType(page?.type);

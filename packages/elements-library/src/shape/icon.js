@@ -18,12 +18,12 @@
  * External dependencies
  */
 import styled from 'styled-components';
-import { getMaskByType } from '@web-stories-wp/masks';
+import { getMaskByType } from '@googleforcreators/masks';
 import {
   elementWithBackgroundColor,
   StoryPropTypes,
-} from '@web-stories-wp/elements';
-import { useStory } from '@web-stories-wp/story-editor';
+} from '@googleforcreators/elements';
+import { useStory } from '@googleforcreators/story-editor';
 
 const Container = styled.div`
   display: flex;

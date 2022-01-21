@@ -16,7 +16,7 @@
 /**
  * External dependencies
  */
-import { useVideoTrim } from '@web-stories-wp/story-editor';
+import { useVideoTrim } from '@googleforcreators/story-editor';
 /**
  * Internal dependencies
  */
