@@ -17,12 +17,13 @@
 /**
  * External dependencies
  */
-import { calculateSrcSet, isBlobURL } from '@web-stories-wp/media';
+import { calculateSrcSet, isBlobURL } from '@googleforcreators/media';
 import {
   PAGE_WIDTH,
   FULLBLEED_HEIGHT,
   FULLBLEED_RATIO,
-} from '@web-stories-wp/units';
+} from '@googleforcreators/units';
+
 /**
  * Internal dependencies
  */

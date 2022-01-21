@@ -17,8 +17,8 @@
 /**
  * External dependencies
  */
-import { UnitsProvider, getBox, PAGE_RATIO } from '@web-stories-wp/units';
-import { TransformContext } from '@web-stories-wp/transform';
+import { UnitsProvider, getBox, PAGE_RATIO } from '@googleforcreators/units';
+import { TransformContext } from '@googleforcreators/transform';
 /**
  * Internal dependencies
  */

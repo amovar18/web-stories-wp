@@ -22,16 +22,16 @@ import {
   getDefinitionForType,
   MULTIPLE_VALUE,
   MULTIPLE_DISPLAY_VALUE,
-} from '@web-stories-wp/elements';
+} from '@googleforcreators/elements';
+import { dataPixels } from '@googleforcreators/units';
 /**
  * Internal dependencies
  */
-import { dataPixels } from '@web-stories-wp/units';
 import { renderPanel } from '../../../shared/test/_utils';
 
 import SizePosition from '../sizePosition';
 
-jest.mock('../../../../../elements');
+jest.mock('@googleforcreators/elements');
 
 describe('panels/SizePosition', () => {
   let defaultElement, defaultImage, defaultText, unlockAspectRatioElement;

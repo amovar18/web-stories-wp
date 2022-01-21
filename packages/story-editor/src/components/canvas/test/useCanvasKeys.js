@@ -18,8 +18,8 @@
  * External dependencies
  */
 import { render, fireEvent } from '@testing-library/react';
-import { useRef } from '@web-stories-wp/react';
-import { TransformContext } from '@web-stories-wp/transform';
+import { useRef } from '@googleforcreators/react';
+import { TransformContext } from '@googleforcreators/transform';
 /**
  * Internal dependencies
  */

@@ -17,8 +17,11 @@
 /**
  * External dependencies
  */
-import { generatePatternStyles, convertToCSS } from '@web-stories-wp/patterns';
-import { useTransformHandler } from '@web-stories-wp/transform';
+import {
+  generatePatternStyles,
+  convertToCSS,
+} from '@googleforcreators/patterns';
+import { useTransformHandler } from '@googleforcreators/transform';
 
 function useColorTransformHandler({
   id,

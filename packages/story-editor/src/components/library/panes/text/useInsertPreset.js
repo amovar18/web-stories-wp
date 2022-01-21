@@ -21,10 +21,10 @@ import {
   useEffect,
   useRef,
   useState,
-} from '@web-stories-wp/react';
-import { dataFontEm, PAGE_HEIGHT } from '@web-stories-wp/units';
-import { getHTMLFormatters } from '@web-stories-wp/rich-text';
-import { BACKGROUND_TEXT_MODE } from '@web-stories-wp/elements';
+} from '@googleforcreators/react';
+import { dataFontEm, PAGE_HEIGHT } from '@googleforcreators/units';
+import { getHTMLFormatters } from '@googleforcreators/rich-text';
+import { BACKGROUND_TEXT_MODE } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

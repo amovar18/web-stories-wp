@@ -1,5 +1,5 @@
 {
-    "name": "@web-stories-wp/moveable",
+    "name": "@googleforcreators/moveable",
     "private": true,
     "engines": {
       "node": ">= 16",
@@ -11,7 +11,8 @@
     "main": "./src/index.js",
     "type": "module",
     "dependencies": {
-      "@web-stories-wp/react": "*",
+      "@googleforcreators/react": "*",
+      "@googleforcreators/design-system": "*",
       "react-moveable": "^0.30.3",
       "prop-types": "^15.7.2",
       "styled-components": "^5.3.3"

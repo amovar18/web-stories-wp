@@ -17,7 +17,8 @@
 /**
  * External dependencies
  */
-import { createSolid } from '@web-stories-wp/patterns';
+import { createSolid } from '@googleforcreators/patterns';
+
 /**
  * Internal dependencies
  */

@@ -19,15 +19,15 @@
  */
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { getMediaSizePositionProps } from '@web-stories-wp/media';
+import { getMediaSizePositionProps } from '@googleforcreators/media';
 import {
   getResponsiveBorder,
   shouldDisplayBorder,
   useColorTransformHandler,
-} from '@web-stories-wp/elements';
-import { useRef } from '@web-stories-wp/react';
-import { useUnits } from '@web-stories-wp/units';
-import { useTransformHandler } from '@web-stories-wp/transform';
+} from '@googleforcreators/elements';
+import { useRef } from '@googleforcreators/react';
+import { useUnits } from '@googleforcreators/units';
+import { useTransformHandler } from '@googleforcreators/transform';
 /**
  * Internal dependencies
  */

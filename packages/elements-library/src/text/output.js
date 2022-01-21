@@ -18,21 +18,24 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { useMemo } from '@web-stories-wp/react';
-import { createSolid, generatePatternStyles } from '@web-stories-wp/patterns';
+import { useMemo } from '@googleforcreators/react';
+import {
+  createSolid,
+  generatePatternStyles,
+} from '@googleforcreators/patterns';
 import {
   dataToEditorX,
   dataToEditorY,
   dataToFontSizeY as dataToFontSize,
-} from '@web-stories-wp/units';
+} from '@googleforcreators/units';
 import classnames from 'classnames';
 import {
   getHighlightLineHeight,
   generateParagraphTextStyle,
   calcFontMetrics,
   BACKGROUND_TEXT_MODE,
-} from '@web-stories-wp/elements';
-import { getHTMLFormatters } from '@web-stories-wp/rich-text';
+} from '@googleforcreators/elements';
+import { getHTMLFormatters } from '@googleforcreators/rich-text';
 /**
  * Internal dependencies
  */

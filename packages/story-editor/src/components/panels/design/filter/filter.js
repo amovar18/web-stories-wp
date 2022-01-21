@@ -18,9 +18,12 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { useCallback } from '@web-stories-wp/react';
-import { __, sprintf } from '@web-stories-wp/i18n';
-import { getDefinitionForType, MULTIPLE_VALUE } from '@web-stories-wp/elements';
+import { useCallback } from '@googleforcreators/react';
+import { __, sprintf } from '@googleforcreators/i18n';
+import {
+  getDefinitionForType,
+  MULTIPLE_VALUE,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -43,7 +46,7 @@ function FilterPanel({ selectedElements, pushUpdate }) {
   );
 
   // Enable eyedropper only for solid colors
-  // https://github.com/google/web-stories-wp/pull/9488#issuecomment-950679465
+  // https://github.com/google/googleforcreators/pull/9488#issuecomment-950679465
   const hasEyedropper =
     overlayType !== OverlayType.RADIAL && overlayType !== OverlayType.LINEAR;
 

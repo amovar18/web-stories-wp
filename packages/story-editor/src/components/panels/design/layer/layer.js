@@ -19,17 +19,20 @@
  */
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
-import { __ } from '@web-stories-wp/i18n';
+import { __ } from '@googleforcreators/i18n';
 import {
   Button,
   BUTTON_TYPES,
   Icons,
   themeHelpers,
   Tooltip,
-} from '@web-stories-wp/design-system';
-import { useRef, memo } from '@web-stories-wp/react';
-import { getDefinitionForType, StoryPropTypes } from '@web-stories-wp/elements';
-import { LayerText } from '@web-stories-wp/elements-library';
+} from '@googleforcreators/design-system';
+import { useRef, memo } from '@googleforcreators/react';
+import {
+  getDefinitionForType,
+  StoryPropTypes,
+} from '@googleforcreators/elements';
+import { LayerText } from '@googleforcreators/elements-library';
 /**
  * Internal dependencies
  */

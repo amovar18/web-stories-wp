@@ -19,13 +19,13 @@
  */
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { useRef, useEffect, useState } from '@web-stories-wp/react';
+import { useRef, useEffect, useState } from '@googleforcreators/react';
 import {
   getTransformFlip,
   StoryPropTypes,
   getElementMask,
-} from '@web-stories-wp/elements';
-import { MaskTypes } from '@web-stories-wp/masks';
+} from '@googleforcreators/elements';
+import { MaskTypes } from '@googleforcreators/masks';
 /**
  * Internal dependencies
  */

@@ -17,8 +17,8 @@
 /**
  * External dependencies
  */
-import { memo } from '@web-stories-wp/react';
-import { StoryPropTypes } from '@web-stories-wp/elements';
+import { memo } from '@googleforcreators/react';
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

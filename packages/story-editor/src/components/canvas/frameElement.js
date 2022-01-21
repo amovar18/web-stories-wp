@@ -23,10 +23,13 @@ import {
   useLayoutEffect,
   useRef,
   useState,
-} from '@web-stories-wp/react';
-import { useUnits } from '@web-stories-wp/units';
-import { useTransform, useTransformHandler } from '@web-stories-wp/transform';
-import { MaskTypes } from '@web-stories-wp/masks';
+} from '@googleforcreators/react';
+import { useUnits } from '@googleforcreators/units';
+import {
+  useTransform,
+  useTransformHandler,
+} from '@googleforcreators/transform';
+import { MaskTypes } from '@googleforcreators/masks';
 import {
   getDefinitionForType,
   elementWithPosition,
@@ -34,7 +37,7 @@ import {
   elementWithRotation,
   StoryPropTypes,
   getElementMask,
-} from '@web-stories-wp/elements';
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

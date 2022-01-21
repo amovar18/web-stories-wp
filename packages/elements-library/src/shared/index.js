@@ -18,9 +18,9 @@
  * External dependencies
  */
 import { css } from 'styled-components';
-import { generatePatternStyles } from '@web-stories-wp/patterns';
-import { getBorderStyle, getBorderRadius } from '@web-stories-wp/elements';
-import { generateFontFamily } from '@web-stories-wp/fonts';
+import { generatePatternStyles } from '@googleforcreators/patterns';
+import { getBorderStyle, getBorderRadius } from '@googleforcreators/elements';
+import { generateFontFamily } from '@googleforcreators/fonts';
 
 export const elementFillContent = css`
   position: absolute;

@@ -17,8 +17,8 @@
  * External dependencies
  */
 import { waitFor } from '@testing-library/react';
-import { createSolidFromString } from '@web-stories-wp/patterns';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
+import { createSolidFromString } from '@googleforcreators/patterns';
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@googleforcreators/fonts';
 /**
  * Internal dependencies
  */

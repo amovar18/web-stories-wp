@@ -17,15 +17,15 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { useEffect, memo } from '@web-stories-wp/react';
+import { useEffect, memo, forwardRef } from '@googleforcreators/react';
 import styled, { StyleSheetManager } from 'styled-components';
-import { generatePatternStyles } from '@web-stories-wp/patterns';
+import { generatePatternStyles } from '@googleforcreators/patterns';
 import {
   StoryAnimation,
   useStoryAnimationContext,
   STORY_ANIMATION_STATE,
-} from '@web-stories-wp/animation';
-import { StoryPropTypes, PageSizePropType } from '@web-stories-wp/elements';
+} from '@googleforcreators/animation';
+import { StoryPropTypes, PageSizePropType } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -92,28 +92,31 @@ function PreviewPageAnimationController({ animationState }) {
   return null;
 }
 
-const PreviewPageDisplay = memo(function PreviewPageDisplay({
-  page,
-  pageSize,
-}) {
-  return (
-    <FullBleedPreviewWrapper
-      pageSize={pageSize}
-      background={page.backgroundColor}
-    >
-      <PreviewSafeZone pageSize={pageSize}>
-        <PagePreviewElements page={page} />
-      </PreviewSafeZone>
-    </FullBleedPreviewWrapper>
-  );
-});
+const PreviewPageDisplay = memo(
+  forwardRef(function PreviewPageDisplay({ page, pageSize }, ref) {
+    return (
+      <FullBleedPreviewWrapper
+        ref={ref}
+        pageSize={pageSize}
+        background={page.backgroundColor}
+      >
+        <PreviewSafeZone pageSize={pageSize}>
+          <PagePreviewElements page={page} />
+        </PreviewSafeZone>
+      </FullBleedPreviewWrapper>
+    );
+  })
+);
 
-function PreviewPage({
-  page,
-  pageSize,
-  animationState = STORY_ANIMATION_STATE.RESET,
-  onAnimationComplete,
-}) {
+const PreviewPage = forwardRef(function PreviewPage(
+  {
+    page,
+    pageSize,
+    animationState = STORY_ANIMATION_STATE.RESET,
+    onAnimationComplete,
+  },
+  ref
+) {
   // Preview is wrapped in StyleSheetManager w/ stylisPlugins={[]} in order to prevent
   // elements from shifting when in RTL mode since these aren't relevant for story previews
   return (
@@ -123,12 +126,12 @@ function PreviewPage({
         elements={page.elements}
         onWAAPIFinish={onAnimationComplete}
       >
-        <PreviewPageDisplay page={page} pageSize={pageSize} />
+        <PreviewPageDisplay ref={ref} page={page} pageSize={pageSize} />
         <PreviewPageAnimationController animationState={animationState} />
       </StoryAnimation.Provider>
     </StyleSheetManager>
   );
-}
+});
 
 PreviewPage.propTypes = {
   page: StoryPropTypes.page.isRequired,

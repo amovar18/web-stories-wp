@@ -17,8 +17,11 @@
 /**
  * External dependencies
  */
-import { createSolid, generatePatternStyles } from '@web-stories-wp/patterns';
-import { MULTIPLE_VALUE } from '@web-stories-wp/elements';
+import {
+  createSolid,
+  generatePatternStyles,
+} from '@googleforcreators/patterns';
+import { MULTIPLE_VALUE } from '@googleforcreators/elements';
 
 function getPreviewStyle(pattern) {
   if (!pattern || pattern === MULTIPLE_VALUE) {

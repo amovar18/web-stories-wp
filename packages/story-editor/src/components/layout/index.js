@@ -18,14 +18,14 @@
  * External dependencies
  */
 import styled from 'styled-components';
-import { __ } from '@web-stories-wp/i18n';
+import { __ } from '@googleforcreators/i18n';
 import {
   Snackbar,
   useSnackbar,
   themeHelpers,
-} from '@web-stories-wp/design-system';
+} from '@googleforcreators/design-system';
 import PropTypes from 'prop-types';
-import { withOverlay } from '@web-stories-wp/moveable';
+import { withOverlay } from '@googleforcreators/moveable';
 /**
  * Internal dependencies
  */

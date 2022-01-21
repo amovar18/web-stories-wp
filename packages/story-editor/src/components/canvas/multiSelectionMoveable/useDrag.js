@@ -17,8 +17,8 @@
 /**
  * External dependencies
  */
-import { useRef } from '@web-stories-wp/react';
-import { areEventsDragging } from '@web-stories-wp/elements';
+import { useRef } from '@googleforcreators/react';
+import { areEventsDragging } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

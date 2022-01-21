@@ -18,8 +18,7 @@
  * External dependencies
  */
 import { screen } from '@testing-library/react';
-import { FlagsProvider } from 'flagged';
-import { MULTIPLE_DISPLAY_VALUE } from '@web-stories-wp/elements';
+import { MULTIPLE_DISPLAY_VALUE } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -78,21 +77,15 @@ function arrange(selectedElements) {
   };
 
   const wrapper = ({ children }) => (
-    <FlagsProvider
-      features={{
-        enableCORSProxy: true,
-      }}
-    >
-      <APIContext.Provider value={apiValue}>
-        <ConfigContext.Provider value={configValue}>
-          <StoryContext.Provider value={storyContextValue}>
-            <CanvasContext.Provider value={canvasContext}>
-              {children}
-            </CanvasContext.Provider>
-          </StoryContext.Provider>
-        </ConfigContext.Provider>
-      </APIContext.Provider>
-    </FlagsProvider>
+    <APIContext.Provider value={apiValue}>
+      <ConfigContext.Provider value={configValue}>
+        <StoryContext.Provider value={storyContextValue}>
+          <CanvasContext.Provider value={canvasContext}>
+            {children}
+          </CanvasContext.Provider>
+        </StoryContext.Provider>
+      </ConfigContext.Provider>
+    </APIContext.Provider>
   );
 
   return renderPanel(LinkPanel, selectedElements, wrapper);

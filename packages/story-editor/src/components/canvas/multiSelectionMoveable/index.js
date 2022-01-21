@@ -18,11 +18,11 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { useRef, useEffect, useState } from '@web-stories-wp/react';
-import { useUnits } from '@web-stories-wp/units';
-import { useTransform } from '@web-stories-wp/transform';
-import { Moveable } from '@web-stories-wp/moveable';
-import { getDefinitionForType } from '@web-stories-wp/elements';
+import { useRef, useEffect, useState } from '@googleforcreators/react';
+import { useUnits } from '@googleforcreators/units';
+import { useTransform } from '@googleforcreators/transform';
+import { Moveable } from '@googleforcreators/moveable';
+import { getDefinitionForType } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

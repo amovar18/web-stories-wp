@@ -17,7 +17,7 @@
 /**
  * External dependencies
  */
-import { getStoryMarkup } from '@web-stories-wp/output';
+import { getStoryMarkup } from '@googleforcreators/output';
 
 export function getContent() {
   const story = {

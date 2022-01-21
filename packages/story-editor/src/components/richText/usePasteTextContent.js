@@ -18,8 +18,8 @@
  * External dependencies
  */
 import { EditorState, ContentState } from 'draft-js';
-import { useCallback } from '@web-stories-wp/react';
-import { getPastedBlocks, customExport } from '@web-stories-wp/rich-text';
+import { useCallback } from '@googleforcreators/react';
+import { getPastedBlocks, customExport } from '@googleforcreators/rich-text';
 /**
  * Internal dependencies
  */

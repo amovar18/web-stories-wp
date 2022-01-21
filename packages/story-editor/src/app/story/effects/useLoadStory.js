@@ -17,9 +17,9 @@
 /**
  * External dependencies
  */
-import { useEffect } from '@web-stories-wp/react';
-import { migrate } from '@web-stories-wp/migration';
-import { createPage } from '@web-stories-wp/elements';
+import { useEffect } from '@googleforcreators/react';
+import { migrate } from '@googleforcreators/migration';
+import { createPage } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -36,21 +36,21 @@ function loadStory(storyId, post, restore, clearHistory) {
     modified,
     excerpt: { raw: excerpt = '' } = {},
     link,
-    story_data: storyDataRaw,
-    permalink_template: permalinkTemplate,
-    style_presets: globalStoryStyles = {},
+    storyData: storyDataRaw,
+    permalinkTemplate,
+    stylePresets: globalStoryStyles = {},
     password,
-    preview_link: previewLink,
-    edit_link: editLink,
-    embed_post_link: embedPostLink,
+    previewLink,
+    editLink,
+    embedPostLink,
     author,
     capabilities = {
       publish: false,
       'assign-author': false,
     },
-    lock_user: lockUser,
-    featured_media: featuredMedia,
-    publisher_logo: publisherLogo,
+    lockUser,
+    featuredMedia,
+    publisherLogo,
     taxonomies,
     terms,
   } = post;

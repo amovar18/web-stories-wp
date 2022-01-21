@@ -18,12 +18,12 @@
  * External dependencies
  */
 import styled from 'styled-components';
-import { useEffect, useRef, useMemo } from '@web-stories-wp/react';
+import { useEffect, useRef, useMemo } from '@googleforcreators/react';
 import PropTypes from 'prop-types';
-import { createSolid } from '@web-stories-wp/patterns';
-import { useUnits } from '@web-stories-wp/units';
-import { getHTMLFormatters, getHTMLInfo } from '@web-stories-wp/rich-text';
-import { useFont } from '@web-stories-wp/story-editor';
+import { createSolid } from '@googleforcreators/patterns';
+import { useUnits } from '@googleforcreators/units';
+import { getHTMLFormatters, getHTMLInfo } from '@googleforcreators/rich-text';
+import { useFont } from '@googleforcreators/story-editor';
 import {
   elementFillContent,
   elementWithBackgroundColor,
@@ -36,10 +36,10 @@ import {
   getHighlightLineHeight,
   generateParagraphTextStyle,
   calcFontMetrics,
-} from '@web-stories-wp/elements';
-import { generateFontFamily } from '@web-stories-wp/fonts';
-import { useTransformHandler } from '@web-stories-wp/transform';
-import { stripHTML } from '@web-stories-wp/design-system';
+} from '@googleforcreators/elements';
+import { generateFontFamily } from '@googleforcreators/fonts';
+import { useTransformHandler } from '@googleforcreators/transform';
+import { stripHTML } from '@googleforcreators/design-system';
 /**
  * Internal dependencies
  */

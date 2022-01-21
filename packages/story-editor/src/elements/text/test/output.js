@@ -17,8 +17,8 @@
 /**
  * External dependencies
  */
-import { renderToStaticMarkup } from '@web-stories-wp/react';
-import { TextOutput } from '@web-stories-wp/elements-library';
+import { renderToStaticMarkup } from '@googleforcreators/react';
+import { TextOutput } from '@googleforcreators/elements-library';
 
 function renderViaString(...args) {
   // Render an element via string to test that Output templates do not use

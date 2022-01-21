@@ -18,9 +18,9 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { useCallback } from '@web-stories-wp/react';
-import { __ } from '@web-stories-wp/i18n';
-import { canMaskHaveBorder } from '@web-stories-wp/masks';
+import { useCallback } from '@googleforcreators/react';
+import { __ } from '@googleforcreators/i18n';
+import { canMaskHaveBorder } from '@googleforcreators/masks';
 /**
  * Internal dependencies
  */

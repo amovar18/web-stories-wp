@@ -17,9 +17,9 @@
 /**
  * External dependencies
  */
-import { useRef } from '@web-stories-wp/react';
+import { useRef } from '@googleforcreators/react';
 import { screen } from '@testing-library/react';
-import { TransformContext } from '@web-stories-wp/transform';
+import { TransformContext } from '@googleforcreators/transform';
 /**
  * Internal dependencies
  */

@@ -18,9 +18,9 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { getGoogleFontURL, getFontCSS } from '@web-stories-wp/fonts';
-import { getFontVariants } from '@web-stories-wp/rich-text';
-import { StoryPropTypes } from '@web-stories-wp/elements';
+import { getGoogleFontURL, getFontCSS } from '@googleforcreators/fonts';
+import { getFontVariants } from '@googleforcreators/rich-text';
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

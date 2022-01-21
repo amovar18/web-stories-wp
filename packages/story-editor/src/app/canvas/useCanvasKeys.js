@@ -17,16 +17,16 @@
 /**
  * External dependencies
  */
-import { useCallback, useEffect, useRef } from '@web-stories-wp/react';
-import { trackEvent } from '@web-stories-wp/tracking';
-import { useGlobalKeyDownEffect } from '@web-stories-wp/design-system';
-import { STORY_ANIMATION_STATE } from '@web-stories-wp/animation';
-import { useTransform } from '@web-stories-wp/transform';
+import { useCallback, useEffect, useRef } from '@googleforcreators/react';
+import { trackEvent } from '@googleforcreators/tracking';
+import { useGlobalKeyDownEffect } from '@googleforcreators/design-system';
+import { STORY_ANIMATION_STATE } from '@googleforcreators/animation';
+import { useTransform } from '@googleforcreators/transform';
 import {
   getKeyboardMovement,
   getDefinitionForType,
   duplicateElement,
-} from '@web-stories-wp/elements';
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

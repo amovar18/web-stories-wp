@@ -17,8 +17,8 @@
 /**
  * External dependencies
  */
-import { __ } from '@web-stories-wp/i18n';
-import { registerElementType } from '@web-stories-wp/elements';
+import { __ } from '@googleforcreators/i18n';
+import { registerElementType } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

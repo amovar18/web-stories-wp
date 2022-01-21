@@ -16,8 +16,8 @@
 /**
  * External dependencies
  */
-import { createSolidFromString } from '@web-stories-wp/patterns';
-import { PanelTypes } from '@web-stories-wp/elements';
+import { createSolidFromString } from '@googleforcreators/patterns';
+import { PanelTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

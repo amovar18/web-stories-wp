@@ -18,15 +18,15 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { __ } from '@web-stories-wp/i18n';
-import { generatePatternStyles } from '@web-stories-wp/patterns';
+import { __ } from '@googleforcreators/i18n';
+import { generatePatternStyles } from '@googleforcreators/patterns';
 import {
   PAGE_HEIGHT,
   PAGE_WIDTH,
   isElementBelowLimit,
-} from '@web-stories-wp/units';
-import { getTotalDuration, StoryAnimation } from '@web-stories-wp/animation';
-import { StoryPropTypes, ELEMENT_TYPES } from '@web-stories-wp/elements';
+} from '@googleforcreators/units';
+import { getTotalDuration, StoryAnimation } from '@googleforcreators/animation';
+import { StoryPropTypes, ELEMENT_TYPES } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

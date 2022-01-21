@@ -1,5 +1,5 @@
 {
-    "name": "@web-stories-wp/output",
+    "name": "@googleforcreators/output",
     "private": true,
     "engines": {
       "node": ">= 16",
@@ -11,16 +11,16 @@
     "main": "./src/index.js",
     "type": "module",
     "dependencies": {
-      "@web-stories-wp/animation": "*",
-      "@web-stories-wp/design-system": "*",
-      "@web-stories-wp/elements": "*",
-      "@web-stories-wp/fonts": "*",
-      "@web-stories-wp/i18n": "*",
-      "@web-stories-wp/masks": "*",
-      "@web-stories-wp/patterns": "*",
-      "@web-stories-wp/react": "*",
-      "@web-stories-wp/rich-text": "*",
-      "@web-stories-wp/units": "*",
+      "@googleforcreators/animation": "*",
+      "@googleforcreators/design-system": "*",
+      "@googleforcreators/elements": "*",
+      "@googleforcreators/fonts": "*",
+      "@googleforcreators/i18n": "*",
+      "@googleforcreators/masks": "*",
+      "@googleforcreators/patterns": "*",
+      "@googleforcreators/react": "*",
+      "@googleforcreators/rich-text": "*",
+      "@googleforcreators/units": "*",
       "draft-js": "^0.11.7",
       "draft-js-export-html": "^1.4.1",
       "draft-js-import-html": "^1.4.1",
@@ -29,7 +29,7 @@
       "styled-components": "^5.3.3"
     },
     "devDependencies": {
-      "@web-stories-wp/testing-library": "*",
+      "@googleforcreators/testing-library": "*",
       "@testing-library/react": "^12.1.2",
       "prop-types": "^15.8.0"
     }

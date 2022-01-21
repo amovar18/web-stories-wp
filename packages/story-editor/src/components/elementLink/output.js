@@ -18,8 +18,8 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { withProtocol } from '@web-stories-wp/design-system';
-import { StoryPropTypes } from '@web-stories-wp/elements';
+import { withProtocol } from '@googleforcreators/design-system';
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

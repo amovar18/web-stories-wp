@@ -17,14 +17,14 @@
 /**
  * External dependencies
  */
-import { useCallback, useBatchingCallback } from '@web-stories-wp/react';
+import { useCallback, useBatchingCallback } from '@googleforcreators/react';
 import {
   DANGER_ZONE_HEIGHT,
   FULLBLEED_HEIGHT,
   PAGE_WIDTH,
-} from '@web-stories-wp/units';
-import { getHTMLFormatters } from '@web-stories-wp/rich-text';
-import { ELEMENT_TYPES, objectWithout } from '@web-stories-wp/elements';
+} from '@googleforcreators/units';
+import { getHTMLFormatters } from '@googleforcreators/rich-text';
+import { ELEMENT_TYPES, objectWithout } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

@@ -17,8 +17,8 @@
 /**
  * External dependencies
  */
-import { dataPixels } from '@web-stories-wp/units';
-import { calcRotatedResizeOffset } from '@web-stories-wp/moveable';
+import { dataPixels } from '@googleforcreators/units';
+import { calcRotatedResizeOffset } from '@googleforcreators/moveable';
 /**
  * Internal dependencies
  */

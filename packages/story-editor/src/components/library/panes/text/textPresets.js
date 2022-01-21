@@ -17,10 +17,10 @@
 /**
  * External dependencies
  */
-import { __, _x } from '@web-stories-wp/i18n';
-import { dataFontEm, PAGE_HEIGHT } from '@web-stories-wp/units';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
-import { BACKGROUND_TEXT_MODE } from '@web-stories-wp/elements';
+import { __, _x } from '@googleforcreators/i18n';
+import { dataFontEm, PAGE_HEIGHT } from '@googleforcreators/units';
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@googleforcreators/fonts';
+import { BACKGROUND_TEXT_MODE } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

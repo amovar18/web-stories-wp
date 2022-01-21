@@ -25,18 +25,21 @@ import {
   useCallback,
   useMemo,
   useUnmount,
-} from '@web-stories-wp/react';
+} from '@googleforcreators/react';
 import PropTypes from 'prop-types';
-import { generatePatternStyles } from '@web-stories-wp/patterns';
-import { useUnits } from '@web-stories-wp/units';
+import { generatePatternStyles } from '@googleforcreators/patterns';
+import { useUnits } from '@googleforcreators/units';
 import {
   useStory,
   useFont,
   useRichText,
   RichTextEditor,
-} from '@web-stories-wp/story-editor';
-import { useTransform, useTransformHandler } from '@web-stories-wp/transform';
-import { getHTMLInfo } from '@web-stories-wp/rich-text';
+} from '@googleforcreators/story-editor';
+import {
+  useTransform,
+  useTransformHandler,
+} from '@googleforcreators/transform';
+import { getHTMLInfo } from '@googleforcreators/rich-text';
 import {
   StoryPropTypes,
   BACKGROUND_TEXT_MODE,
@@ -51,9 +54,9 @@ import {
   getHighlightLineHeight,
   useCSSVarColorTransformHandler,
   useColorTransformHandler,
-} from '@web-stories-wp/elements';
-import { stripHTML } from '@web-stories-wp/design-system';
-import { calcRotatedResizeOffset } from '@web-stories-wp/moveable';
+} from '@googleforcreators/elements';
+import { stripHTML } from '@googleforcreators/design-system';
+import { calcRotatedResizeOffset } from '@googleforcreators/moveable';
 /**
  * Internal dependencies
  */

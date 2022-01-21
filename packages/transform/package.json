@@ -1,5 +1,5 @@
 {
-  "name": "@web-stories-wp/transform",
+  "name": "@googleforcreators/transform",
   "private": true,
   "engines": {
     "node": ">= 16",
@@ -11,7 +11,7 @@
   "main": "./src/index.js",
   "type": "module",
   "dependencies": {
-    "@web-stories-wp/react": "*"
+    "@googleforcreators/react": "*"
   },
   "devDependencies": {
     "prop-types": "^15.7.2"

@@ -19,8 +19,8 @@
  */
 import { ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
-import { PAGE_WIDTH, PAGE_RATIO } from '@web-stories-wp/units';
-import { TransformProvider, useTransform } from '@web-stories-wp/transform';
+import { PAGE_WIDTH, PAGE_RATIO } from '@googleforcreators/units';
+import { TransformProvider, useTransform } from '@googleforcreators/transform';
 /**
  * Internal dependencies
  */

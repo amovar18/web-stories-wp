@@ -18,7 +18,12 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { useState, useCallback, useMemo, useRef } from '@web-stories-wp/react';
+import {
+  useState,
+  useCallback,
+  useMemo,
+  useRef,
+} from '@googleforcreators/react';
 import {
   EditorState,
   getSelectionForAll,
@@ -31,7 +36,7 @@ import {
   customExport,
   useHandlePastedText,
   useSelectionManipulation,
-} from '@web-stories-wp/rich-text';
+} from '@googleforcreators/rich-text';
 
 /**
  * Internal dependencies

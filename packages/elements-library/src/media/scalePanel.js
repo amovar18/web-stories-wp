@@ -19,11 +19,11 @@
  */
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { _x } from '@web-stories-wp/i18n';
-import { Slider } from '@web-stories-wp/design-system';
-import { BG_MIN_SCALE, BG_MAX_SCALE } from '@web-stories-wp/animation';
-import { InOverlay } from '@web-stories-wp/moveable';
-import { Z_INDEX_CANVAS } from '@web-stories-wp/elements';
+import { _x } from '@googleforcreators/i18n';
+import { Slider } from '@googleforcreators/design-system';
+import { BG_MIN_SCALE, BG_MAX_SCALE } from '@googleforcreators/animation';
+import { InOverlay } from '@googleforcreators/moveable';
+import { Z_INDEX_CANVAS } from '@googleforcreators/elements';
 
 const MIN_WIDTH = 165;
 const HEIGHT = 36;

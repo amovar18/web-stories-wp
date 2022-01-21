@@ -1,5 +1,5 @@
 {
-    "name": "@web-stories-wp/rich-text",
+    "name": "@googleforcreators/rich-text",
     "private": true,
     "engines": {
       "node": ">= 16",
@@ -11,9 +11,9 @@
     "main": "./src/index.js",
     "type": "module",
     "dependencies": {
-      "@web-stories-wp/elements": "*",
-      "@web-stories-wp/patterns": "*",
-      "@web-stories-wp/react": "*",
+      "@googleforcreators/elements": "*",
+      "@googleforcreators/patterns": "*",
+      "@googleforcreators/react": "*",
       "draft-js": "^0.11.7",
       "draft-js-export-html": "^1.4.1",
       "draft-js-import-html": "^1.4.1",

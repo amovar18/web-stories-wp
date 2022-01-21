@@ -17,14 +17,14 @@
 /**
  * External dependencies
  */
-import { createSolid } from '@web-stories-wp/patterns';
-import { PAGE_WIDTH } from '@web-stories-wp/units';
+import { createSolid } from '@googleforcreators/patterns';
+import { PAGE_WIDTH } from '@googleforcreators/units';
 import {
   SHARED_DEFAULT_ATTRIBUTES,
   getDefinitionForType,
   MEDIA_DEFAULT_ATTRIBUTES,
-} from '@web-stories-wp/elements';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
+} from '@googleforcreators/elements';
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@googleforcreators/fonts';
 /**
  * Internal dependencies
  */

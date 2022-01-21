@@ -22,10 +22,13 @@ import {
   createSolid,
   generatePatternStyles,
   isPatternEqual,
-} from '@web-stories-wp/patterns';
-import { getHTMLInfo } from '@web-stories-wp/rich-text';
-import { generateFontFamily } from '@web-stories-wp/fonts';
-import { MULTIPLE_VALUE, BACKGROUND_TEXT_MODE } from '@web-stories-wp/elements';
+} from '@googleforcreators/patterns';
+import { getHTMLInfo } from '@googleforcreators/rich-text';
+import { generateFontFamily } from '@googleforcreators/fonts';
+import {
+  MULTIPLE_VALUE,
+  BACKGROUND_TEXT_MODE,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

@@ -18,7 +18,7 @@
  * External dependencies
  */
 import styled, { css } from 'styled-components';
-import { forwardRef, useContext, createPortal } from '@web-stories-wp/react';
+import { forwardRef, useContext, createPortal } from '@googleforcreators/react';
 
 /**
  * Internal dependencies

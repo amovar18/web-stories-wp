@@ -24,15 +24,15 @@ import {
   useLayoutEffect,
   useCallback,
   useRef,
-} from '@web-stories-wp/react';
+} from '@googleforcreators/react';
 import {
   Text,
   useKeyDownEffect,
   stripHTML,
-} from '@web-stories-wp/design-system';
-import { trackEvent } from '@web-stories-wp/tracking';
-import { useUnits } from '@web-stories-wp/units';
-import { StoryPropTypes } from '@web-stories-wp/elements';
+} from '@googleforcreators/design-system';
+import { trackEvent } from '@googleforcreators/tracking';
+import { useUnits } from '@googleforcreators/units';
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

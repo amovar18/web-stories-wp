@@ -19,17 +19,17 @@
  */
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useUnits } from '@web-stories-wp/units';
+import { useUnits } from '@googleforcreators/units';
 import {
   elementWithPosition,
   elementWithSize,
   elementWithRotation,
   getDefinitionForType,
-} from '@web-stories-wp/elements';
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import { useState, useRef } from '@web-stories-wp/react';
+import { useState, useRef } from '@googleforcreators/react';
 import SingleSelectionMoveable from './singleSelectionMoveable';
 
 const Wrapper = styled.div`

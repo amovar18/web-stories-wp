@@ -18,8 +18,8 @@
  * External dependencies
  */
 import { waitFor } from '@testing-library/react';
-import { dataFontEm, dataPixels } from '@web-stories-wp/units';
-import { stripHTML } from '@web-stories-wp/design-system';
+import { dataFontEm, dataPixels } from '@googleforcreators/units';
+import { stripHTML } from '@googleforcreators/design-system';
 /**
  * Internal dependencies
  */

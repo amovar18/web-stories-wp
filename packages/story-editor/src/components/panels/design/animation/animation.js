@@ -24,12 +24,12 @@ import {
   useRef,
   useDebouncedCallback,
   shallowEqual,
-} from '@web-stories-wp/react';
+} from '@googleforcreators/react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-import { __ } from '@web-stories-wp/i18n';
+import { __ } from '@googleforcreators/i18n';
 import styled from 'styled-components';
-import { Text, THEME_CONSTANTS } from '@web-stories-wp/design-system';
+import { Text, THEME_CONSTANTS } from '@googleforcreators/design-system';
 import {
   BACKGROUND_ANIMATION_EFFECTS,
   BG_MAX_SCALE,
@@ -40,8 +40,8 @@ import {
   hasOffsets,
   STORY_ANIMATION_STATE,
   getAnimationEffectDefaults,
-} from '@web-stories-wp/animation';
-import { StoryPropTypes, AnimationPropType } from '@web-stories-wp/elements';
+} from '@googleforcreators/animation';
+import { StoryPropTypes, AnimationPropType } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

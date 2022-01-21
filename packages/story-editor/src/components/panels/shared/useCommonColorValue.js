@@ -17,9 +17,12 @@
 /**
  * External dependencies
  */
-import { useMemo } from '@web-stories-wp/react';
-import { convertToCSS, generatePatternStyles } from '@web-stories-wp/patterns';
-import { MULTIPLE_VALUE } from '@web-stories-wp/elements';
+import { useMemo } from '@googleforcreators/react';
+import {
+  convertToCSS,
+  generatePatternStyles,
+} from '@googleforcreators/patterns';
+import { MULTIPLE_VALUE } from '@googleforcreators/elements';
 /**
  * Memoizes the common color value.
  *

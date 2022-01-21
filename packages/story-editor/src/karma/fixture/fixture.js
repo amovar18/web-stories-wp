@@ -27,11 +27,11 @@ import {
   screen,
   waitFor,
 } from '@testing-library/react';
-import { setAppElement } from '@web-stories-wp/design-system';
-import { FixtureEvents } from '@web-stories-wp/karma-fixture';
-import { DATA_VERSION } from '@web-stories-wp/migration';
-import { createPage } from '@web-stories-wp/elements';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
+import { setAppElement } from '@googleforcreators/design-system';
+import { FixtureEvents } from '@googleforcreators/karma-fixture';
+import { DATA_VERSION } from '@googleforcreators/migration';
+import { createPage } from '@googleforcreators/elements';
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@googleforcreators/fonts';
 /**
  * Internal dependencies
  */
@@ -76,7 +76,7 @@ function MediaUpload({ render: _render, onSelect }) {
   return _render(open);
 }
 
-const DEFAULT_CONFIG = {
+export const FIXTURE_DEFAULT_CONFIG = {
   storyId: 1,
   api: {},
   allowedMimeTypes: {
@@ -118,6 +118,7 @@ const DEFAULT_CONFIG = {
   version: '1.0.0-alpha.9',
   isRTL: false,
   showMedia3p: true,
+  canViewDefaultTemplates: true,
   locale: {
     dateFormat: 'F j, Y',
     timeFormat: 'g:i a',
@@ -159,7 +160,7 @@ export class Fixture {
    * @param {Object} config.mocks An object containing functions to be used as stubs for the api.
    */
   constructor({ mocks } = {}) {
-    this._config = { ...DEFAULT_CONFIG };
+    this._config = { ...FIXTURE_DEFAULT_CONFIG };
 
     this._componentStubs = new Map();
     const origCreateElement = React.createElement;
@@ -626,7 +627,7 @@ class APIProviderFixture {
         () =>
           asyncResponse({
             ...storyResponse,
-            story_data: {
+            storyData: {
               version: DATA_VERSION,
               pages: this._pages,
             },
@@ -645,7 +646,7 @@ class APIProviderFixture {
 
       const getMedia = useCallback(({ mediaType, searchTerm, pagingNum }) => {
         const filterByMediaType = mediaType
-          ? ({ mime_type }) => mime_type.startsWith(mediaType)
+          ? ({ mimeType }) => mimeType.startsWith(mediaType)
           : () => true;
         const filterBySearchTerm = searchTerm
           ? ({ alt_text }) => alt_text.includes(searchTerm)
@@ -689,9 +690,9 @@ class APIProviderFixture {
         () =>
           asyncResponse({
             ext: 'jpg',
-            mime_type: 'image/jpeg',
+            mimeType: 'image/jpeg',
             type: 'image',
-            file_name: 'example.jpg',
+            fileName: 'example.jpg',
           }),
         []
       );

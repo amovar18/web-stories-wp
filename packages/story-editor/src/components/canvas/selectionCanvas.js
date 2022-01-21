@@ -19,9 +19,14 @@
  */
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useEffect, useRef, useMemo, useCallback } from '@web-stories-wp/react';
-import { PAGE_RATIO, useUnits } from '@web-stories-wp/units';
-import { withOverlay, InOverlay } from '@web-stories-wp/moveable';
+import {
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
+} from '@googleforcreators/react';
+import { PAGE_RATIO, useUnits } from '@googleforcreators/units';
+import { withOverlay, InOverlay } from '@googleforcreators/moveable';
 /**
  * Internal dependencies
  */
@@ -232,7 +237,7 @@ function SelectionCanvas({ children }) {
   useEffect(updateLasso);
 
   // data-fix-caret is for allowing caretRangeFromPoint to work in Safari.
-  // See https://github.com/google/web-stories-wp/issues/7745.
+  // See https://github.com/google/googleforcreators/issues/7745.
   return (
     <Container
       onMouseDown={onMouseDown}

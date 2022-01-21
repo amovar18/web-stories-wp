@@ -17,8 +17,8 @@
 /**
  * External dependencies
  */
-import { useCallback } from '@web-stories-wp/react';
-import { createNewElement } from '@web-stories-wp/elements';
+import { useCallback } from '@googleforcreators/react';
+import { createNewElement } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

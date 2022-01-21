@@ -20,9 +20,9 @@
 import styled from 'styled-components';
 import { rgba } from 'polished';
 import PropTypes from 'prop-types';
-import { __ } from '@web-stories-wp/i18n';
-import { TOOLTIP_PLACEMENT } from '@web-stories-wp/design-system';
-import { StoryPropTypes } from '@web-stories-wp/elements';
+import { __ } from '@googleforcreators/i18n';
+import { TOOLTIP_PLACEMENT } from '@googleforcreators/design-system';
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

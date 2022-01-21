@@ -25,11 +25,11 @@ import {
   useMemo,
   useBatchingCallback,
   useCombinedRefs,
-} from '@web-stories-wp/react';
+} from '@googleforcreators/react';
 import classnames from 'classnames';
-import { useUnits } from '@web-stories-wp/units';
-import { useTransform } from '@web-stories-wp/transform';
-import { Moveable } from '@web-stories-wp/moveable';
+import { useUnits } from '@googleforcreators/units';
+import { useTransform } from '@googleforcreators/transform';
+import { Moveable } from '@googleforcreators/moveable';
 /**
  * Internal dependencies
  */

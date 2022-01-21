@@ -17,10 +17,10 @@
 /**
  * External dependencies
  */
-import STICKERS from '@web-stories-wp/stickers';
-import { dataPixels } from '@web-stories-wp/units';
-import { getDefinitionForType } from '@web-stories-wp/elements';
-import { DEFAULT_MASK } from '@web-stories-wp/masks';
+import STICKERS from '@googleforcreators/stickers';
+import { dataPixels } from '@googleforcreators/units';
+import { getDefinitionForType } from '@googleforcreators/elements';
+import { DEFAULT_MASK } from '@googleforcreators/masks';
 /**
  * Internal dependencies
  */

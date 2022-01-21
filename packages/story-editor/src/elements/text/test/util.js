@@ -21,12 +21,12 @@ import {
   dataToEditorX,
   dataToEditorY,
   dataToFontSizeY as dataToFontSize,
-} from '@web-stories-wp/units';
+} from '@googleforcreators/units';
 import {
   getHighlightLineHeight,
   generateParagraphTextStyle,
-} from '@web-stories-wp/elements';
-import { generateFontFamily } from '@web-stories-wp/fonts';
+} from '@googleforcreators/elements';
+import { generateFontFamily } from '@googleforcreators/fonts';
 
 const TEXT_ELEMENT = {
   opacity: 100,

@@ -17,12 +17,15 @@
 /**
  * External dependencies
  */
-import { renderToStaticMarkup } from '@web-stories-wp/react';
+import { renderToStaticMarkup } from '@googleforcreators/react';
+/**
+ * Inter@googleforcreatorss
+ */
 import {
   duplicateElement,
   getDefinitionForType,
   getOffsetCoordinates,
-} from '@web-stories-wp/elements';
+} from '@googleforcreators/elements';
 
 const DOUBLE_DASH_ESCAPE = '_DOUBLEDASH_';
 

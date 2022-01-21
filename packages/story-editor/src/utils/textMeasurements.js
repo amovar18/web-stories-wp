@@ -17,9 +17,12 @@
 /**
  * External dependencies
  */
-import { renderToStaticMarkup } from '@web-stories-wp/react';
-import { dataPixels, PAGE_HEIGHT } from '@web-stories-wp/units';
-import { TextOutputWithUnits, calcFontMetrics } from '@web-stories-wp/elements';
+import { renderToStaticMarkup } from '@googleforcreators/react';
+import { dataPixels, PAGE_HEIGHT } from '@googleforcreators/units';
+import {
+  TextOutputWithUnits,
+  calcFontMetrics,
+} from '@googleforcreators/elements';
 
 const MEASURER_STYLES = {
   boxSizing: 'border-box',

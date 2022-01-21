@@ -21,10 +21,10 @@ import { render, act, waitFor } from '@testing-library/react';
 // eslint-disable-next-line import/named
 import { MockMoveable } from 'react-moveable';
 import PropTypes from 'prop-types';
-import { forwardRef } from '@web-stories-wp/react';
-import { UnitsProvider } from '@web-stories-wp/units';
-import { TransformProvider } from '@web-stories-wp/transform';
-import { withOverlay } from '@web-stories-wp/moveable';
+import { forwardRef } from '@googleforcreators/react';
+import { UnitsProvider } from '@googleforcreators/units';
+import { TransformProvider } from '@googleforcreators/transform';
+import { withOverlay } from '@googleforcreators/moveable';
 /**
  * Internal dependencies
  */

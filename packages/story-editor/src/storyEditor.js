@@ -24,15 +24,15 @@ import {
   SnackbarProvider,
   ModalGlobalStyle,
   deepMerge,
-} from '@web-stories-wp/design-system';
-import { TransformProvider } from '@web-stories-wp/transform';
-import { useMemo, useEffect } from '@web-stories-wp/react';
+} from '@googleforcreators/design-system';
+import { TransformProvider } from '@googleforcreators/transform';
+import { useMemo, useEffect } from '@googleforcreators/react';
 import { FlagsProvider } from 'flagged';
 import {
   moveStyle as DefaultMoveableGlobalStyle,
   cropStyle as CropMoveableGlobalStyle,
-} from '@web-stories-wp/moveable';
-import { registerElementTypes } from '@web-stories-wp/elements-library';
+} from '@googleforcreators/moveable';
+import { registerElementTypes } from '@googleforcreators/elements-library';
 /**
  * Internal dependencies
  */
@@ -50,6 +50,7 @@ import { TaxonomyProvider } from './app/taxonomy';
 import AutoSaveHandler from './components/autoSaveHandler';
 import { DropTargetsProvider } from './components/dropTargets';
 import { HelpCenterProvider } from './app/helpCenter';
+import { PageDataUrlProvider } from './app/pageDataUrls';
 import DevTools from './components/devTools';
 import { GlobalStyle as CalendarStyle } from './components/form/dateTime/calendarStyle';
 import KeyboardOnlyOutlines from './utils/keyboardOnlyOutline';
@@ -83,14 +84,16 @@ function StoryEditor({ config, initialEdits, children }) {
                                 <TransformProvider>
                                   <DropTargetsProvider>
                                     <HelpCenterProvider>
-                                      <GlobalStyle />
-                                      <DevTools />
-                                      <DefaultMoveableGlobalStyle />
-                                      <CropMoveableGlobalStyle />
-                                      <ModalGlobalStyle />
-                                      <CalendarStyle />
-                                      <KeyboardOnlyOutlines />
-                                      {children}
+                                      <PageDataUrlProvider>
+                                        <GlobalStyle />
+                                        <DevTools />
+                                        <DefaultMoveableGlobalStyle />
+                                        <CropMoveableGlobalStyle />
+                                        <ModalGlobalStyle />
+                                        <CalendarStyle />
+                                        <KeyboardOnlyOutlines />
+                                        {children}
+                                      </PageDataUrlProvider>
                                     </HelpCenterProvider>
                                   </DropTargetsProvider>
                                 </TransformProvider>

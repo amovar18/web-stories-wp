@@ -17,9 +17,9 @@
 /**
  * External dependencies
  */
-import { generatePatternStyles } from '@web-stories-wp/patterns';
-import { getBox } from '@web-stories-wp/units';
-import { StoryAnimation } from '@web-stories-wp/animation';
+import { generatePatternStyles } from '@googleforcreators/patterns';
+import { getBox } from '@googleforcreators/units';
+import { StoryAnimation } from '@googleforcreators/animation';
 import {
   StoryPropTypes,
   getDefinitionForType,
@@ -28,8 +28,8 @@ import {
   getBorderRadius,
   getBorderStyle,
   shouldDisplayBorder,
-} from '@web-stories-wp/elements';
-import { WithMaskOutput as WithMask } from '@web-stories-wp/masks';
+} from '@googleforcreators/elements';
+import { WithMaskOutput as WithMask } from '@googleforcreators/masks';
 /**
  * Internal dependencies
  */

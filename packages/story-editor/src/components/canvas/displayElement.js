@@ -18,13 +18,13 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { memo, useRef, useState } from '@web-stories-wp/react';
+import { memo, useRef, useState } from '@googleforcreators/react';
 import styled, { css } from 'styled-components';
-import { generatePatternStyles } from '@web-stories-wp/patterns';
-import { useUnits } from '@web-stories-wp/units';
-import { StoryAnimation } from '@web-stories-wp/animation';
-import { useTransformHandler } from '@web-stories-wp/transform';
-import { WithMaskDisplay as WithMask } from '@web-stories-wp/masks';
+import { generatePatternStyles } from '@googleforcreators/patterns';
+import { useUnits } from '@googleforcreators/units';
+import { StoryAnimation } from '@googleforcreators/animation';
+import { useTransformHandler } from '@googleforcreators/transform';
+import { WithMaskDisplay as WithMask } from '@googleforcreators/masks';
 import {
   getDefinitionForType,
   elementWithPosition,
@@ -35,7 +35,7 @@ import {
   getResponsiveBorder,
   shouldDisplayBorder,
   StoryPropTypes,
-} from '@web-stories-wp/elements';
+} from '@googleforcreators/elements';
 
 // Using attributes to avoid creation of hundreds of classes by styled components for previewMode.
 const Wrapper = styled.div.attrs(

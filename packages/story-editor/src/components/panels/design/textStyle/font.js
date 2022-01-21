@@ -18,18 +18,18 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { useMemo, useCallback } from '@web-stories-wp/react';
+import { useMemo, useCallback } from '@googleforcreators/react';
 import styled from 'styled-components';
-import { __ } from '@web-stories-wp/i18n';
+import { __ } from '@googleforcreators/i18n';
 import {
   DropDown,
   NumericInput,
   stripHTML,
-} from '@web-stories-wp/design-system';
+} from '@googleforcreators/design-system';
 import {
   MULTIPLE_VALUE,
   MULTIPLE_DISPLAY_VALUE,
-} from '@web-stories-wp/elements';
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

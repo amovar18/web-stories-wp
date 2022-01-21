@@ -16,8 +16,8 @@
 /**
  * External dependencies
  */
-import { __ } from '@web-stories-wp/i18n';
-import { getMaskByType } from '@web-stories-wp/masks';
+import { __ } from '@googleforcreators/i18n';
+import { getMaskByType } from '@googleforcreators/masks';
 /**
  * Internal dependencies
  */

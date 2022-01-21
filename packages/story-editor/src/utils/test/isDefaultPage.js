@@ -17,8 +17,8 @@
 /**
  * External dependencies
  */
-import { createSolid } from '@web-stories-wp/patterns';
-import { createPage } from '@web-stories-wp/elements';
+import { createSolid } from '@googleforcreators/patterns';
+import { createPage } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

@@ -18,15 +18,15 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { useCallback } from '@web-stories-wp/react';
+import { useCallback } from '@googleforcreators/react';
 import styled from 'styled-components';
-import { __ } from '@web-stories-wp/i18n';
-import { LockToggle, Icons } from '@web-stories-wp/design-system';
-import { canMaskHaveBorder } from '@web-stories-wp/masks';
+import { __ } from '@googleforcreators/i18n';
+import { LockToggle, Icons } from '@googleforcreators/design-system';
+import { canMaskHaveBorder } from '@googleforcreators/masks';
 import {
   MULTIPLE_VALUE,
   MULTIPLE_DISPLAY_VALUE,
-} from '@web-stories-wp/elements';
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

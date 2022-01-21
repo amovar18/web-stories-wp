@@ -25,8 +25,8 @@ import {
   useImperativeHandle,
   forwardRef,
   useUnmount,
-} from '@web-stories-wp/react';
-import { customInlineDisplay } from '@web-stories-wp/rich-text';
+} from '@googleforcreators/react';
+import { customInlineDisplay } from '@googleforcreators/rich-text';
 
 /**
  * Internal dependencies

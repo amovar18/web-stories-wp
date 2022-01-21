@@ -17,11 +17,11 @@
 /**
  * External dependencies
  */
-import { shallowEqual } from '@web-stories-wp/react';
-import { createPage } from '@web-stories-wp/elements';
+import { shallowEqual } from '@googleforcreators/react';
+import { createPage } from '@googleforcreators/elements';
 
 /**
- * @typedef {import('@web-stories-wp/elements').Page} Page
+ * @typedef {import('@googleforcreators/elements').Page} Page
  */
 
 /**

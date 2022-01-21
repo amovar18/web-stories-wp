@@ -18,9 +18,13 @@
  * External dependencies
  */
 import styled from 'styled-components';
-import { useRef } from '@web-stories-wp/react';
+import { useRef } from '@googleforcreators/react';
 import PropTypes from 'prop-types';
-import { useUnits } from '@web-stories-wp/units';
+import { useUnits } from '@googleforcreators/units';
+
+/**
+ * Internal dependencies
+ */
 import {
   getResponsiveBorder,
   shouldDisplayBorder,
@@ -28,8 +32,8 @@ import {
   elementFillContent,
   elementWithBackgroundColor,
   elementWithBorder,
-} from '@web-stories-wp/elements';
-import { useTransformHandler } from '@web-stories-wp/transform';
+} from '@googleforcreators/elements';
+import { useTransformHandler } from '@googleforcreators/transform';
 
 /**
  * Internal dependencies

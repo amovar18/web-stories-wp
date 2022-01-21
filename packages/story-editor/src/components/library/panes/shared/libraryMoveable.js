@@ -18,12 +18,12 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { useCallback, useRef, useState } from '@web-stories-wp/react';
+import { useCallback, useRef, useState } from '@googleforcreators/react';
 import styled from 'styled-components';
-import { editorToDataX, editorToDataY } from '@web-stories-wp/units';
-import { useKeyDownEffect } from '@web-stories-wp/design-system';
-import { Moveable, InOverlay } from '@web-stories-wp/moveable';
-import { areEventsDragging } from '@web-stories-wp/elements';
+import { editorToDataX, editorToDataY } from '@googleforcreators/units';
+import { useKeyDownEffect } from '@googleforcreators/design-system';
+import { Moveable, InOverlay } from '@googleforcreators/moveable';
+import { areEventsDragging } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

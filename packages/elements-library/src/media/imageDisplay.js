@@ -18,7 +18,7 @@
  * External dependencies
  */
 import styled from 'styled-components';
-import { useEffect, useRef, useState } from '@web-stories-wp/react';
+import { useEffect, useRef, useState } from '@googleforcreators/react';
 import PropTypes from 'prop-types';
 import {
   preloadImage,
@@ -26,8 +26,8 @@ import {
   getMediaSizePositionProps,
   calculateSrcSet,
   getSmallestUrlForWidth,
-} from '@web-stories-wp/media';
-import { useCORSProxy, useLocalMedia } from '@web-stories-wp/story-editor';
+} from '@googleforcreators/media';
+import { useCORSProxy, useLocalMedia } from '@googleforcreators/story-editor';
 /**
  * Internal dependencies
  */
@@ -106,6 +106,8 @@ function ImageDisplay({ element, box, previewMode }) {
           // Ignore
         }
       });
+    } else {
+      setSrc(resource.src);
     }
     return () => {
       mounted = false;

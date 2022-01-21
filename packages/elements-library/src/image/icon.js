@@ -17,9 +17,9 @@
 /**
  * External dependencies
  */
-import { getSmallestUrlForWidth } from '@web-stories-wp/media';
-import { StoryPropTypes } from '@web-stories-wp/elements';
-import { useCORSProxy } from '@web-stories-wp/story-editor';
+import { getSmallestUrlForWidth } from '@googleforcreators/media';
+import { StoryPropTypes } from '@googleforcreators/elements';
+import { useCORSProxy } from '@googleforcreators/story-editor';
 /**
  * Internal dependencies
  */

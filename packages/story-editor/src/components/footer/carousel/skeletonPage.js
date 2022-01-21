@@ -22,8 +22,8 @@ import PropTypes from 'prop-types';
 import {
   generatePatternStyles,
   getSolidFromHex,
-} from '@web-stories-wp/patterns';
-import { getDefinitionForType } from '@web-stories-wp/elements';
+} from '@googleforcreators/patterns';
+import { getDefinitionForType } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -59,7 +59,7 @@ function SkeletonPage({ pageId, index }) {
   const bgElement = page.elements[0];
   const { isMedia } = getDefinitionForType(bgElement.type);
   // Using isHexColorString for extra hardening.
-  // See https://github.com/google/web-stories-wp/issues/9888.
+  // See https://github.com/google/googleforcreators/issues/9888.
   const bgColor =
     isMedia && isHexColorString(bgElement.resource?.baseColor)
       ? getSolidFromHex(bgElement.resource.baseColor.replace('#', ''))

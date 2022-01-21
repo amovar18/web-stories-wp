@@ -17,12 +17,12 @@
 /**
  * External dependencies
  */
-import { useCallback } from '@web-stories-wp/react';
+import { useCallback } from '@googleforcreators/react';
 import {
   dataPixels,
   calcRotatedObjectPositionAndSize,
-} from '@web-stories-wp/units';
-import { getDefinitionForType } from '@web-stories-wp/elements';
+} from '@googleforcreators/units';
+import { getDefinitionForType } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

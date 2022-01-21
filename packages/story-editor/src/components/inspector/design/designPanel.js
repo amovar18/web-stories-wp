@@ -19,8 +19,13 @@
  */
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useCallback, useMemo, useRef, useState } from '@web-stories-wp/react';
-import { StoryPropTypes } from '@web-stories-wp/elements';
+import {
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+} from '@googleforcreators/react';
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

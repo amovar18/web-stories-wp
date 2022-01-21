@@ -17,9 +17,9 @@
 /**
  * External dependencies
  */
-import { createSolid } from '@web-stories-wp/patterns';
-import { BACKGROUND_TEXT_MODE, PanelTypes } from '@web-stories-wp/elements';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
+import { createSolid } from '@googleforcreators/patterns';
+import { BACKGROUND_TEXT_MODE, PanelTypes } from '@googleforcreators/elements';
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@googleforcreators/fonts';
 /**
  * Internal dependencies
  */

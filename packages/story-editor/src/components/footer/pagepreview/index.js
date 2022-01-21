@@ -20,17 +20,17 @@
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import PropTypes from 'prop-types';
-import { generatePatternStyles } from '@web-stories-wp/patterns';
-import { UnitsProvider } from '@web-stories-wp/units';
+import { generatePatternStyles } from '@googleforcreators/patterns';
+import { UnitsProvider } from '@googleforcreators/units';
 import {
   useState,
   useRef,
   useCallback,
   useEffect,
-} from '@web-stories-wp/react';
+} from '@googleforcreators/react';
 import { useFeature } from 'flagged';
-import { TransformProvider } from '@web-stories-wp/transform';
-import { StoryPropTypes } from '@web-stories-wp/elements';
+import { TransformProvider } from '@googleforcreators/transform';
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -185,7 +185,6 @@ function PagePreview({
                   key={element.id}
                   previewMode
                   element={element}
-                  page={page}
                 />
               ))
             )}

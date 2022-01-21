@@ -17,14 +17,14 @@
 /**
  * External dependencies
  */
-import { forwardRef, useCallback, useMemo } from '@web-stories-wp/react';
+import { forwardRef, useCallback, useMemo } from '@googleforcreators/react';
 import PropTypes from 'prop-types';
-import { __ } from '@web-stories-wp/i18n';
-import { Datalist, stripHTML } from '@web-stories-wp/design-system';
+import { __ } from '@googleforcreators/i18n';
+import { Datalist, stripHTML } from '@googleforcreators/design-system';
 import {
   MULTIPLE_VALUE,
   MULTIPLE_DISPLAY_VALUE,
-} from '@web-stories-wp/elements';
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

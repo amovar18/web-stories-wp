@@ -18,11 +18,11 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-import { useEffect, useRef } from '@web-stories-wp/react';
-import { useUnits } from '@web-stories-wp/units';
-import { getFocalFromOffset } from '@web-stories-wp/media';
-import { Moveable, calcRotatedResizeOffset } from '@web-stories-wp/moveable';
-import { getTransformFlip } from '@web-stories-wp/elements';
+import { useEffect, useRef } from '@googleforcreators/react';
+import { useUnits } from '@googleforcreators/units';
+import { getFocalFromOffset } from '@googleforcreators/media';
+import { Moveable, calcRotatedResizeOffset } from '@googleforcreators/moveable';
+import { getTransformFlip } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

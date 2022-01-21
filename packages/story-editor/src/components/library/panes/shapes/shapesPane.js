@@ -18,10 +18,10 @@
  * External dependencies
  */
 import styled from 'styled-components';
-import { __ } from '@web-stories-wp/i18n';
-import { useRef } from '@web-stories-wp/react';
-import STICKERS from '@web-stories-wp/stickers';
-import { MASKS } from '@web-stories-wp/masks';
+import { __ } from '@googleforcreators/i18n';
+import { useRef } from '@googleforcreators/react';
+import STICKERS from '@googleforcreators/stickers';
+import { MASKS } from '@googleforcreators/masks';
 /**
  * Internal dependencies
  */

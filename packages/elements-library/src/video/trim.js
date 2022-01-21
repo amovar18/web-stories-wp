@@ -19,10 +19,13 @@
  */
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useRef, useMemo, useCallback } from '@web-stories-wp/react';
-import { getMediaSizePositionProps } from '@web-stories-wp/media';
-import { getTransformFlip } from '@web-stories-wp/elements';
-import { useVideoTrim, CircularProgress } from '@web-stories-wp/story-editor';
+import { useRef, useMemo, useCallback } from '@googleforcreators/react';
+import { getMediaSizePositionProps } from '@googleforcreators/media';
+import { getTransformFlip } from '@googleforcreators/elements';
+import {
+  useVideoTrim,
+  CircularProgress,
+} from '@googleforcreators/story-editor';
 /**
  * Internal dependencies
  */
