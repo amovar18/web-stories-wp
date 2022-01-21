@@ -22,7 +22,7 @@ import { getStoryMarkup } from '@googleforcreators/output';
  */
 import getStoryPropsToSave from '../getStoryPropsToSave';
 
-jest.mock('../../../../output/utils/getStoryMarkup', () => jest.fn());
+jest.mock(getStoryMarkup, () => jest.fn());
 
 describe('getStoryPropsToSave', () => {
   it('should return correct story properties', () => {

@@ -26,7 +26,7 @@ import APIContext from '../../../api/context';
 import ConfigContext from '../../../config/context';
 import useAutoSave from '../useAutoSave';
 
-jest.mock('../../../../output/utils/getStoryMarkup', () => jest.fn());
+jest.mock(getStoryMarkup, () => jest.fn());
 
 function setup(args) {
   const configValue = {

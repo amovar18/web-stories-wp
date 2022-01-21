@@ -15,9 +15,9 @@
  */
 
 /**
- * Internal dependencies
+ * External dependencies
  */
-import { MULTIPLE_VALUE } from '../../../constants';
+import { MULTIPLE_VALUE } from '@googleforcreators/elements';
 
 /**
  * @param {Object} currentProperties The existing element properties.
