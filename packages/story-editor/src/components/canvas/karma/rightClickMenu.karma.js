@@ -17,12 +17,12 @@
  * External dependencies
  */
 import { waitFor, within } from '@testing-library/react';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@googleforcreators/fonts';
 import {
   imageAttributeDefaults,
   shapeAttributeDefaults,
   textAttributeDefaults,
-} from '@web-stories-wp/elements-library';
+} from '@googleforcreators/elements-library';
 /**
  * Internal dependencies
  */

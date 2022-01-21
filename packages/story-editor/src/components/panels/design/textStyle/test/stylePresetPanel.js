@@ -18,8 +18,8 @@
  * External dependencies
  */
 import { fireEvent, screen } from '@testing-library/react';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
-import { BACKGROUND_TEXT_MODE } from '@web-stories-wp/elements';
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@googleforcreators/fonts';
+import { BACKGROUND_TEXT_MODE } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

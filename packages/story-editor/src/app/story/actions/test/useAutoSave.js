@@ -18,7 +18,7 @@
  * External dependencies
  */
 import { renderHook, act } from '@testing-library/react-hooks';
-import { getStoryMarkup } from '@web-stories-wp/output';
+import { getStoryMarkup } from '@googleforcreators/output';
 /**
  * Internal dependencies
  */

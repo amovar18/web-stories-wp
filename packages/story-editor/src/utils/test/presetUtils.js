@@ -16,8 +16,8 @@
 /**
  * External dependencies
  */
-import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
-import { BACKGROUND_TEXT_MODE } from '@web-stories-wp/elements';
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@googleforcreators/fonts';
+import { BACKGROUND_TEXT_MODE } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

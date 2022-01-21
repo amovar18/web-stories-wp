@@ -18,7 +18,7 @@
  * External dependencies
  */
 import { render, act, fireEvent } from '@testing-library/react';
-import { MULTIPLE_VALUE } from '@web-stories-wp/elements';
+import { MULTIPLE_VALUE } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

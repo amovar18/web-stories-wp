@@ -18,7 +18,7 @@
  * External dependencies
  */
 import { fireEvent } from '@testing-library/react';
-import { queryByAriaLabel } from '@web-stories-wp/testing-library';
+import { queryByAriaLabel } from '@googleforcreators/testing-library';
 /**
  * Internal dependencies
  */

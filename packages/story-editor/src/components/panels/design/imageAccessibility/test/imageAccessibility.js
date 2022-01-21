@@ -18,7 +18,7 @@
  * External dependencies
  */
 import { screen } from '@testing-library/react';
-import { MULTIPLE_DISPLAY_VALUE } from '@web-stories-wp/elements';
+import { MULTIPLE_DISPLAY_VALUE } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

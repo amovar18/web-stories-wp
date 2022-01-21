@@ -16,7 +16,7 @@
 /**
  * External dependencies
  */
-import { MaskTypes } from '@web-stories-wp/masks';
+import { MaskTypes } from '@googleforcreators/masks';
 /**
  * Internal dependencies
  */

@@ -16,7 +16,10 @@
 /**
  * External dependencies
  */
-import { getDefinitionForType, ELEMENT_TYPES } from '@web-stories-wp/elements';
+import {
+  getDefinitionForType,
+  ELEMENT_TYPES,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */

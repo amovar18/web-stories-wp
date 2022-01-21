@@ -16,13 +16,13 @@
 /**
  * External dependencies
  */
-import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@googleforcreators/fonts';
 import {
   createNewElement,
   createPage,
   duplicatePage,
   duplicateElement,
-} from '@web-stories-wp/elements';
+} from '@googleforcreators/elements';
 
 describe('Element', () => {
   describe('createNewElement', () => {

@@ -16,7 +16,7 @@
 /**
  * External dependencies
  */
-import { areEventsDragging } from '@web-stories-wp/elements';
+import { areEventsDragging } from '@googleforcreators/elements';
 
 describe('areEventsDragging', () => {
   it('should *not* consider a quick sequence of events at about the same point dragging', () => {

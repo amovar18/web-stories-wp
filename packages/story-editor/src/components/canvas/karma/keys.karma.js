@@ -18,7 +18,7 @@
  * External dependencies
  */
 import { waitFor } from '@testing-library/react';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '@web-stories-wp/fonts';
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@googleforcreators/fonts';
 /**
  * Internal dependencies
  */
