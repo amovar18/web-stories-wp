@@ -31,7 +31,7 @@ import {
 /**
  * Internal dependencies
  */
-import { DEFAULT_MASK } from './constants';
+import { DEFAULT_MASK } from './masks';
 
 const FILL_STYLE = {
   position: 'absolute',

@@ -29,7 +29,7 @@ import {
 /**
  * Internal dependencies
  */
-import { MaskTypes } from './constants';
+import { MaskTypes } from './masks';
 
 const FILL_STYLE = {
   position: 'absolute',

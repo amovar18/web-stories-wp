@@ -34,6 +34,7 @@
     "@googleforcreators/elements": "*",
     "@googleforcreators/fonts": "*",
     "@googleforcreators/i18n": "*",
+    "@googleforcreators/masks": "*",
     "@googleforcreators/media": "*",
     "@googleforcreators/migration": "*",
     "@googleforcreators/moveable": "*",

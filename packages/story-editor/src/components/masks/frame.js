@@ -25,13 +25,13 @@ import {
   StoryPropTypes,
   getElementMask,
 } from '@googleforcreators/elements';
+import { MaskTypes } from '@googleforcreators/masks';
 /**
  * Internal dependencies
  */
-import { useDropTargets } from '../app';
-import { TRACKING_EVENTS } from '../constants/performanceTrackingEvents';
-import usePerformanceTracking from '../utils/usePerformanceTracking';
-import { MaskTypes } from './constants';
+import { useDropTargets } from '../../app';
+import { TRACKING_EVENTS } from '../../constants/performanceTrackingEvents';
+import usePerformanceTracking from '../../utils/usePerformanceTracking';
 
 const FILL_STYLE = {
   position: 'absolute',

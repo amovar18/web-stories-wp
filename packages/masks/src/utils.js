@@ -16,7 +16,7 @@
 /**
  * Internal dependencies
  */
-import { DEFAULT_MASK, MASKS } from './constants';
+import { DEFAULT_MASK, MASKS } from './masks';
 
 // Only no-mask and masks with supportsBorder support border.
 
