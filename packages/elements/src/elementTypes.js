@@ -13,13 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/**
- * Internal dependencies
- */
-import { DEFAULT_MASK, MASKS } from './constants';
 
-// Only no-mask and masks with supportsBorder support border.
+const elementTypes = [];
 
-export function getMaskByType(type) {
-  return MASKS.find((mask) => mask.type === type) || DEFAULT_MASK;
-}
+export const ELEMENT_TYPES = {
+  IMAGE: 'image',
+  SHAPE: 'shape',
+  TEXT: 'text',
+  VIDEO: 'video',
+  GIF: 'gif',
+  STICKER: 'sticker',
+};
+
+export const registerElementType = (elementType) =>
+  elementTypes.push(elementType);
+
+export default elementTypes;

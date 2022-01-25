@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/**
+ * External dependencies
+ */
+import { objectWithout } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import { LAYER_DIRECTIONS } from '../../../../constants';
 import { ELEMENT_RESERVED_PROPERTIES } from '../types';
-import objectWithout from '../../../../utils/objectWithout';
-export { objectWithout };
 
 export function intersect(first, ...rest) {
   if (!first || !rest?.length) {

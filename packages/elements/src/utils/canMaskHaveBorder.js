@@ -13,13 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * Internal dependencies
  */
-import { DEFAULT_MASK, MASKS } from './constants';
+import getElementMask from './getElementMask';
 
-// Only no-mask and masks with supportsBorder support border.
-
-export function getMaskByType(type) {
-  return MASKS.find((mask) => mask.type === type) || DEFAULT_MASK;
+/**
+ * Determine whether an element can have a border.
+ *
+ * Only no-mask and masks with supportsBorder support border.
+ *
+ * @param {Object} element Element.
+ * @return {boolean} Whether the element can have a border.
+ */
+function canMaskHaveBorder(element) {
+  const mask = getElementMask(element);
+  return !mask || mask.supportsBorder;
 }
+
+export default canMaskHaveBorder;

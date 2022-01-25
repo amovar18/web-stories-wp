@@ -35,34 +35,29 @@ import {
 } from '@googleforcreators/transform';
 import { calcRotatedResizeOffset } from '@googleforcreators/moveable';
 import { getHTMLInfo } from '@googleforcreators/rich-text';
+import {
+  StoryPropTypes,
+  BACKGROUND_TEXT_MODE,
+  elementFillContent,
+  elementWithBackgroundColor,
+  elementWithBorder,
+  elementWithHighlightBorderRadius,
+  getBorderPositionCSS,
+  shouldDisplayBorder,
+  calcFontMetrics,
+  generateParagraphTextStyle,
+  getHighlightLineheight,
+  useCSSVarColorTransformHandler,
+  useColorTransformHandler,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import { useStory, useFont } from '../../app';
 import RichTextEditor from '../../components/richText/editor';
-import {
-  elementFillContent,
-  elementWithFont,
-  elementWithTextParagraphStyle,
-  elementWithBackgroundColor,
-  elementWithBorder,
-  elementWithHighlightBorderRadius,
-} from '../shared';
-import StoryPropTypes from '../../types';
-import { BACKGROUND_TEXT_MODE } from '../../constants';
+import { elementWithFont, elementWithTextParagraphStyle } from '../shared';
 import stripHTML from '../../utils/stripHTML';
 import useRichText from '../../components/richText/useRichText';
-import {
-  getBorderPositionCSS,
-  shouldDisplayBorder,
-} from '../../utils/elementBorder';
-import useCSSVarColorTransformHandler from '../shared/useCSSVarColorTransformHandler';
-import useColorTransformHandler from '../shared/useColorTransformHandler';
-import {
-  calcFontMetrics,
-  generateParagraphTextStyle,
-  getHighlightLineheight,
-} from './util';
 
 // Wrapper bounds the text editor within the element bounds. The resize
 // logic updates the height of this element to show the new height based

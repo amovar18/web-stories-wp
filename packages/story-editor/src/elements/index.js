@@ -16,11 +16,3 @@
 
 export * from './constants';
 export { default as elementTypes } from './elementTypes';
-export { default as getDefinitionForType } from './utils/getDefinitionForType';
-export { default as createNewElement } from './utils/createNewElement';
-export { default as createPage } from './utils/createPage';
-export { default as duplicatePage } from './utils/duplicatePage';
-export {
-  default as duplicateElement,
-  getOffsetCoordinates,
-} from './utils/duplicateElement';

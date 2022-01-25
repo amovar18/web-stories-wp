@@ -17,7 +17,7 @@
 /**
  * Internal dependencies
  */
-import objectWithout from '../../utils/objectWithout';
+import objectWithout from './objectWithout';
 import createNewElement from './createNewElement';
 import duplicateElement from './duplicateElement';
 

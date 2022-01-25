@@ -13,13 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
- * Internal dependencies
+ * External dependencies
  */
-import { DEFAULT_MASK, MASKS } from './constants';
+import { __ } from '@googleforcreators/i18n';
 
-// Only no-mask and masks with supportsBorder support border.
+export const DEFAULT_ATTRIBUTES_FOR_MEDIA = {
+  scale: 100,
+  focalX: 50,
+  focalY: 50,
+};
 
-export function getMaskByType(type) {
-  return MASKS.find((mask) => mask.type === type) || DEFAULT_MASK;
-}
+export const MEDIA_DEFAULT_ATTRIBUTES = {
+  ...DEFAULT_ATTRIBUTES_FOR_MEDIA,
+  resource: {
+    alt: '',
+  },
+};
+export const Z_INDEX_CANVAS = {
+  MOVABLE: 10,
+  FLOAT_PANEL: 11,
+};
+
+export const BACKGROUND_TEXT_MODE = {
+  NONE: 'NONE',
+  FILL: 'FILL',
+  HIGHLIGHT: 'HIGHLIGHT',
+};
+
+export const MULTIPLE_VALUE = '((MULTIPLE))';
+
+export const MULTIPLE_DISPLAY_VALUE = __('Mixed', 'web-stories');

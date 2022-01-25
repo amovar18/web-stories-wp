@@ -20,15 +20,16 @@
 import PropTypes from 'prop-types';
 import { useMemo } from '@googleforcreators/react';
 import { v4 as uuidv4 } from 'uuid';
-
+import {
+  StoryPropTypes,
+  getTransformFlip,
+  shouldDisplayBorder,
+  getElementMask,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../types';
-import getTransformFlip from '../elements/shared/getTransformFlip';
-import { shouldDisplayBorder } from '../utils/elementBorder';
 import { MaskTypes } from './constants';
-import { getElementMask } from '.';
 
 const FILL_STYLE = {
   position: 'absolute',

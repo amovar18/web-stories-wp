@@ -22,7 +22,7 @@ import { v4 as uuidv4 } from 'uuid';
 /**
  * Internal dependencies
  */
-import objectWithout from '../../utils/objectWithout';
+import objectWithout from './objectWithout';
 import getDefinitionForType from './getDefinitionForType';
 
 const createNewElement = (type, attributes = {}) => {

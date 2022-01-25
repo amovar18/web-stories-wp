@@ -26,7 +26,7 @@ import { calcRotatedResizeOffset, Moveable } from '@googleforcreators/moveable';
  * Internal dependencies
  */
 import StoryPropTypes from '../../types';
-import getTransformFlip from '../shared/getTransformFlip';
+import getTransformFlip from '../../../../elements/src/utils/getTransformFlip';
 
 function EditCropMoveable({
   setProperties,

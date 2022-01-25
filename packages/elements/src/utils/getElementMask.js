@@ -13,13 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ * External dependencies
+ */
+import { MASKS, DEFAULT_MASK } from '@googleforcreators/masks';
+
 /**
  * Internal dependencies
  */
-import { DEFAULT_MASK, MASKS } from './constants';
+import getDefinitionForType from './getDefinitionForType';
 
-// Only no-mask and masks with supportsBorder support border.
-
-export function getMaskByType(type) {
-  return MASKS.find((mask) => mask.type === type) || DEFAULT_MASK;
+function getDefaultElementMask(type) {
+  if (!type) {
+    return null;
+  }
+  const { isMaskable } = getDefinitionForType(type);
+  return isMaskable ? DEFAULT_MASK : null;
 }
+
+function getElementMask({ type, mask }) {
+  if (mask?.type) {
+    return MASKS.find((m) => m.type === mask.type);
+  }
+  return getDefaultElementMask(type);
+}
+
+export default getElementMask;

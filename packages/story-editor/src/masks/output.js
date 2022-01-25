@@ -23,14 +23,15 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
+import {
+  StoryPropTypes,
+  getTransformFlip,
+  getElementMask,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../types';
-import getTransformFlip from '../elements/shared/getTransformFlip';
 import { DEFAULT_MASK } from './constants';
-import { getElementMask } from '.';
 
 const FILL_STYLE = {
   position: 'absolute',

@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,13 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/**
- * Internal dependencies
- */
-import { DEFAULT_MASK, MASKS } from './constants';
-
-// Only no-mask and masks with supportsBorder support border.
-
-export function getMaskByType(type) {
-  return MASKS.find((mask) => mask.type === type) || DEFAULT_MASK;
-}
+const getHighlightLineheight = function (
+  lineHeight,
+  verticalPadding = 0,
+  unit = 'px'
+) {
+  if (verticalPadding === 0) {
+    return `${lineHeight}em`;
+  }
+  return `calc(${lineHeight}em ${verticalPadding > 0 ? '+' : '-'} ${
+    2 * Math.abs(verticalPadding)
+  }${unit})`;
+};
+export default getHighlightLineheight;

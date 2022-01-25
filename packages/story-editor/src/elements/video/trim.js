@@ -29,7 +29,7 @@ import MediaDisplay from '../media/display';
 import useVideoTrim from '../../components/videoTrim/useVideoTrim';
 import CircularProgress from '../../components/circularProgress';
 import { elementWithFlip } from '../shared';
-import getTransformFlip from '../shared/getTransformFlip';
+import getTransformFlip from '../../../../elements/src/utils/getTransformFlip';
 import PlayPauseButton from './playPauseButton';
 import { getBackgroundStyle, videoWithScale } from './util';
 
