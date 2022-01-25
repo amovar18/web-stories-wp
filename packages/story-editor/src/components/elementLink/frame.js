@@ -22,11 +22,10 @@ import { rgba } from 'polished';
 import PropTypes from 'prop-types';
 import { __ } from '@googleforcreators/i18n';
 import { TOOLTIP_PLACEMENT } from '@googleforcreators/design-system';
-
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../../types';
 import Tooltip from '../tooltip';
 import { getLinkFromElement } from '.';
 

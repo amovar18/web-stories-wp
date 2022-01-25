@@ -18,14 +18,15 @@
  * External dependencies
  */
 import { v4 as uuidv4 } from 'uuid';
-
+import {
+  DEFAULT_ATTRIBUTES_FOR_MEDIA,
+  canMaskHaveBorder,
+  objectWithout,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import { DEFAULT_ATTRIBUTES_FOR_MEDIA } from '../../../../constants';
 import objectPick from '../../../../utils/objectPick';
-import objectWithout from '../../../../utils/objectWithout';
-import { canMaskHaveBorder } from '../../../../masks';
 import { removeAnimationsWithElementIds } from './utils';
 
 /**

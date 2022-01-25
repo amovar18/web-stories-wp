@@ -32,7 +32,10 @@ import {
   Tooltip,
 } from '@googleforcreators/design-system';
 import { trackEvent } from '@googleforcreators/tracking';
-
+import {
+  getDefinitionForType,
+  createNewElement,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -44,7 +47,6 @@ import {
 } from '../../../checklist';
 import { SimplePanel } from '../../panel';
 import { FlipControls } from '../../shared';
-import { createNewElement, getDefinitionForType } from '../../../../elements';
 import { states, styles, useHighlights } from '../../../../app/highlights';
 import getElementProperties from '../../../canvas/utils/getElementProperties';
 import Warning from '../warning';

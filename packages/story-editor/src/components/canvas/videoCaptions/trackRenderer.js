@@ -20,11 +20,10 @@
 import PropTypes from 'prop-types';
 import { useCallback, useEffect, useState } from '@googleforcreators/react';
 import styled from 'styled-components';
-
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../../../types';
 import { useLayout } from '../../../app';
 import Cue from './cue';
 

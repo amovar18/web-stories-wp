@@ -24,23 +24,21 @@ import { generatePatternStyles } from '@googleforcreators/patterns';
 import { useUnits } from '@googleforcreators/units';
 import { StoryAnimation } from '@googleforcreators/animation';
 import { useTransformHandler } from '@googleforcreators/transform';
-/**
- * Internal dependencies
- */
-import { getDefinitionForType } from '../../elements';
 import {
+  getDefinitionForType,
   elementWithPosition,
   elementWithRotation,
   elementWithSize,
-} from '../../elements/shared';
-import WithMask from '../../masks/display';
-import StoryPropTypes from '../../types';
-import useColorTransformHandler from '../../elements/shared/useColorTransformHandler';
-import {
+  useColorTransformHandler,
   getBorderPositionCSS,
   getResponsiveBorder,
   shouldDisplayBorder,
-} from '../../utils/elementBorder';
+  StoryPropTypes,
+} from '@googleforcreators/elements';
+/**
+ * Internal dependencies
+ */
+import WithMask from '../../masks/display';
 
 // Using attributes to avoid creation of hundreds of classes by styled components for previewMode.
 const Wrapper = styled.div.attrs(

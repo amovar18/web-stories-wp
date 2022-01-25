@@ -19,10 +19,10 @@
  */
 import PropTypes from 'prop-types';
 import { useCallback } from '@googleforcreators/react';
-
-/**
- * External dependencies
- */
+import {
+  getDefinitionForType,
+  MULTIPLE_VALUE,
+} from '@googleforcreators/elements';
 import { __, sprintf } from '@googleforcreators/i18n';
 
 /**
@@ -31,9 +31,7 @@ import { __, sprintf } from '@googleforcreators/i18n';
 import { OverlayPreset, OverlayType } from '../../../../utils/overlay';
 import { Row, Color, FilterToggle } from '../../../form';
 import { SimplePanel } from '../../panel';
-import { getDefinitionForType } from '../../../../elements';
 import { useCommonColorValue } from '../../shared';
-import { MULTIPLE_VALUE } from '../../../../constants';
 import convertOverlay from './convertOverlay';
 
 function FilterPanel({ selectedElements, pushUpdate }) {

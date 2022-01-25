@@ -18,13 +18,12 @@
  * External dependencies
  */
 import { createSolid } from '@googleforcreators/patterns';
+import { BACKGROUND_TEXT_MODE, PanelTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import { SHARED_DEFAULT_ATTRIBUTES } from '../shared/constants';
-import { BACKGROUND_TEXT_MODE } from '../../constants';
 import { TEXT_ELEMENT_DEFAULT_FONT } from '../../app/font/defaultFonts';
-import PanelTypes from '../../components/panels/design/types';
 
 export const defaultAttributes = {
   ...SHARED_DEFAULT_ATTRIBUTES,

@@ -18,13 +18,14 @@
  * External dependencies
  */
 import styled from 'styled-components';
-
+import {
+  elementWithBackgroundColor,
+  StoryPropTypes,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import { getMaskByType } from '../../masks';
-import { elementWithBackgroundColor } from '../shared';
-import StoryPropTypes from '../../types';
 import { useStory } from '../../app';
 
 const Container = styled.div`

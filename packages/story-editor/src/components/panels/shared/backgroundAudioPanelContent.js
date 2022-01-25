@@ -29,7 +29,7 @@ import {
 } from '@googleforcreators/design-system';
 import { __, sprintf, translateToExclusiveList } from '@googleforcreators/i18n';
 import { useCallback } from '@googleforcreators/react';
-
+import { BackgroundAudioPropType } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -37,7 +37,6 @@ import { Row } from '../../form';
 import AudioPlayer from '../../audioPlayer';
 import Tooltip from '../../tooltip';
 import { useConfig } from '../../../app';
-import { BackgroundAudioPropType } from '../../../types';
 
 const StyledButton = styled(Button)`
   ${({ theme }) =>

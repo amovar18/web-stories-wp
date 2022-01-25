@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/**
+ * External dependencies
+ */
+import { MULTIPLE_VALUE } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import { MULTIPLE_VALUE } from '../../../../constants';
 import updateProperties from '../updateProperties';
 
 describe('updateProperties', () => {

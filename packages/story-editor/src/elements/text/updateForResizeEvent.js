@@ -17,13 +17,10 @@
  * External dependencies
  */
 import { dataPixels } from '@googleforcreators/units';
-/**
- * Internal dependencies
- */
 import {
   calculateFitTextFontSize,
   calculateTextHeight,
-} from '../../utils/textMeasurements';
+} from '@googleforcreators/elements';
 
 function updateForResizeEvent(element, direction, newWidth, newHeight) {
   const isResizingWidth = direction[0] !== 0;

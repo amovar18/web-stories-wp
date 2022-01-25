@@ -24,32 +24,27 @@ import { createSolid } from '@googleforcreators/patterns';
 import { useUnits } from '@googleforcreators/units';
 import { useTransformHandler } from '@googleforcreators/transform';
 import { getHTMLFormatters, getHTMLInfo } from '@googleforcreators/rich-text';
-/**
- * Internal dependencies
- */
-import { useFont } from '../../app';
 import {
   elementFillContent,
-  elementWithFont,
   elementWithBackgroundColor,
-  elementWithTextParagraphStyle,
   elementWithBorder,
   elementWithHighlightBorderRadius,
-} from '../shared';
-import StoryPropTypes from '../../types';
-import { BACKGROUND_TEXT_MODE } from '../../constants';
-import stripHTML from '../../utils/stripHTML';
-import {
+  BACKGROUND_TEXT_MODE,
   getResponsiveBorder,
   shouldDisplayBorder,
-} from '../../utils/elementBorder';
-import useColorTransformHandler from '../shared/useColorTransformHandler';
-import {
+  useColorTransformHandler,
   getHighlightLineheight,
   generateParagraphTextStyle,
   calcFontMetrics,
   generateFontFamily,
-} from './util';
+} from '@googleforcreators/elements';
+/**
+ * Internal dependencies
+ */
+import { useFont } from '../../app';
+import { elementWithFont, elementWithTextParagraphStyle } from '../shared';
+import StoryPropTypes from '../../types';
+import stripHTML from '../../utils/stripHTML';
 
 const OutsideBorder = styled.div`
   ${elementWithBorder}

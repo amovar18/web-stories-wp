@@ -21,13 +21,15 @@ import { forwardRef, useCallback, useMemo } from '@googleforcreators/react';
 import PropTypes from 'prop-types';
 import { __ } from '@googleforcreators/i18n';
 import { Datalist } from '@googleforcreators/design-system';
-
+import {
+  MULTIPLE_VALUE,
+  MULTIPLE_DISPLAY_VALUE,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import stripHTML from '../../../../utils/stripHTML';
 import { useFont } from '../../../../app/font';
-import { MULTIPLE_DISPLAY_VALUE, MULTIPLE_VALUE } from '../../../../constants';
 import { getCommonValue } from '../../shared';
 import useRichTextFormatting from './useRichTextFormatting';
 import getClosestFontWeight from './getClosestFontWeight';

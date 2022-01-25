@@ -22,20 +22,18 @@ import { useRef } from '@googleforcreators/react';
 import PropTypes from 'prop-types';
 import { useUnits } from '@googleforcreators/units';
 import { useTransformHandler } from '@googleforcreators/transform';
-/**
- * Internal dependencies
- */
-import {
-  elementFillContent,
-  elementWithBackgroundColor,
-  elementWithBorder,
-} from '../shared';
-import StoryPropTypes from '../../types';
 import {
   getResponsiveBorder,
   shouldDisplayBorder,
-} from '../../utils/elementBorder';
-import useColorTransformHandler from '../shared/useColorTransformHandler';
+  useColorTransformHandler,
+  elementFillContent,
+  elementWithBackgroundColor,
+  elementWithBorder,
+} from '@googleforcreators/elements';
+/**
+ * Internal dependencies
+ */
+import StoryPropTypes from '../../types';
 
 const Element = styled.div`
   ${elementFillContent}

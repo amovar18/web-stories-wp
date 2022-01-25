@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 /**
+ * External dependencies
+ */
+import { PanelTypes } from '@googleforcreators/elements';
+/**
  * Internal dependencies
  */
 import {
@@ -25,7 +29,6 @@ import {
   MEDIA_DEFAULT_CLEARABLE_ATTRIBUTES,
   MEDIA_PANELS,
 } from '../media/constants';
-import PanelTypes from '../../components/panels/design/types';
 
 export {
   canFlip,

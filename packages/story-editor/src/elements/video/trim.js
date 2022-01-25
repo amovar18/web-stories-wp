@@ -21,6 +21,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useRef, useMemo, useCallback } from '@googleforcreators/react';
 import { getMediaSizePositionProps } from '@googleforcreators/media';
+import { getTransformFlip } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -29,7 +30,6 @@ import MediaDisplay from '../media/display';
 import useVideoTrim from '../../components/videoTrim/useVideoTrim';
 import CircularProgress from '../../components/circularProgress';
 import { elementWithFlip } from '../shared';
-import getTransformFlip from '../../../../elements/src/utils/getTransformFlip';
 import PlayPauseButton from './playPauseButton';
 import { getBackgroundStyle, videoWithScale } from './util';
 

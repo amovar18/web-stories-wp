@@ -26,11 +26,11 @@ import {
 import { isPatternEqual } from '@googleforcreators/patterns';
 import { useGlobalKeyDownEffect } from '@googleforcreators/design-system';
 import { getHTMLFormatters, getHTMLInfo } from '@googleforcreators/rich-text';
+import { MULTIPLE_VALUE } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import useRichText from '../../../richText/useRichText';
-import { MULTIPLE_VALUE } from '../../../../constants';
 import { useCanvas } from '../../../../app';
 
 /**

@@ -18,12 +18,11 @@
  * External dependencies
  */
 import { waitFor } from '@testing-library/react';
-
+import { MULTIPLE_DISPLAY_VALUE } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import { Fixture } from '../../../karma';
-import { MULTIPLE_DISPLAY_VALUE } from '../../../constants';
 import { useStory } from '../../../app';
 import { initHelpers } from './_utils';
 

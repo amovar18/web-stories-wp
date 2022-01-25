@@ -21,6 +21,12 @@ import PropTypes from 'prop-types';
 import { act, fireEvent, screen } from '@testing-library/react';
 import { createSolid } from '@googleforcreators/patterns';
 import { calcRotatedResizeOffset } from '@googleforcreators/moveable';
+import {
+  MULTIPLE_VALUE,
+  MULTIPLE_DISPLAY_VALUE,
+  BACKGROUND_TEXT_MODE,
+  calculateTextHeight,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -28,13 +34,7 @@ import TextStyle from '../textStyle';
 import FontContext from '../../../../../app/font/context';
 import { StoryContext } from '../../../../../app/story';
 import RichTextContext from '../../../../richText/context';
-import { calculateTextHeight } from '../../../../../utils/textMeasurements';
 import CanvasContext from '../../../../../app/canvas/context';
-import {
-  MULTIPLE_VALUE,
-  MULTIPLE_DISPLAY_VALUE,
-  BACKGROUND_TEXT_MODE,
-} from '../../../../../constants';
 import { renderPanel } from '../../../shared/test/_utils';
 
 let mockControls;

@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 /**
- * Internal dependencies
+ * External dependencies
  */
-import { DEFAULT_ATTRIBUTES_FOR_MEDIA } from '../../constants';
-import PanelTypes from '../../components/panels/design/types';
+import {
+  DEFAULT_ATTRIBUTES_FOR_MEDIA,
+  PanelTypes,
+} from '@googleforcreators/elements';
 
 export const MEDIA_DEFAULT_ATTRIBUTES = {
   ...DEFAULT_ATTRIBUTES_FOR_MEDIA,

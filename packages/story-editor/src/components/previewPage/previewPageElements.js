@@ -18,12 +18,11 @@
  * External dependencies
  */
 import { memo } from '@googleforcreators/react';
-
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import DisplayElement from '../canvas/displayElement';
-import StoryPropTypes from '../../types';
 
 function PreviewPageElements({ page }) {
   return page.elements.map((element) => (

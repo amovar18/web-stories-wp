@@ -21,20 +21,18 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useRef, useEffect } from '@googleforcreators/react';
 import { useUnits } from '@googleforcreators/units';
-
+import {
+  elementFillContent,
+  generateParagraphTextStyle,
+  areEventsDragging,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import getCaretCharacterOffsetWithin from '../../utils/getCaretCharacterOffsetWithin';
 import { useStory, useCanvas } from '../../app';
-import {
-  elementFillContent,
-  elementWithFont,
-  elementWithTextParagraphStyle,
-} from '../shared';
+import { elementWithFont, elementWithTextParagraphStyle } from '../shared';
 import StoryPropTypes from '../../types';
-import areEventsDragging from '../../utils/areEventsDragging';
-import { generateParagraphTextStyle } from './util';
 
 const Element = styled.p`
   ${elementFillContent}

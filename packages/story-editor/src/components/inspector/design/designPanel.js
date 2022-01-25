@@ -25,11 +25,10 @@ import {
   useRef,
   useState,
 } from '@googleforcreators/react';
-
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../../../types';
 import FormContext from '../../form/context';
 import useHandlers from '../../../utils/useHandlers';
 import updateProperties from './updateProperties';

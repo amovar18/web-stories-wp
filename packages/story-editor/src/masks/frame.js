@@ -20,17 +20,18 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { useRef, useEffect, useState } from '@googleforcreators/react';
-
+import {
+  getTransformFlip,
+  StoryPropTypes,
+  getElementMask,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../types';
 import { useDropTargets } from '../app';
-import getTransformFlip from '../elements/shared/getTransformFlip';
 import { TRACKING_EVENTS } from '../constants/performanceTrackingEvents';
 import usePerformanceTracking from '../utils/usePerformanceTracking';
 import { MaskTypes } from './constants';
-import { getElementMask } from '.';
 
 const FILL_STYLE = {
   position: 'absolute',

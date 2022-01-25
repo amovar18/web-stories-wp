@@ -15,9 +15,9 @@
  */
 
 /**
- * Internal dependencies
+ * External dependencies
  */
-import { getDefinitionForType } from '../../elements';
+import { getDefinitionForType } from '@googleforcreators/elements';
 
 /**
  * Among all elements, returns the media element with the longest duration.

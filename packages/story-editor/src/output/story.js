@@ -18,11 +18,13 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
+import {
+  BackgroundAudioPropType,
+  StoryPropTypes,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes, { BackgroundAudioPropType } from '../types';
 import getUsedAmpExtensions from './utils/getUsedAmpExtensions';
 import Boilerplate from './utils/ampBoilerplate';
 import CustomCSS from './utils/styles';

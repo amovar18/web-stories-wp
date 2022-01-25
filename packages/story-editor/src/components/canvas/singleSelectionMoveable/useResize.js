@@ -20,12 +20,11 @@
 import { useState } from '@googleforcreators/react';
 import classnames from 'classnames';
 import { useUnits } from '@googleforcreators/units';
-
+import { getDefinitionForType } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import { useStory } from '../../../app';
-import { getDefinitionForType } from '../../../elements';
 import useElementOutOfCanvas from '../utils/useElementOutOfCanvas';
 
 const EMPTY_HANDLES = [];

@@ -19,13 +19,11 @@
  */
 import { css } from 'styled-components';
 import { generatePatternStyles } from '@googleforcreators/patterns';
-
-/**
- * Internal dependencies
- */
-import { generateFontFamily } from '../text/util';
-import { getBorderStyle, getBorderRadius } from '../../utils/elementBorder';
-
+import {
+  getBorderStyle,
+  getBorderRadius,
+  generateFontFamily,
+} from '@googleforcreators/elements';
 export const elementFillContent = css`
   position: absolute;
   top: 0;

@@ -18,10 +18,10 @@
  * External dependencies
  */
 import { getSmallestUrlForWidth } from '@googleforcreators/media';
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../../types';
 import VisibleImage from '../media/visibleImage';
 import useCORSProxy from '../../utils/useCORSProxy';
 

@@ -17,6 +17,7 @@
  * External dependencies
  */
 import { createSolidFromString } from '@googleforcreators/patterns';
+import { PanelTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -24,7 +25,6 @@ import {
   SHARED_DEFAULT_ATTRIBUTES,
   SHARED_DEFAULT_CLEARABLE_ATTRIBUTES,
 } from '../shared/constants';
-import PanelTypes from '../../components/panels/design/types';
 
 const defaultBackgroundColor = createSolidFromString('#c4c4c4');
 

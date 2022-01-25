@@ -17,14 +17,10 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
-/**
- * Internal dependencies
- */
-import storyPropType from '../../../../output/story';
+import { StoryPropTypes } from '@googleforcreators/elements';
 
 export const registerPropTypes = {
-  currentStory: storyPropType,
-  previousStory: storyPropType,
+  currentStory: StoryPropTypes.story,
+  previousStory: StoryPropTypes.story,
   dispatchStoryEvent: PropTypes.func.isRequired,
 };

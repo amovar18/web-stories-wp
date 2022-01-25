@@ -32,7 +32,7 @@ import {
   STORY_ANIMATION_STATE,
   useStoryAnimationContext,
 } from '@googleforcreators/animation';
-
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -42,7 +42,6 @@ import {
   useCanvasBoundingBoxRef,
   CANVAS_BOUNDING_BOX_IDS,
 } from '../../app';
-import StoryPropTypes from '../../types';
 import DisplayElement from './displayElement';
 import { Layer, PageArea } from './layout';
 import PageAttachment from './pageAttachment';

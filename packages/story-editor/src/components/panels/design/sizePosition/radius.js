@@ -22,14 +22,16 @@ import { useCallback } from '@googleforcreators/react';
 import styled from 'styled-components';
 import { __ } from '@googleforcreators/i18n';
 import { LockToggle, Icons } from '@googleforcreators/design-system';
-
+import {
+  MULTIPLE_VALUE,
+  MULTIPLE_DISPLAY_VALUE,
+  canMaskHaveBorder,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import { StackableGroup, StackableInput } from '../../../form/stackable';
-import { canMaskHaveBorder } from '../../../../masks';
 import { useCommonObjectValue, focusStyle } from '../../shared';
-import { MULTIPLE_DISPLAY_VALUE, MULTIPLE_VALUE } from '../../../../constants';
 import Tooltip from '../../../tooltip';
 
 const DEFAULT_BORDER_RADIUS = {

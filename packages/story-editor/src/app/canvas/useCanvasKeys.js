@@ -22,13 +22,16 @@ import { trackEvent } from '@googleforcreators/tracking';
 import { useGlobalKeyDownEffect } from '@googleforcreators/design-system';
 import { STORY_ANIMATION_STATE } from '@googleforcreators/animation';
 import { useTransform } from '@googleforcreators/transform';
+import {
+  getKeyboardMovement,
+  getDefinitionForType,
+  duplicateElement,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import { useStory } from '../story';
 import { LAYER_DIRECTIONS } from '../../constants';
-import getKeyboardMovement from '../../utils/getKeyboardMovement';
-import { getDefinitionForType, duplicateElement } from '../../elements';
 import useAddPastedElements from './useAddPastedElements';
 import { useCanvas } from '.';
 

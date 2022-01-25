@@ -23,10 +23,7 @@ import { _x } from '@googleforcreators/i18n';
 import { Slider } from '@googleforcreators/design-system';
 import { BG_MIN_SCALE, BG_MAX_SCALE } from '@googleforcreators/animation';
 import { InOverlay } from '@googleforcreators/moveable';
-/**
- * Internal dependencies
- */
-import { Z_INDEX_CANVAS } from '../../constants';
+import { Z_INDEX_CANVAS } from '@googleforcreators/elements';
 
 const MIN_WIDTH = 165;
 const HEIGHT = 36;

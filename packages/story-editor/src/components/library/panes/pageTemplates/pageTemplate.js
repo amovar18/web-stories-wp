@@ -38,7 +38,7 @@ import styled from 'styled-components';
 import { generatePatternStyles } from '@googleforcreators/patterns';
 import { fetchRemoteBlob, blobToFile } from '@googleforcreators/media';
 import { trackError } from '@googleforcreators/tracking';
-
+import { PageSizePropType } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -46,7 +46,6 @@ import { useAPI } from '../../../../app/api';
 import { useConfig } from '../../../../app/config';
 import { usePageDataUrls } from '../../../../app/pageDataUrls';
 import { useUploader } from '../../../../app/uploader';
-import { PageSizePropType } from '../../../../types';
 import { focusStyle } from '../../../panels/shared';
 import DisplayElement from '../../../canvas/displayElement';
 

@@ -33,11 +33,13 @@ import {
   THEME_CONSTANTS,
   themeHelpers,
 } from '@googleforcreators/design-system';
-
+import {
+  MULTIPLE_DISPLAY_VALUE,
+  MULTIPLE_VALUE,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import { MULTIPLE_VALUE, MULTIPLE_DISPLAY_VALUE } from '../../../../constants';
 import { Row, usePresubmitHandler } from '../../../form';
 import { SimplePanel } from '../../panel';
 import { focusStyle, getCommonValue } from '../../shared';

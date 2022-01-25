@@ -30,10 +30,10 @@ import {
 } from '@googleforcreators/react';
 import { useFeature } from 'flagged';
 import { TransformProvider } from '@googleforcreators/transform';
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../../../types';
 import {
   requestIdleCallback,
   cancelIdleCallback,

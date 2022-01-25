@@ -19,13 +19,12 @@
  */
 import { fireEvent, screen } from '@testing-library/react';
 import { setAppElement } from '@googleforcreators/design-system';
-
+import { BACKGROUND_TEXT_MODE } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import ColorPicker from '../../colorPicker';
 import { StoryContext } from '../../../../app/story';
-import { BACKGROUND_TEXT_MODE } from '../../../../constants';
 import {
   getShapePresets,
   getTextPresets,

@@ -28,12 +28,11 @@ import {
 import { Text, useKeyDownEffect } from '@googleforcreators/design-system';
 import { trackEvent } from '@googleforcreators/tracking';
 import { useUnits } from '@googleforcreators/units';
-
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import { useFont, useHistory } from '../../../../app';
-import StoryPropTypes from '../../../../types';
 import stripHTML from '../../../../utils/stripHTML';
 import { focusStyle } from '../../../panels/shared';
 import usePageAsCanvas from '../../../../utils/usePageAsCanvas';

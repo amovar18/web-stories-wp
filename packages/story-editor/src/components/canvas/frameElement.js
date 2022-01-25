@@ -31,19 +31,19 @@ import {
   useTransform,
   useTransformHandler,
 } from '@googleforcreators/transform';
-/**
- * Internal dependencies
- */
-import { getDefinitionForType } from '../../elements';
-import { useStory, useCanvas } from '../../app';
 import {
+  getDefinitionForType,
   elementWithPosition,
   elementWithSize,
   elementWithRotation,
-} from '../../elements/shared';
+  getElementMask,
+} from '@googleforcreators/elements';
+/**
+ * Internal dependencies
+ */
+import { useStory, useCanvas } from '../../app';
 import WithMask from '../../masks/frame';
 import WithLink from '../elementLink/frame';
-import { getElementMask } from '../../masks';
 import { MaskTypes } from '../../masks/constants';
 import useDoubleClick from '../../utils/useDoubleClick';
 import usePerformanceTracking from '../../utils/usePerformanceTracking';

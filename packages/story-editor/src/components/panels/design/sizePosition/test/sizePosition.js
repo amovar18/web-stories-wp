@@ -18,16 +18,15 @@
  * External dependencies
  */
 import { fireEvent, screen } from '@testing-library/react';
-
+import {
+  getDefinitionForType,
+  MULTIPLE_VALUE,
+  MULTIPLE_DISPLAY_VALUE,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import { dataPixels } from '@googleforcreators/units';
-import {
-  MULTIPLE_VALUE,
-  MULTIPLE_DISPLAY_VALUE,
-} from '../../../../../constants';
-import { getDefinitionForType } from '../../../../../elements';
 import { renderPanel } from '../../../shared/test/_utils';
 
 import SizePosition from '../sizePosition';

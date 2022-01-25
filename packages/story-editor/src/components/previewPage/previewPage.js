@@ -25,11 +25,10 @@ import {
   useStoryAnimationContext,
   STORY_ANIMATION_STATE,
 } from '@googleforcreators/animation';
-
+import { StoryPropTypes, PageSizePropType } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes, { PageSizePropType } from '../../types';
 import PagePreviewElements from './previewPageElements';
 
 /*

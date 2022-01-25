@@ -23,6 +23,7 @@ import styled from 'styled-components';
 import { editorToDataX, editorToDataY } from '@googleforcreators/units';
 import { useKeyDownEffect } from '@googleforcreators/design-system';
 import { InOverlay, Moveable } from '@googleforcreators/moveable';
+import { areEventsDragging, objectWithout } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -31,11 +32,9 @@ import { useDropTargets } from '../../../dropTargets';
 import { useLayout } from '../../../../app/layout';
 import useInsertElement from '../../../canvas/useInsertElement';
 import { useInsertTextSet } from '../../../canvas';
-import areEventsDragging from '../../../../utils/areEventsDragging';
 import isTargetOutOfContainer from '../../../../utils/isTargetOutOfContainer';
 import useSnapping from '../../../canvas/utils/useSnapping';
 import { useStory, useCanvas } from '../../../../app';
-import objectWithout from '../../../../utils/objectWithout';
 import { noop } from '../../../../utils/noop';
 import usePerformanceTracking from '../../../../utils/usePerformanceTracking';
 import { TRACKING_EVENTS } from '../../../../constants/performanceTrackingEvents';

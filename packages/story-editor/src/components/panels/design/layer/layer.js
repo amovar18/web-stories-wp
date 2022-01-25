@@ -28,12 +28,13 @@ import {
   Tooltip,
 } from '@googleforcreators/design-system';
 import { useRef, memo } from '@googleforcreators/react';
-
+import {
+  getDefinitionForType,
+  StoryPropTypes,
+} from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import StoryPropTypes from '../../../../types';
-import { getDefinitionForType } from '../../../../elements';
 import { useStory } from '../../../../app';
 import { LayerText } from '../../../../elements/shared/layerText';
 import usePerformanceTracking from '../../../../utils/usePerformanceTracking';

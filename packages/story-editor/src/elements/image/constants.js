@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 /**
+ * External dependencies
+ */
+import { PanelTypes } from '@googleforcreators/elements';
+/**
  * Internal dependencies
  */
-import PanelTypes from '../../components/panels/design/types';
 import {
   SHARED_DEFAULT_ATTRIBUTES,
   SHARED_DEFAULT_CLEARABLE_ATTRIBUTES,

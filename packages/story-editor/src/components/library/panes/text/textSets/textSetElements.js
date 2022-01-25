@@ -19,12 +19,10 @@
  */
 import PropTypes from 'prop-types';
 import { UnitsProvider, PAGE_WIDTH } from '@googleforcreators/units';
-
+import { StoryPropTypes } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-
-import StoryPropTypes from '../../../../../types';
 import DisplayElement from '../../../../canvas/displayElement';
 
 function getElementContent(content, isForDisplay) {
