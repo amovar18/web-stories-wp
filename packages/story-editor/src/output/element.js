@@ -29,11 +29,11 @@ import {
   getBorderStyle,
   shouldDisplayBorder,
 } from '@googleforcreators/elements';
+import { WithMaskOutput as WithMask } from '@googleforcreators/masks';
 /**
  * Internal dependencies
  */
 import WithLink from '../components/elementLink/output';
-import WithMask from '../masks/output';
 
 function OutputElement({ element }) {
   const {

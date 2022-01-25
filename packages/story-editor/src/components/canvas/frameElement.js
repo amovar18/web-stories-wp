@@ -38,13 +38,13 @@ import {
   elementWithRotation,
   getElementMask,
 } from '@googleforcreators/elements';
+import { MaskTypes } from '@googleforcreators/masks';
 /**
  * Internal dependencies
  */
 import { useStory, useCanvas } from '../../app';
-import WithMask from '../../masks/frame';
+import WithMask from '../masks/frame';
 import WithLink from '../elementLink/frame';
-import { MaskTypes } from '../../masks/constants';
 import useDoubleClick from '../../utils/useDoubleClick';
 import usePerformanceTracking from '../../utils/usePerformanceTracking';
 import { TRACKING_EVENTS } from '../../constants/performanceTrackingEvents';

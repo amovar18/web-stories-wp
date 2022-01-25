@@ -35,10 +35,7 @@ import {
   shouldDisplayBorder,
   StoryPropTypes,
 } from '@googleforcreators/elements';
-/**
- * Internal dependencies
- */
-import WithMask from '../../masks/display';
+import { WithMaskDisplay as WithMask } from '@googleforcreators/masks';
 
 // Using attributes to avoid creation of hundreds of classes by styled components for previewMode.
 const Wrapper = styled.div.attrs(

@@ -17,10 +17,10 @@
  * External dependencies
  */
 import { __ } from '@googleforcreators/i18n';
+import { getMaskByType } from '@googleforcreators/masks';
 /**
  * Internal dependencies
  */
-import { getMaskByType } from '../../masks';
 import StoryPropTypes from '../../types';
 import { LayerText } from '../shared/layerText';
 

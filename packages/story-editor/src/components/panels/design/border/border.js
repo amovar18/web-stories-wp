@@ -20,11 +20,10 @@
 import PropTypes from 'prop-types';
 import { useCallback } from '@googleforcreators/react';
 import { __ } from '@googleforcreators/i18n';
-
+import { canMaskHaveBorder } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import { canMaskHaveBorder } from '../../../../masks';
 import { Color, Row } from '../../../form';
 import { SimplePanel } from '../../panel';
 import { useCommonObjectValue } from '../../shared';

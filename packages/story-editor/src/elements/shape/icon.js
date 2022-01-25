@@ -22,10 +22,10 @@ import {
   elementWithBackgroundColor,
   StoryPropTypes,
 } from '@googleforcreators/elements';
+import { getMaskByType } from '@googleforcreators/masks';
 /**
  * Internal dependencies
  */
-import { getMaskByType } from '../../masks';
 import { useStory } from '../../app';
 
 const Container = styled.div`
