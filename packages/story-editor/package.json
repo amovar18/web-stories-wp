@@ -35,6 +35,7 @@
     "@googleforcreators/i18n": "*",
     "@googleforcreators/media": "*",
     "@googleforcreators/migration": "*",
+    "@googleforcreators/moveable": "*",
     "@googleforcreators/patterns": "*",
     "@googleforcreators/react": "*",
     "@googleforcreators/stickers": "*",
