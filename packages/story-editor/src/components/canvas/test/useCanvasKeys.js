@@ -19,14 +19,13 @@
  */
 import { render, fireEvent } from '@testing-library/react';
 import { useRef } from '@googleforcreators/react';
-
+import { TransformContext } from '@googleforcreators/transform';
 /**
  * Internal dependencies
  */
 import useCanvasKeys from '../../../app/canvas/useCanvasKeys';
 import StoryContext from '../../../app/story/context.js';
 import CanvasContext from '../../../app/canvas/context.js';
-import TransformContext from '../../transform/context';
 
 const Canvas = () => {
   const ref = useRef(null);
