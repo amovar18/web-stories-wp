@@ -25,15 +25,11 @@ import {
 } from '@googleforcreators/react';
 import { isPatternEqual } from '@googleforcreators/patterns';
 import { useGlobalKeyDownEffect } from '@googleforcreators/design-system';
-
+import { getHTMLFormatters, getHTMLInfo } from '@googleforcreators/rich-text';
 /**
  * Internal dependencies
  */
 import useRichText from '../../../richText/useRichText';
-import {
-  getHTMLFormatters,
-  getHTMLInfo,
-} from '../../../richText/htmlManipulation';
 import { MULTIPLE_VALUE } from '../../../../constants';
 import { useCanvas } from '../../../../app';
 

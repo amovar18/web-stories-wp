@@ -34,12 +34,12 @@ import {
   useTransformHandler,
 } from '@googleforcreators/transform';
 import { calcRotatedResizeOffset } from '@googleforcreators/moveable';
+import { getHTMLInfo } from '@googleforcreators/rich-text';
 /**
  * Internal dependencies
  */
 import { useStory, useFont } from '../../app';
 import RichTextEditor from '../../components/richText/editor';
-import { getHTMLInfo } from '../../components/richText/htmlManipulation';
 import {
   elementFillContent,
   elementWithFont,
