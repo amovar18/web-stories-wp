@@ -20,7 +20,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { SVGIcons } from '@googleforcreators/design-system';
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   .default-moveable .moveable-control,
   .default-moveable .moveable-line.moveable-rotation-line .moveable-control {
     background: ${({ theme }) => theme.colors.bg.primary} !important;
@@ -144,3 +144,4 @@ export const GlobalStyle = createGlobalStyle`
     opacity: 0;
   }
 `;
+export default GlobalStyle;
