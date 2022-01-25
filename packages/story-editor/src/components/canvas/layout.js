@@ -33,12 +33,11 @@ import {
   THEME_CONSTANTS,
   themeHelpers,
 } from '@googleforcreators/design-system';
-
+import { pointerEventsCss } from '@googleforcreators/moveable';
 /**
  * Internal dependencies
  */
 import { HEADER_HEIGHT } from '../../constants';
-import pointerEventsCss from '../../utils/pointerEventsCss';
 import { useLayout } from '../../app';
 import useFooterHeight from '../footer/useFooterHeight';
 import { FOOTER_BOTTOM_MARGIN } from '../footer/constants';
