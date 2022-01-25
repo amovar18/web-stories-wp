@@ -33,6 +33,7 @@ import {
   useTransform,
   useTransformHandler,
 } from '@googleforcreators/transform';
+import { calcRotatedResizeOffset } from '@googleforcreators/moveable';
 /**
  * Internal dependencies
  */
@@ -50,7 +51,6 @@ import {
 import StoryPropTypes from '../../types';
 import { BACKGROUND_TEXT_MODE } from '../../constants';
 import stripHTML from '../../utils/stripHTML';
-import calcRotatedResizeOffset from '../../utils/calcRotatedResizeOffset';
 import useRichText from '../../components/richText/useRichText';
 import {
   getBorderPositionCSS,
