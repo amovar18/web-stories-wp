@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/**
+ * External dependencies
+ */
+import { objectWithout } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import objectWithout from '../../../../utils/objectWithout';
 import { moveArrayElement, removeAnimationsWithElementIds } from './utils';
 
 /**

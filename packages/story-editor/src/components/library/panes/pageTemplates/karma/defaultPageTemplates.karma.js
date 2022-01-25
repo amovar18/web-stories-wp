@@ -18,14 +18,13 @@
  * External dependencies
  */
 import { waitFor, within } from '@testing-library/react';
-
+import { objectWithout } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import { Fixture } from '../../../../../karma/fixture';
 import { useStory } from '../../../../../app/story';
 import formattedTemplatesArray from '../../../../../dataUtils/formattedTemplatesArray';
-import objectWithout from '../../../../../utils/objectWithout';
 
 const expectPageTemplateEqual = (currentPage, template) => {
   expect(currentPage.id).not.toEqual(template.id);
