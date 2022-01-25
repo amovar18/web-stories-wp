@@ -13,12 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Internal dependencies
  */
 import { useDropTargets } from '../components/dropTargets';
-import { useTransform } from '../components/transform';
 import { useHistory } from './history';
 import { useAPI } from './api';
 import { useConfig } from './config';
@@ -49,7 +47,6 @@ export {
   useHistory,
   useAPI,
   useDropTargets,
-  useTransform,
   useStory,
   useStoryTriggers,
   useStoryTriggerListener,

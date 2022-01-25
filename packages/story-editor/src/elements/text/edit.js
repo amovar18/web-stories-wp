@@ -29,11 +29,14 @@ import {
 import PropTypes from 'prop-types';
 import { generatePatternStyles } from '@googleforcreators/patterns';
 import { useUnits } from '@googleforcreators/units';
-
+import {
+  useTransform,
+  useTransformHandler,
+} from '@googleforcreators/transform';
 /**
  * Internal dependencies
  */
-import { useStory, useFont, useTransform } from '../../app';
+import { useStory, useFont } from '../../app';
 import RichTextEditor from '../../components/richText/editor';
 import { getHTMLInfo } from '../../components/richText/htmlManipulation';
 import {
@@ -49,7 +52,6 @@ import { BACKGROUND_TEXT_MODE } from '../../constants';
 import stripHTML from '../../utils/stripHTML';
 import calcRotatedResizeOffset from '../../utils/calcRotatedResizeOffset';
 import useRichText from '../../components/richText/useRichText';
-import { useTransformHandler } from '../../components/transform';
 import {
   getBorderPositionCSS,
   shouldDisplayBorder,

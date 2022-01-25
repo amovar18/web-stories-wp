@@ -27,12 +27,15 @@ import {
 } from '@googleforcreators/react';
 import { useUnits } from '@googleforcreators/units';
 import PropTypes from 'prop-types';
-
+import {
+  useTransform,
+  useTransformHandler,
+} from '@googleforcreators/transform';
 /**
  * Internal dependencies
  */
 import { getDefinitionForType } from '../../elements';
-import { useStory, useTransform, useCanvas } from '../../app';
+import { useStory, useCanvas } from '../../app';
 import {
   elementWithPosition,
   elementWithSize,
@@ -40,7 +43,6 @@ import {
 } from '../../elements/shared';
 import WithMask from '../../masks/frame';
 import WithLink from '../elementLink/frame';
-import { useTransformHandler } from '../transform';
 import { getElementMask } from '../../masks';
 import { MaskTypes } from '../../masks/constants';
 import useDoubleClick from '../../utils/useDoubleClick';
