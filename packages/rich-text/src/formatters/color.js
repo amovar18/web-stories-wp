@@ -29,7 +29,7 @@ import {
 /**
  * Internal dependencies
  */
-import { MULTIPLE_VALUE } from '../../../constants';
+import { MULTIPLE_VALUE } from '../constants';
 import { NONE, COLOR } from '../customConstants';
 import {
   togglePrefixStyle,

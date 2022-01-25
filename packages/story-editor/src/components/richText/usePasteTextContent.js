@@ -19,13 +19,11 @@
  */
 import { EditorState, ContentState } from 'draft-js';
 import { useCallback } from '@googleforcreators/react';
-
+import { getPastedBlocks, customExport } from '@googleforcreators/rich-text';
 /**
  * Internal dependencies
  */
 import { DEFAULT_PRESET } from '../library/panes/text/textPresets';
-import getPastedBlocks from './getPastedBlocks';
-import customExport from './customExport';
 
 /*
  * This hook returns a function to handle text pasted with no specific focus.

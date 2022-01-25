@@ -37,6 +37,7 @@
     "@googleforcreators/migration": "*",
     "@googleforcreators/moveable": "*",
     "@googleforcreators/patterns": "*",
+    "@googleforcreators/rich-text": "*",
     "@googleforcreators/react": "*",
     "@googleforcreators/stickers": "*",
     "@googleforcreators/templates": "*",

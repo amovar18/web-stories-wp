@@ -24,25 +24,24 @@ import {
   useMemo,
   useRef,
 } from '@googleforcreators/react';
-import { EditorState } from 'draft-js';
-
+import {
+  EditorState,
+  getSelectionForAll,
+  getSelectionForOffset,
+  getFilteredState,
+  getHandleKeyCommandFromState,
+  getStateInfo,
+  useFauxSelection,
+  customImport,
+  customExport,
+  useHandlePastedText,
+  useSelectionManipulation,
+} from '@googleforcreators/rich-text';
 /**
  * Internal dependencies
  */
 import { useCanvas } from '../../app';
 import RichTextContext from './context';
-import {
-  getSelectionForAll,
-  getSelectionForOffset,
-  getFilteredState,
-  getHandleKeyCommandFromState,
-} from './util';
-import getStateInfo from './getStateInfo';
-import { useFauxSelection } from './fauxSelection';
-import customImport from './customImport';
-import customExport from './customExport';
-import useHandlePastedText from './useHandlePastedText';
-import useSelectionManipulation from './useSelectionManipulation';
 
 function RichTextProvider({ children }) {
   const { editingElementState } = useCanvas((state) => ({

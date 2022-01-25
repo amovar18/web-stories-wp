@@ -13,6 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { default as RichTextProvider } from './provider';
-export { default as useRichText } from './useRichText';
-export { default as RichTextEditor } from './editor';
+export const MULTIPLE_VALUE = '((MULTIPLE))';

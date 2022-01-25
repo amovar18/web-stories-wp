@@ -13,6 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { default as RichTextProvider } from './provider';
-export { default as useRichText } from './useRichText';
-export { default as RichTextEditor } from './editor';
+
+const contentBuffer = document.createElement('template');
+
+export default function getValidHTML(string) {
+  contentBuffer.innerHTML = string;
+  return contentBuffer.innerHTML;
+}

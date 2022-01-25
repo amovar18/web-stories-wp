@@ -26,12 +26,11 @@ import {
   forwardRef,
   useUnmount,
 } from '@googleforcreators/react';
-
+import { customInlineDisplay } from '@googleforcreators/rich-text';
 /**
  * Internal dependencies
  */
 import useRichText from './useRichText';
-import customInlineDisplay from './customInlineDisplay';
 
 function RichTextEditor({ content, onChange }, ref) {
   const editorRef = useRef(null);

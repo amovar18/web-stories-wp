@@ -17,7 +17,7 @@
 /**
  * Internal dependencies
  */
-import { MULTIPLE_VALUE } from '../../../../constants';
+import { MULTIPLE_VALUE } from '../../constants';
 import {
   togglePrefixStyle,
   getPrefixStylesInSelection,
