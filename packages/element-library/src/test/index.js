@@ -23,8 +23,15 @@ import {
   duplicateElement,
 } from '@googleforcreators/elements';
 import { TEXT_ELEMENT_DEFAULT_FONT } from '@googleforcreators/fonts';
+/**
+ * Internal dependencies
+ */
+import { registerElementTypes } from '../elementTypes';
 
 describe('Element', () => {
+  beforeEach(() => {
+    registerElementTypes();
+  });
   describe('createNewElement', () => {
     it('should create an element with just default attributes', () => {
       const imageElement = createNewElement('image');
