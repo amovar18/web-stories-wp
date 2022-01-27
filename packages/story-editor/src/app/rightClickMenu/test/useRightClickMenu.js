@@ -18,7 +18,7 @@
  */
 import { act, renderHook } from '@testing-library/react-hooks';
 import { isPlatformMacOS, useSnackbar } from '@googleforcreators/design-system';
-
+import { registerElementTypes } from '@googleforcreators/element-library';
 /**
  * Internal dependencies
  */
@@ -111,6 +111,7 @@ describe('useRightClickMenu', () => {
     useLocalMedia.mockReturnValue({
       canTranscodeResource: jest.fn(),
     });
+    registerElementTypes();
   });
 
   describe('context menu manipulation', () => {
