@@ -21,9 +21,11 @@
       "@googleforcreators/patterns": "*",
       "@googleforcreators/transform": "*",
       "@googleforcreators/units": "*",
-      "prop-types": "^15.8.1",
+      "classnames": "^2.3.1",
       "styled-components": "^5.3.3",
       "uuid":"^8.3.2"
     },
-    "devDependencies": {}
+    "devDependencies": {
+      "prop-types": "^15.8.1"
+    }
 }

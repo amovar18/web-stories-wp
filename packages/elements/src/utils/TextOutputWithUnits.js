@@ -24,7 +24,7 @@ import {
   createSolid,
 } from '@googleforcreators/patterns';
 import { getHTMLFormatters } from '@googleforcreators/rich-text';
-
+import classnames from 'classnames';
 /**
  * Internal dependencies
  */
@@ -32,7 +32,7 @@ import StoryPropTypes from '../types';
 import { BACKGROUND_TEXT_MODE } from '../constants';
 import calcFontMetrics from './calcFontMetrics';
 import generateParagraphTextStyle from './generateParagraphTextStyle';
-import getHighlightLineHeight from './getHighlighLineheight';
+import getHighlightLineheight from './getHighlighLineheight';
 
 /**
  * Renders DOM for the text output based on the provided unit converters.
@@ -74,9 +74,14 @@ function TextOutputWithUnits({
     dataToPaddingY = dataToStyleY;
   }
   const paddingStyles = {
-    vertical: dataToPaddingY(padding.vertical),
-    horizontal: dataToPaddingX(padding.horizontal),
+    vertical: padding.vertical ? dataToPaddingY(padding.vertical) : 0,
+    horizontal: padding.horizontal ? dataToPaddingX(padding.horizontal) : 0,
   };
+
+  const hasPadding = paddingStyles.vertical || paddingStyles.horizontal;
+  const paddingStyle = hasPadding
+    ? `${paddingStyles.vertical} ${paddingStyles.horizontal}`
+    : 0;
 
   const bgColor =
     backgroundTextMode !== BACKGROUND_TEXT_MODE.NONE
@@ -98,14 +103,16 @@ function TextOutputWithUnits({
   const fillStyle = {
     ...styles,
     color: '#000000',
-    padding: `${paddingStyles.vertical} ${paddingStyles.horizontal}`,
-    overflowWrap: 'break-word',
+    // Overrides styles.padding.
+    padding: paddingStyle,
   };
 
-  const unitlessPaddingVertical = parseFloat(dataToStyleY(padding.vertical));
+  const unitlessPaddingVertical = padding.vertical
+    ? parseFloat(dataToStyleY(padding.vertical))
+    : 0;
   const unitlessFontSize = parseFloat(dataToStyleY(rest.fontSize));
 
-  const lineHeight = getHighlightLineHeight(
+  const lineHeight = getHighlightLineheight(
     rest.lineHeight,
     unitlessPaddingVertical / unitlessFontSize,
     'em'
@@ -149,7 +156,7 @@ function TextOutputWithUnits({
     WebkitBoxDecorationBreak: 'clone',
     boxDecorationBreak: 'clone',
     position: 'relative',
-    padding: `${paddingStyles.vertical} ${paddingStyles.horizontal}`,
+    padding: paddingStyle,
     textAlign: styles.textAlign,
     borderRadius: `${borderRadius?.topLeft || 0}px ${
       borderRadius?.topRight || 0
@@ -175,6 +182,7 @@ function TextOutputWithUnits({
     [content]
   );
 
+  className = classnames(className, 'text-wrapper');
   if (backgroundTextMode === BACKGROUND_TEXT_MODE.HIGHLIGHT) {
     return (
       <>
@@ -202,11 +210,9 @@ function TextOutputWithUnits({
     );
   }
   return (
-    <p
-      className={className}
-      style={fillStyle}
-      dangerouslySetInnerHTML={{ __html: content }}
-    />
+    <p className={className} style={fillStyle}>
+      <span dangerouslySetInnerHTML={{ __html: content }} />
+    </p>
   );
 }
 
@@ -219,5 +225,4 @@ TextOutputWithUnits.propTypes = {
   dataToPaddingY: PropTypes.func,
   className: PropTypes.string,
 };
-
 export default TextOutputWithUnits;
