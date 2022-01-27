@@ -16,14 +16,21 @@
 /**
  * External dependencies
  */
-import { stripHTML } from '@googleforcreators/design-system';
+import { __ } from '@googleforcreators/i18n';
+import { getMaskByType } from '@googleforcreators/masks';
+/**
+ * Internal dependencies
+ */
+import StoryPropTypes from '../types';
+import { LayerText } from '../shared/layerText';
 
-export function characterCountForPage(page) {
-  let characterCount = 0;
-  page.elements.forEach((element) => {
-    if (element.type === 'text') {
-      characterCount += stripHTML(element.content).length;
-    }
-  });
-  return characterCount;
+function ShapeLayerContent({ element }) {
+  const maskDef = getMaskByType(element.mask.type);
+
+  return <LayerText>{maskDef.name || __('Shape', 'web-stories')}</LayerText>;
 }
+ShapeLayerContent.propTypes = {
+  element: StoryPropTypes.element.isRequired,
+};
+
+export default ShapeLayerContent;

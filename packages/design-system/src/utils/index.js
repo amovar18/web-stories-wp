@@ -26,3 +26,4 @@ export { default as useMouseDownOutsideRef } from './useMouseDownOutsideRef';
 export * from './constants';
 export * from './directions';
 export * from './url';
+export { default as stripHTML } from './stripHTML';

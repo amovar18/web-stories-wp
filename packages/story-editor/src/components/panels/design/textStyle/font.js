@@ -21,7 +21,11 @@ import PropTypes from 'prop-types';
 import { useMemo, useCallback } from '@googleforcreators/react';
 import styled from 'styled-components';
 import { __ } from '@googleforcreators/i18n';
-import { DropDown, NumericInput } from '@googleforcreators/design-system';
+import {
+  DropDown,
+  NumericInput,
+  stripHTML,
+} from '@googleforcreators/design-system';
 import {
   MULTIPLE_VALUE,
   MULTIPLE_DISPLAY_VALUE,
@@ -30,7 +34,6 @@ import {
  * Internal dependencies
  */
 import { useFont } from '../../../../app/font';
-import stripHTML from '../../../../utils/stripHTML';
 import clamp from '../../../../utils/clamp';
 import { Row, usePresubmitHandler } from '../../../form';
 import {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/**
- * External dependencies
- */
-import { stripHTML } from '@googleforcreators/design-system';
-
-export function characterCountForPage(page) {
-  let characterCount = 0;
-  page.elements.forEach((element) => {
-    if (element.type === 'text') {
-      characterCount += stripHTML(element.content).length;
-    }
-  });
-  return characterCount;
-}
+export * from './constants';
+export { clearableAttributes as imageAttributeDefaults } from './image/constants';
+export { clearableAttributes as textAttributeDefaults } from './text/constants';
+export { clearableAttributes as shapeAttributeDefaults } from './shape/constants';
+export { default as elementTypes, registerElementTypes } from './elementTypes';
+export { default as VisibleImage } from './media/visibleImage';
+export { LayerText } from './shared/layerText';
+export { default as TextOutput } from './text/output';

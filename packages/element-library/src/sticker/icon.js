@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * External dependencies
  */
-import { stripHTML } from '@googleforcreators/design-system';
+import stickers from '@googleforcreators/stickers';
 
-export function characterCountForPage(page) {
-  let characterCount = 0;
-  page.elements.forEach((element) => {
-    if (element.type === 'text') {
-      characterCount += stripHTML(element.content).length;
-    }
-  });
-  return characterCount;
+/**
+ * Internal dependencies
+ */
+import StoryPropTypes from '../types';
+
+const style = {
+  display: 'block',
+  height: 21,
+  width: 21,
+};
+
+const Noop = () => null;
+
+function StickerLayerContent({ element }) {
+  const { sticker } = element;
+  const Sticker = stickers[sticker.type]?.svg || Noop;
+
+  return <Sticker style={style} />;
 }
+
+StickerLayerContent.propTypes = {
+  element: StoryPropTypes.elements.sticker.isRequired,
+};
+
+export default StickerLayerContent;

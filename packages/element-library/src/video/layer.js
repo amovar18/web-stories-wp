@@ -16,14 +16,21 @@
 /**
  * External dependencies
  */
-import { stripHTML } from '@googleforcreators/design-system';
+import { __ } from '@googleforcreators/i18n';
 
-export function characterCountForPage(page) {
-  let characterCount = 0;
-  page.elements.forEach((element) => {
-    if (element.type === 'text') {
-      characterCount += stripHTML(element.content).length;
-    }
-  });
-  return characterCount;
+/**
+ * Internal dependencies
+ */
+import StoryPropTypes from '../types';
+import { LayerText } from '../shared/layerText';
+
+function VideoLayerContent({ element }) {
+  const { alt } = element?.resource || {};
+
+  return <LayerText>{alt || __('Video Content', 'web-stories')}</LayerText>;
 }
+VideoLayerContent.propTypes = {
+  element: StoryPropTypes.element.isRequired,
+};
+
+export default VideoLayerContent;

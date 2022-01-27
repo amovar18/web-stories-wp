@@ -21,13 +21,12 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { __ } from '@googleforcreators/i18n';
 import { generatePatternStyles } from '@googleforcreators/patterns';
-import { Icons } from '@googleforcreators/design-system';
+import { Icons, stripHTML } from '@googleforcreators/design-system';
 import { BACKGROUND_TEXT_MODE } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import { generatePresetStyle } from '../../../../../utils/presetUtils';
-import stripHTML from '../../../../../utils/stripHTML';
 import { useStory } from '../../../../../app/story';
 import { focusStyle } from '../../../shared';
 

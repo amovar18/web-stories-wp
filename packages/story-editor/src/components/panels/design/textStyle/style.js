@@ -27,6 +27,7 @@ import {
   ToggleButton,
   BUTTON_SIZES,
   BUTTON_VARIANTS,
+  stripHTML,
 } from '@googleforcreators/design-system';
 import {
   MULTIPLE_VALUE,
@@ -36,7 +37,6 @@ import {
  * Internal dependencies
  */
 import { useFont } from '../../../../app/font';
-import stripHTML from '../../../../utils/stripHTML';
 import clamp from '../../../../utils/clamp';
 import { Row, usePresubmitHandler } from '../../../form';
 import {

@@ -19,12 +19,12 @@
  */
 import { waitFor } from '@testing-library/react';
 import { dataFontEm, dataPixels } from '@googleforcreators/units';
+import { stripHTML } from '@googleforcreators/design-system';
 /**
  * Internal dependencies
  */
 import { Fixture } from '../../../../../karma/fixture';
 import { useStory } from '../../../../../app/story';
-import stripHTML from '../../../../../utils/stripHTML';
 import { PRESETS } from '../textPresets';
 
 const TIMEOUT_INTERVAL = 300000;

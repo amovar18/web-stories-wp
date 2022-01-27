@@ -20,7 +20,7 @@
 import { forwardRef, useCallback, useMemo } from '@googleforcreators/react';
 import PropTypes from 'prop-types';
 import { __ } from '@googleforcreators/i18n';
-import { Datalist } from '@googleforcreators/design-system';
+import { Datalist, stripHTML } from '@googleforcreators/design-system';
 import {
   MULTIPLE_VALUE,
   MULTIPLE_DISPLAY_VALUE,
@@ -28,7 +28,6 @@ import {
 /**
  * Internal dependencies
  */
-import stripHTML from '../../../../utils/stripHTML';
 import { useFont } from '../../../../app/font';
 import { getCommonValue } from '../../shared';
 import useRichTextFormatting from './useRichTextFormatting';

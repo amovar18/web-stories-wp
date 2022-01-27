@@ -13,17 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * External dependencies
  */
-import { stripHTML } from '@googleforcreators/design-system';
+import stickers from '@googleforcreators/stickers';
+/**
+ * Internal dependencies
+ */
+import StoryPropTypes from '../types';
 
-export function characterCountForPage(page) {
-  let characterCount = 0;
-  page.elements.forEach((element) => {
-    if (element.type === 'text') {
-      characterCount += stripHTML(element.content).length;
-    }
-  });
-  return characterCount;
+const style = {
+  display: 'block',
+  position: 'absolute',
+  top: 0,
+  height: '100%',
+  width: 'auto',
+};
+
+const Noop = () => null;
+
+function StickerDisplay({ element }) {
+  const { sticker } = element;
+  const Sticker = stickers[sticker?.type]?.svg || Noop;
+  return <Sticker style={style} />;
 }
+
+StickerDisplay.propTypes = {
+  element: StoryPropTypes.elements.sticker.isRequired,
+};
+
+export default StickerDisplay;

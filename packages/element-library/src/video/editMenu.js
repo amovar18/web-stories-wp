@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,14 +16,18 @@
 /**
  * External dependencies
  */
-import { stripHTML } from '@googleforcreators/design-system';
+import { useVideoTrim, VideoTrimmer } from '@googleforcreators/story-editor';
 
-export function characterCountForPage(page) {
-  let characterCount = 0;
-  page.elements.forEach((element) => {
-    if (element.type === 'text') {
-      characterCount += stripHTML(element.content).length;
-    }
-  });
-  return characterCount;
+function VideoEditMenu() {
+  const { isTrimMode } = useVideoTrim(({ state: { isTrimMode } }) => ({
+    isTrimMode,
+  }));
+
+  if (!isTrimMode) {
+    return false;
+  }
+
+  return <VideoTrimmer />;
 }
+
+export default VideoEditMenu;

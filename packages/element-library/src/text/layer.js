@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,13 +17,20 @@
  * External dependencies
  */
 import { stripHTML } from '@googleforcreators/design-system';
+/**
+ * Internal dependencies
+ */
+import StoryPropTypes from '../types';
+import { LayerText } from '../shared/layerText';
 
-export function characterCountForPage(page) {
-  let characterCount = 0;
-  page.elements.forEach((element) => {
-    if (element.type === 'text') {
-      characterCount += stripHTML(element.content).length;
-    }
-  });
-  return characterCount;
+function TextLayerContent({ element: { content } }) {
+  // Remove all tags
+  const rawContent = stripHTML(content);
+  return <LayerText>{rawContent}</LayerText>;
 }
+
+TextLayerContent.propTypes = {
+  element: StoryPropTypes.element.isRequired,
+};
+
+export default TextLayerContent;
