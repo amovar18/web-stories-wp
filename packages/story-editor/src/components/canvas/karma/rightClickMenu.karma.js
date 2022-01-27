@@ -17,15 +17,16 @@
  * External dependencies
  */
 import { waitFor, within } from '@testing-library/react';
-
+import { TEXT_ELEMENT_DEFAULT_FONT } from '@googleforcreators/fonts';
+import {
+  imageAttributeDefaults,
+  shapeAttributeDefaults,
+  textAttributeDefaults,
+} from '@googleforcreators/element-library';
 /**
  * Internal dependencies
  */
 import { useStory } from '../../../app';
-import { TEXT_ELEMENT_DEFAULT_FONT } from '../../../app/font/defaultFonts';
-import { clearableAttributes as imageAttributeDefaults } from '../../../elements/image';
-import { clearableAttributes as shapeAttributeDefaults } from '../../../elements/shape';
-import { clearableAttributes as textAttributeDefaults } from '../../../elements/text';
 import { Fixture } from '../../../karma';
 import objectPick from '../../../utils/objectPick';
 import useInsertElement from '../useInsertElement';
