@@ -26,7 +26,7 @@
     "@web-stories-wp/jest-parallel-sequencer": "*",
     "@web-stories-wp/jest-puppeteer-amp": "*",
     "@wordpress/jest-console": "^4.1.1",
-    "@wordpress/jest-puppeteer-axe": "^3.1.1",
+    "@wordpress/jest-puppeteer-axe": "^4.0.0",
     "babel-jest": "^27.4.6",
     "expect-puppeteer": "^6.0.2",
     "jest-extended": "^1.2.0",
