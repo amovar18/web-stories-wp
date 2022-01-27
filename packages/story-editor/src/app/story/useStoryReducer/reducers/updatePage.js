@@ -13,12 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/**
+ * External dependencies
+ */
+import { objectWithout } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
 import { PAGE_RESERVED_PROPERTIES } from '../types';
-import { objectWithout } from './utils';
 
 /**
  * Update page by id or current page if no id given.

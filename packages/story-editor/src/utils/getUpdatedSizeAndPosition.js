@@ -19,10 +19,7 @@
  */
 import { dataPixels } from '@googleforcreators/units';
 import { calcRotatedResizeOffset } from '@googleforcreators/moveable';
-/**
- * Internal dependencies
- */
-import { calculateTextHeight } from './textMeasurements';
+import { calculateTextHeight } from '@googleforcreators/elements';
 
 /**
  * Gets updated size and position of the element if relevant properties have changed.

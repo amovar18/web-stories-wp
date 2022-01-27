@@ -20,6 +20,7 @@ import {
   getDefinitionForType,
   ELEMENT_TYPES,
 } from '@googleforcreators/elements';
+import { registerElementTypes } from '@googleforcreators/element-library';
 /**
  * Internal dependencies
  */
@@ -71,17 +72,6 @@ const expectedTextStyles = objectPick(ALL_PROPERTIES, [
   'lineHeight',
 ]);
 
-const { clearableAttributes: clearableGifAttributes } =
-  getDefinitionForType('gif');
-const { clearableAttributes: clearableImageAttributes } =
-  getDefinitionForType('image');
-const { clearableAttributes: clearableShapeAttributes } =
-  getDefinitionForType('shape');
-const { clearableAttributes: clearableTextAttributes } =
-  getDefinitionForType('text');
-const { clearableAttributes: clearableVideoAttributes } =
-  getDefinitionForType('video');
-
 describe('getElementStyles', () => {
   it('should return `null` if the element does not have the correct structure', () => {
     // No element
@@ -112,6 +102,19 @@ describe('getElementStyles', () => {
 });
 
 describe('getDefaultPropertiesForType', () => {
+  beforeEach(() => {
+    registerElementTypes();
+  });
+  const { clearableAttributes: clearableGifAttributes } =
+    getDefinitionForType('gif');
+  const { clearableAttributes: clearableImageAttributes } =
+    getDefinitionForType('image');
+  const { clearableAttributes: clearableShapeAttributes } =
+    getDefinitionForType('shape');
+  const { clearableAttributes: clearableTextAttributes } =
+    getDefinitionForType('text');
+  const { clearableAttributes: clearableVideoAttributes } =
+    getDefinitionForType('video');
   it('should return `null` if the element does not have the correct structure', () => {
     // No element type
     expect(getDefaultPropertiesForType({})).toBeNull();

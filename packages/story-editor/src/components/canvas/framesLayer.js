@@ -22,19 +22,13 @@ import { memo, useRef, useCallback } from '@googleforcreators/react';
 import { __ } from '@googleforcreators/i18n';
 import { PAGE_WIDTH } from '@googleforcreators/units';
 import { STORY_ANIMATION_STATE } from '@googleforcreators/animation';
-
+import { useTransform } from '@googleforcreators/transform';
 /**
  * Internal dependencies
  */
 import { useKeyDownEffect } from '@googleforcreators/design-system';
 import { DESIGN_SPACE_MARGIN, STABLE_ARRAY } from '../../constants';
-import {
-  useStory,
-  useCanvas,
-  useLayout,
-  useTransform,
-  useRightClickMenu,
-} from '../../app';
+import { useStory, useCanvas, useLayout, useRightClickMenu } from '../../app';
 import useCanvasKeys from '../../app/canvas/useCanvasKeys';
 import { Layer, NavNextArea, NavPrevArea, PageArea } from './layout';
 import FrameElement from './frameElement';

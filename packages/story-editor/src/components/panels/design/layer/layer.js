@@ -32,11 +32,11 @@ import {
   getDefinitionForType,
   StoryPropTypes,
 } from '@googleforcreators/elements';
+import { LayerText } from '@googleforcreators/element-library';
 /**
  * Internal dependencies
  */
 import { useStory } from '../../../../app';
-import { LayerText } from '../../../../elements/shared/layerText';
 import usePerformanceTracking from '../../../../utils/usePerformanceTracking';
 import { TRACKING_EVENTS } from '../../../../constants/performanceTrackingEvents';
 import useLayerSelection from './useLayerSelection';

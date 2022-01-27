@@ -24,10 +24,10 @@ import {
   isPatternEqual,
 } from '@googleforcreators/patterns';
 import { getHTMLInfo } from '@googleforcreators/rich-text';
+import { generateFontFamily } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import { generateFontFamily } from '../elements/text/util';
 import {
   BACKGROUND_TEXT_MODE,
   MULTIPLE_VALUE,

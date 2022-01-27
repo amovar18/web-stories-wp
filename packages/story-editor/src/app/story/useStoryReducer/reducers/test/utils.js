@@ -13,7 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/**
+ * External dependencies
+ */
+import { objectWithout } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
@@ -22,7 +25,6 @@ import {
   isInsideRange,
   moveArrayElement,
   getAbsolutePosition,
-  objectWithout,
   exclusion,
 } from '../utils';
 import { LAYER_DIRECTIONS } from '../../../../../constants';

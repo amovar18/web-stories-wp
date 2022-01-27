@@ -18,14 +18,10 @@
  * External dependencies
  */
 import { shallowEqual } from '@googleforcreators/react';
+import { createPage } from '@googleforcreators/elements';
 
 /**
- * Internal dependencies
- */
-import { createPage } from '../elements';
-
-/**
- * @typedef {import('../../../types').Page} Page
+ * @typedef {import('@googleforcreators/elements').Page} Page
  */
 
 /**
