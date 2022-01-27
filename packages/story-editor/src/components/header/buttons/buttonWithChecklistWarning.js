@@ -125,7 +125,6 @@ function ButtonWithChecklistWarning({
     </Tooltip>
   );
 }
-
 ButtonWithChecklistWarning.propTypes = {
   text: PropTypes.node.isRequired,
   isUploading: PropTypes.bool,
