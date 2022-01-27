@@ -22,16 +22,16 @@ import { render } from '@testing-library/react';
 import { useFeature } from 'flagged';
 import { PAGE_WIDTH, PAGE_HEIGHT } from '@googleforcreators/units';
 import { MaskTypes } from '@googleforcreators/masks';
-/**
- * Internal dependencies
- */
-import PageOutput from '../page';
 import {
   queryByAutoAdvanceAfter,
   getByAutoAdvanceAfter,
   queryById,
   getById,
-} from '../../testUtils';
+} from '@googleforcreators/testing-library';
+/**
+ * Internal dependencies
+ */
+import PageOutput from '../page';
 
 jest.mock('flagged');
 

@@ -18,17 +18,19 @@
  * External dependencies
  */
 import { renderHook, act } from '@testing-library/react-hooks';
-
+import { getStoryMarkup } from '@googleforcreators/output';
 /**
  * Internal dependencies
  */
 import APIContext from '../../../api/context';
 import ConfigContext from '../../../config/context';
 import useAutoSave from '../useAutoSave';
-import getStoryMarkup from '../../../../output/utils/getStoryMarkup';
 
-jest.mock('../../../../output/utils/getStoryMarkup', () => jest.fn());
-
+jest.mock('@googleforcreators/output', () => ({
+  ...jest.requireActual('@googleforcreators/output'),
+  getStoryMarkup: jest.fn(),
+}));
+const getStoryMarkupMock = getStoryMarkup;
 function setup(args) {
   const configValue = {
     metadata: 'meta',
@@ -53,7 +55,7 @@ function setup(args) {
 
 describe('useAutoSave', () => {
   it('should properly call autoSaveById when using autoSave', () => {
-    getStoryMarkup.mockImplementation(() => {
+    getStoryMarkupMock.mockImplementation(() => {
       return 'Hello World!';
     });
     const story = {

@@ -19,15 +19,11 @@
  */
 import { render, queries } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
-
+import * as allQueries from '@googleforcreators/testing-library';
 /**
  * Internal dependencies
  */
 import theme from '../theme';
-
-import * as ariaLabelQueries from './queryByAriaLabel';
-import * as autoAdvanceAfterQueries from './queryByAutoAdvanceAfter';
-import * as idQueries from './queryById';
 
 // eslint-disable-next-line react/prop-types
 const WithThemeProvider = ({ children }) => {
@@ -39,9 +35,7 @@ const renderWithTheme = (ui, options) =>
     wrapper: WithThemeProvider,
     queries: {
       ...queries,
-      ...ariaLabelQueries,
-      ...autoAdvanceAfterQueries,
-      ...idQueries,
+      ...allQueries,
     },
     ...options,
   });

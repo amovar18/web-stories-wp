@@ -27,7 +27,7 @@ import { StoryPropTypes } from '@googleforcreators/elements';
  * Internal dependencies
  */
 import Tooltip from '../tooltip';
-import { getLinkFromElement } from '.';
+import { getLinkFromElement } from './utils';
 
 const StyledTooltip = styled(Tooltip)`
   box-shadow: 0px 6px 10px

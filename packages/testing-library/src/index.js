@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export { default as WithLinkFrame } from './frame';
-export { default as WithLinkOutput } from './output';
-export * from './utils';
+export * from './queryByAriaLabel';
+export * from './queryByAutoAdvanceAfter';
+export * from './queryById';

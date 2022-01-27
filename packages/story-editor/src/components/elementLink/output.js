@@ -24,7 +24,7 @@ import { withProtocol } from '@googleforcreators/design-system';
  * Internal dependencies
  */
 import StoryPropTypes from '../../types';
-import { getLinkFromElement } from '.';
+import { getLinkFromElement } from './utils';
 
 function WithLink({ element, children, ...rest }) {
   const link = getLinkFromElement(element) || {};

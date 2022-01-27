@@ -23,10 +23,10 @@ import { generatePatternStyles } from '@googleforcreators/patterns';
 import { PAGE_HEIGHT, PAGE_WIDTH } from '@googleforcreators/units';
 import { getTotalDuration, StoryAnimation } from '@googleforcreators/animation';
 import { StoryPropTypes, ELEMENT_TYPES } from '@googleforcreators/elements';
+import { isElementBelowLimit } from '@googleforcreators/story-editor';
 /**
  * Internal dependencies
  */
-import isElementBelowLimit from '../utils/isElementBelowLimit';
 import OutputElement from './element';
 import getLongestMediaElement from './utils/getLongestMediaElement';
 

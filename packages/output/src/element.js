@@ -30,10 +30,7 @@ import {
   shouldDisplayBorder,
 } from '@googleforcreators/elements';
 import { WithMaskOutput as WithMask } from '@googleforcreators/masks';
-/**
- * Internal dependencies
- */
-import WithLink from '../components/elementLink/output';
+import { WithLinkOutput as WithLink } from '@googleforcreators/story-editor';
 
 function OutputElement({ element }) {
   const {

@@ -14,10 +14,13 @@
  * limitations under the License.
  */
 /**
+ * External dependencies
+ */
+import { getStoryMarkup } from '@googleforcreators/output';
+/**
  * Internal dependencies
  */
 import objectPick from '../../../utils/objectPick';
-import getStoryMarkup from '../../../output/utils/getStoryMarkup';
 
 function getStoryPropsToSave({ story, pages, metadata }) {
   const { terms, ...propsFromStory } = objectPick(story, [

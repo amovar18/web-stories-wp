@@ -18,12 +18,11 @@
  * External dependencies
  */
 import { act, renderHook } from '@testing-library/react-hooks';
-
+import { queryById } from '@googleforcreators/testing-library';
 /**
  * Internal dependencies
  */
 import useLiveRegion from '../useLiveRegion';
-import { queryById } from '../../testUtils';
 
 describe('useLiveRegion', () => {
   it('should add message to live region', () => {

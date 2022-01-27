@@ -39,6 +39,7 @@
     "@googleforcreators/media": "*",
     "@googleforcreators/migration": "*",
     "@googleforcreators/moveable": "*",
+    "@googleforcreators/output": "*",
     "@googleforcreators/patterns": "*",
     "@googleforcreators/rich-text": "*",
     "@googleforcreators/react": "*",
@@ -74,6 +75,7 @@
   },
   "devDependencies": {
     "@googleforcreators/karma-fixture": "*",
+    "@googleforcreators/testing-library": "*",
     "@storybook/addon-actions": "^6.3.6",
     "@storybook/addon-knobs": "^6.3.0",
     "@testing-library/dom": "^8.10.1",
