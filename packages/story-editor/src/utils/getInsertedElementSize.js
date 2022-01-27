@@ -23,11 +23,10 @@ import {
   PAGE_WIDTH,
   DEFAULT_DPR,
 } from '@googleforcreators/units';
-
+import { getDefinitionForType } from '@googleforcreators/elements';
 /**
  * Internal dependencies
  */
-import { getDefinitionForType } from '../elements';
 
 const RESIZE_WIDTH_DIRECTION = [1, 0];
 
