@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d4675ab0fa8e2ae2290e8f829298d99",
+    "content-hash": "161b95771be00acd2529071ca43390f3",
     "packages": [
         {
             "name": "ampproject/amp-toolbox",
@@ -4002,21 +4002,22 @@
         },
         {
             "name": "sniccowp/php-scoper-wordpress-excludes",
-            "version": "5.9.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sniccowp/php-scoper-wordpress-excludes.git",
-                "reference": "36c2078e9ffaa5ea8c9752c3ec2b49587cf2a51c"
+                "url": "https://github.com/snicco/php-scoper-wordpress-excludes.git",
+                "reference": "9fe5eeb044f7837b32df274857a91a635052fa49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sniccowp/php-scoper-wordpress-excludes/zipball/36c2078e9ffaa5ea8c9752c3ec2b49587cf2a51c",
-                "reference": "36c2078e9ffaa5ea8c9752c3ec2b49587cf2a51c",
+                "url": "https://api.github.com/repos/snicco/php-scoper-wordpress-excludes/zipball/9fe5eeb044f7837b32df274857a91a635052fa49",
+                "reference": "9fe5eeb044f7837b32df274857a91a635052fa49",
                 "shasum": ""
             },
             "require-dev": {
                 "php": "^7.4",
-                "php-stubs/wordpress-stubs": "5.9.0",
+                "php-stubs/wordpress-globals": "0.2.0",
+                "php-stubs/wordpress-stubs": "6.0.0",
                 "sniccowp/php-scoper-excludes": "dev-master"
             },
             "type": "library",
@@ -4041,10 +4042,10 @@
                 "wordpress"
             ],
             "support": {
-                "issues": "https://github.com/sniccowp/php-scoper-wordpress-excludes/issues",
-                "source": "https://github.com/sniccowp/php-scoper-wordpress-excludes/tree/5.9.0"
+                "issues": "https://github.com/snicco/php-scoper-wordpress-excludes/issues",
+                "source": "https://github.com/snicco/php-scoper-wordpress-excludes/tree/6.0.0"
             },
-            "time": "2022-02-09T14:28:25+00:00"
+            "time": "2022-05-27T01:48:22+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -5182,5 +5183,5 @@
     "platform-overrides": {
         "php": "7.2.24"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
